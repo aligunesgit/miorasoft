@@ -21,4 +21,8 @@ pnpm-debug.log*
 
 pnpm-lock.yaml
 
-.astro
+.astronode_modules/
+.vercel/
+.env
+.env.*
+dist/

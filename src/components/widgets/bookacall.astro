@@ -1,0 +1,279 @@
+---
+// bookacall.astro
+const { id, title, subtitle, classes } = Astro.props;
+---
+
+<section class={`px-4 py-16 mx-auto max-w-7xl lg:px-8 lg:py-20 ${classes?.container || ''}`} id={id}>
+  <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
+    {title && (
+      <h2 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200">
+        {title}
+      </h2>
+    )}
+    {subtitle && (
+      <p class="max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400">
+        {subtitle}
+      </p>
+    )}
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+    <!-- Sol taraf - Booking bilgileri -->
+    <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-xl p-6 flex flex-col">
+      <div class="flex items-center mb-4">
+        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mr-3 flex-shrink-0">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white">MIORA Team Discovery Call</h3>
+          <div class="flex items-center text-gray-600 dark:text-gray-400 mt-1">
+            <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span class="text-sm">30 Mins</span>
+          </div>
+          <div class="flex items-center text-gray-600 dark:text-gray-400 mt-1">
+            <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2z"></path>
+            </svg>
+            <span class="text-sm" id="selected-date-display">Thu, Sep 25, 2025</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-blue-50 dark:bg-slate-800 rounded-xl p-4 mb-4 flex-grow">
+        <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
+          Awesome! It's great to see that you're taking the first step to a better website. This meeting will be held via Google Meets. 
+          Please allow about 30 minutes for a conversation about your growth goals. If you will not be able to meet us at the scheduled 
+          time, please let us know so we can arrange a reschedule. We're excited to meet you and learn about your business.
+        </p>
+        <p class="text-xs text-gray-600 dark:text-gray-400 mt-3 font-medium">-MIORA Team</p>
+      </div>
+
+      <div class="border-t dark:border-slate-700 pt-4">
+        <h4 class="font-semibold text-gray-900 dark:text-white mb-3 flex items-center text-sm">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v18m9-9H3"></path>
+          </svg>
+          Time zone
+        </h4>
+        <div class="w-full p-2.5 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-gray-900 dark:text-white text-sm">
+          GMT+03:00 Europe/Istanbul (GMT+3)
+        </div>
+      </div>
+    </div>
+
+    <!-- Sağ taraf - Takvim ve saat seçimi -->
+    <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-xl p-6 flex flex-col">
+      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-center">Select Date & Time</h3>
+      
+      <!-- Takvim Header -->
+      <div class="flex items-center justify-between mb-4">
+        <button id="prev-month" class="p-1.5 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg">
+          <svg class="w-4 h-4 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <h4 id="month-year" class="text-base font-semibold text-gray-900 dark:text-white">September 2025</h4>
+        <button id="next-month" class="p-1.5 hover:bg-gray-100 dark:hover:bg-slate-800 rounded-lg">
+          <svg class="w-4 h-4 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Takvim Grid -->
+      <div class="grid grid-cols-7 gap-1 mb-4">
+        <!-- Gün başlıkları -->
+        <div class="text-center text-xs font-medium text-gray-500 dark:text-gray-400 py-1">Sun</div>
+        <div class="text-center text-xs font-medium text-gray-500 dark:text-gray-400 py-1">Mon</div>
+        <div class="text-center text-xs font-medium text-gray-500 dark:text-gray-400 py-1">Tue</div>
+        <div class="text-center text-xs font-medium text-gray-500 dark:text-gray-400 py-1">Wed</div>
+        <div class="text-center text-xs font-medium text-gray-500 dark:text-gray-400 py-1">Thu</div>
+        <div class="text-center text-xs font-medium text-gray-500 dark:text-gray-400 py-1">Fri</div>
+        <div class="text-center text-xs font-medium text-gray-500 dark:text-gray-400 py-1">Sat</div>
+        
+        <!-- Boş günler -->
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+        
+        <!-- Takvim günleri -->
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>1</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>2</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>3</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>4</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>5</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>6</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>7</button>
+        
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>8</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>9</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>10</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>11</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>12</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>13</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>14</button>
+        
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>15</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>16</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>17</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>18</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>19</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>20</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>21</button>
+        
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>22</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>23</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>24</button>
+        
+        <!-- Aktif tarihler -->
+        <button class="date-btn w-7 h-7 rounded-lg text-xs font-medium bg-blue-600 text-white" data-date="25">25</button>
+        <button class="date-btn w-7 h-7 rounded-lg text-xs font-medium text-gray-900 dark:text-white hover:bg-blue-100 dark:hover:bg-blue-900 transition-all duration-200" data-date="26">26</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>27</button>
+        <button class="w-7 h-7 rounded-lg text-xs font-medium text-gray-400 dark:text-gray-600 cursor-not-allowed" disabled>28</button>
+        <button class="date-btn w-7 h-7 rounded-lg text-xs font-medium text-gray-900 dark:text-white hover:bg-blue-100 dark:hover:bg-blue-900 transition-all duration-200" data-date="29">29</button>
+        <button class="date-btn w-7 h-7 rounded-lg text-xs font-medium text-gray-900 dark:text-white hover:bg-blue-100 dark:hover:bg-blue-900 transition-all duration-200" data-date="30">30</button>
+      </div>
+
+      <!-- Saat seçimi -->
+      <div class="flex-grow overflow-y-auto max-h-40">
+        <div class="grid grid-cols-5 gap-1">
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="09:00">09:00</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="09:30">09:30</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="10:00">10:00</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="10:30">10:30</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="11:00">11:00</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="11:30">11:30</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="12:00">12:00</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="12:30">12:30</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="13:00">13:00</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="13:30">13:30</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="14:00">14:00</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="14:30">14:30</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="15:00">15:00</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="15:30">15:30</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="16:00">16:00</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="16:30">16:30</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="17:00">17:00</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="17:30">17:30</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="18:00">18:00</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="18:30">18:30</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="19:00">19:00</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="19:30">19:30</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="20:00">20:00</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="20:30">20:30</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="21:00">21:00</button>
+          <button class="time-btn py-1 px-0.5 text-center border border-blue-200 dark:border-blue-800 rounded text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 transition-all duration-200 text-xs font-medium" data-time="21:30">21:30</button>
+        </div>
+      </div>
+
+      <div class="mt-3 pt-3 border-t dark:border-slate-700">
+        <button id="book-meeting-btn" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2.5 px-4 rounded-xl text-sm font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+          Book Meeting
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let currentMonth = 8; // September (0-indexed)
+    let currentYear = 2025;
+    let selectedDate = '25';
+    let selectedTime = null;
+    
+    const dateButtons = document.querySelectorAll('.date-btn');
+    const timeButtons = document.querySelectorAll('.time-btn');
+    const bookButton = document.getElementById('book-meeting-btn');
+    const dateDisplay = document.getElementById('selected-date-display');
+    const monthYearDisplay = document.getElementById('month-year');
+    const prevMonthBtn = document.getElementById('prev-month');
+    const nextMonthBtn = document.getElementById('next-month');
+    
+    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const monthNamesShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    
+    // Ay değiştirme
+    prevMonthBtn.addEventListener('click', function() {
+      currentMonth--;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      }
+      updateMonthDisplay();
+    });
+    
+    nextMonthBtn.addEventListener('click', function() {
+      currentMonth++;
+      if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+      updateMonthDisplay();
+    });
+    
+    function updateMonthDisplay() {
+      monthYearDisplay.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+    }
+    
+    // Tarih seçimi
+    dateButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Tüm tarih butonlarından seçimi kaldır
+        dateButtons.forEach(btn => {
+          btn.classList.remove('bg-blue-600', 'text-white', 'ring-2', 'ring-blue-500');
+          btn.classList.add('text-gray-900', 'dark:text-white');
+        });
+        
+        // Seçili butonu işaretle
+        this.classList.remove('text-gray-900', 'dark:text-white');
+        this.classList.add('bg-blue-600', 'text-white', 'ring-2', 'ring-blue-500');
+        
+        selectedDate = this.getAttribute('data-date');
+        
+        // Tarihi güncelle
+        const date = new Date(currentYear, currentMonth, parseInt(selectedDate));
+        const dayName = dayNames[date.getDay()];
+        const monthName = monthNamesShort[currentMonth];
+        
+        dateDisplay.textContent = `${dayName}, ${monthName} ${selectedDate}, ${currentYear}`;
+      });
+    });
+    
+    // Saat seçimi
+    timeButtons.forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Tüm saat butonlarından seçimi kaldır
+        timeButtons.forEach(btn => {
+          btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
+          btn.classList.add('border-blue-200', 'dark:border-blue-800', 'text-blue-600', 'dark:text-blue-400');
+        });
+        
+        // Seçili butonu işaretle
+        this.classList.remove('border-blue-200', 'dark:border-blue-800', 'text-blue-600', 'dark:text-blue-400');
+        this.classList.add('bg-blue-600', 'text-white', 'border-blue-600');
+        
+        selectedTime = this.getAttribute('data-time');
+      });
+    });
+    
+    // Book Meeting butonu
+    if (bookButton) {
+      bookButton.addEventListener('click', function() {
+        if (!selectedDate || !selectedTime) {
+          alert('Lütfen tarih ve saat seçin!');
+          return;
+        }
+        
+        const monthName = monthNames[currentMonth];
+        
+        alert(`✅ Randevu Detayları\n\nTarih: ${selectedDate} ${monthName} ${currentYear}\nSaat: ${selectedTime} (GMT+3 Istanbul)\nSüre: 30 dakika\nPlatform: Google Meets\n\nRezervasyonunuzu onaylamak için lütfen bizimle iletişime geçin:\n📧 ali.gunes@miorasoft.com`);
+      });
+    }
+  });
+</script>

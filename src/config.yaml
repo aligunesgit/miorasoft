@@ -1,31 +1,35 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  name: MIOARA
+  site: 'https://miorasoft.com'
   base: '/'
   trailingSlash: false
 
   googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
-
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: Shopify Development Agency | Custom Solutions & Migration Services
+    template: '%s — MIORA SOFT'
+  description: "Expert Shopify development agency specializing in custom theme development, store optimization, and seamless platform migrations (WooCommerce, Magento, BigCommerce to Shopify). Launch your high-performance online store faster."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: MIORA SOFT - Shopify Development Agency
+    title: Professional Shopify Development & Migration Services
+    description: Transform your e-commerce vision into reality with custom Shopify solutions. Expert developers for theme customization, speed optimization, and hassle-free platform migrations.
     images:
       - url: '~/assets/images/default.png'
         width: 1200
         height: 628
+        alt: MIORA SOFT Shopify Development Agency
     type: website
   twitter:
     handle: '@arthelokyo'
     site: '@arthelokyo'
     cardType: summary_large_image
+    title: MIORA SOFT | Shopify Development Experts
+    description: Custom Shopify development, theme design, performance optimization & seamless migrations from WooCommerce, Magento, BigCommerce to Shopify.
 
 i18n:
   language: en
