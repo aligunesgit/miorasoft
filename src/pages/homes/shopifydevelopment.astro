@@ -1,0 +1,358 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+
+import { headerData } from '~/navigation';
+import FAQs from '~/components/widgets/FAQs.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+
+const metadata = {
+  title: 'Shopify Development Services | Expert Solutions for Your E-commerce Success',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      actions={[
+        {
+          variant: 'secondary',
+          text: 'Login',
+          href: '#',
+        },
+        {
+          variant: 'primary',
+          text: 'Sign Up',
+          href: '#',
+        },
+      ]}
+      isSticky
+    />
+  </Fragment>
+
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero2
+    tagline="Shopify Development Services"
+    actions={[
+      { variant: 'primary', target: '_blank', text: 'Start Your Project', href: '#contact' },
+      { text: 'Explore Services', href: '#features' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Shopify Development Services',
+    }}
+  >
+    <Fragment slot="title">
+      Transform Your E-commerce Vision into Reality with <span class="text-accent dark:text-white">Expert Shopify Development</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Partner with a <span class="font-semibold">certified Shopify agency</span> that combines technical excellence with business strategy.</span
+      >
+      From custom theme development to complex integrations, we build Shopify stores that don't just look good—they sell more, load faster, and scale seamlessly.
+    </Fragment>
+  </Hero2>
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    title="Comprehensive Shopify Development Solutions"
+    subtitle="Every feature we build is designed to drive results, enhance user experience, and future-proof your e-commerce business."
+    columns={2}
+    items={[
+      {
+        title: 'Custom Shopify Theme Development',
+        description:
+          'Bespoke themes built from scratch to match your brand identity perfectly. No generic templates—just pixel-perfect designs optimized for conversions, mobile responsiveness, and lightning-fast performance across all devices.',
+        icon: 'tabler:palette',
+      },
+      {
+        title: 'Advanced Shopify App Integration',
+        description: 'Seamlessly integrate third-party apps or build custom applications tailored to your unique business needs. From inventory management to CRM systems, we connect all your tools into one powerful ecosystem.',
+        icon: 'tabler:puzzle',
+      },
+      {
+        title: 'Shopify Plus Development',
+        description:
+          'Enterprise-grade solutions for high-volume merchants. Custom checkout experiences, advanced automation, multi-store management, and wholesale portals that scale with your growth ambitions.',
+        icon: 'tabler:trophy',
+      },
+      {
+        title: 'Headless Commerce Solutions',
+        description: 'Leverage modern architecture with headless Shopify implementations using Hydrogen, React, or Vue.js. Deliver blazing-fast experiences while maintaining full creative control over your frontend.',
+        icon: 'tabler:atom',
+      },
+      {
+        title: 'Performance Optimization',
+        description: 'Speed is revenue. We optimize your Shopify store to achieve perfect Core Web Vitals scores through code refinement, image optimization, lazy loading, and advanced caching strategies that reduce bounce rates.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'AI-Powered Features',
+        description: 'Stay ahead with intelligent solutions including AI product recommendations, chatbots, dynamic pricing, personalized shopping experiences, and automated content generation that increases engagement and sales.',
+        icon: 'tabler:brain',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    title="Shopify Development for Every Business Stage"
+    subtitle="Whether you're launching your first store or scaling to millions, we provide tailored Shopify solutions that match your exact needs and growth trajectory."
+    isReversed
+    items={[
+      {
+        title: 'Perfect for:',
+        description:
+          'New entrepreneurs and startups ready to launch their first e-commerce store with a professional foundation. Small businesses transitioning from physical retail to online sales. Dropshipping ventures requiring streamlined product management and fulfillment automation.',
+      },
+      {
+        title: 'What you get:',
+        description: 'A fully functional Shopify store designed for conversions from day one. Clean, modern design that builds trust and credibility instantly. Mobile-optimized layouts ensuring perfect display on all devices. Essential integrations for payments, shipping, and analytics. SEO-friendly structure to help you rank and get discovered organically.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1620558138198-cfb9b4f3c294?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1671&q=80',
+      alt: 'Startup Shopify Development',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Startups & New Merchants: <br /><span class="text-2xl">Launch fast, grow faster</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Perfect for:',
+        description: 'Established brands with growing product catalogs and customer bases. Businesses experiencing platform limitations or performance issues. Companies ready to invest in advanced features and custom functionality that differentiate them from competitors.',
+      },
+      {
+        title: 'What you get:',
+        description: 'Custom theme development reflecting your unique brand personality. Advanced product filtering, search functionality, and navigation systems. Personalized shopping experiences with dynamic content and recommendations. Integration with your existing CRM, ERP, or marketing automation tools. Ongoing optimization and feature enhancements as your business evolves.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1531973486364-5fa64260d75b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1658&q=80',
+      alt: 'Growing Business Shopify Solutions',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Growing Businesses: <br /><span class="text-2xl">Scale with confidence</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Perfect for:',
+        description: 'High-volume merchants processing thousands of orders monthly. Multi-brand operations requiring complex store architectures. International retailers needing multi-currency and multi-language capabilities. B2B operations with wholesale portals and custom pricing structures.',
+      },
+      {
+        title: 'What you get:',
+        description: 'Shopify Plus implementation with advanced automation workflows. Custom checkout experiences optimized for maximum conversion rates. Headless commerce architecture for ultimate flexibility and performance. Enterprise integrations with your existing tech stack and business systems. Dedicated support ensuring your store operates flawlessly 24/7/365.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Enterprise Shopify Plus Development',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Enterprise & Shopify Plus: <br /><span class="text-2xl">Dominate at scale</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    items={[
+      {
+        title: 'Our approach:',
+        description: 'We understand that migrating platforms can be daunting. Our proven migration methodology ensures zero downtime, preserved SEO rankings, and complete data integrity. We handle everything from product catalogs and customer data to order history and URL redirects.',
+      },
+      {
+        title: 'Migration benefits:',
+        description: 'Seamless transition with comprehensive planning and execution. Complete data preservation including products, customers, and order history. SEO-safe migration maintaining your search rankings and organic traffic. Improved site performance and loading speeds from day one. Ongoing support during and after migration to ensure smooth operations.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1514621166532-aa7eb1a3a2f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+      alt: 'Platform Migration to Shopify',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Platform Migration: <br /><span class="text-2xl">Switch to Shopify stress-free</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Pricing Widget ******************* -->
+
+  <Pricing
+    title="Flexible Shopify Development Packages"
+    prices={[
+      {
+        title: 'Starter Store',
+        subtitle: 'Perfect for new merchants and small businesses',
+        price: '2,500',
+        period: 'one-time',
+        callToAction: {
+          target: '_blank',
+          text: 'Get Started',
+          href: '#contact',
+        },
+      },
+      {
+        title: 'Professional',
+        subtitle: 'Custom theme and advanced features for growing brands',
+        price: '7,500',
+        period: 'one-time',
+        callToAction: {
+          target: '_blank',
+          text: 'Choose Professional',
+          href: '#contact',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'Most Popular',
+      },
+      {
+        title: 'Enterprise Plus',
+        subtitle: 'Shopify Plus with unlimited customization',
+        price: 'Custom',
+        period: 'Quote-based',
+        callToAction: {
+          target: '_blank',
+          text: 'Request Consultation',
+          href: '#contact',
+        },
+      },
+    ]}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    items={[
+      {
+        title: 'How long does it take to develop a custom Shopify store?',
+        description:
+          'Timeline varies based on project complexity. A basic store setup takes 2-3 weeks, custom theme development requires 4-6 weeks, and enterprise Shopify Plus implementations typically take 8-12 weeks. We provide detailed timelines during our initial consultation.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Do you provide ongoing maintenance and support after launch?',
+        description: 'Absolutely. We offer comprehensive monthly maintenance packages including updates, security monitoring, performance optimization, feature additions, and technical support. Your Shopify store is a growing asset, and we ensure it stays optimized and secure.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Can you migrate my existing store to Shopify without losing data or rankings?',
+        description:
+          'Yes. We specialize in seamless migrations from WooCommerce, Magento, BigCommerce, Shopware, and other platforms. Our process includes complete data migration, 301 redirects for SEO preservation, and thorough testing to ensure nothing is lost during transition.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'What makes your Shopify development different from using pre-made themes?',
+        description: 'While pre-made themes work for basic stores, custom development offers unlimited design possibilities, optimized performance, unique features tailored to your business model, and code quality that scales. We build stores that differentiate you from competitors using the same templates.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Do you offer Shopify Plus development for enterprise clients?',
+        description: 'Yes, we are experienced Shopify Plus partners. We handle complex enterprise requirements including custom checkout flows, wholesale portals, multi-store setups, advanced automation, and integration with enterprise systems like SAP, Oracle, or custom ERPs.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Can you integrate AI features into my Shopify store?',
+        description: 'Definitely. We implement AI-powered solutions including intelligent product recommendations, chatbots for customer service, dynamic pricing, personalized content, automated product descriptions, and predictive analytics to enhance user experience and increase conversions.',
+        icon: 'tabler:chevrons-right',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    id="contact"
+    title="Ready to Start Your Shopify Project?"
+    subtitle="Let's discuss your e-commerce goals and create a development roadmap tailored to your business needs."
+    callToAction={{
+      text: 'Schedule a Free Consultation',
+      href: '#book-call',
+    }}
+    items={[
+      {
+        title: 'Email us',
+        description: 'hello@miora.agency',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Book a call',
+        description: 'Schedule your free 30-minute discovery call',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: 'Follow our work',
+        description: '@miora.agency',
+        icon: 'tabler:brand-instagram',
+      },
+    ]}
+  />
+
+  <!-- BlogLatestPost Widget **************** -->
+
+  <BlogLatestPosts
+    id="blog"
+    title="Latest Insights on Shopify Development"
+    information={`Explore our expert articles covering Shopify best practices, development tutorials, performance optimization tips, and e-commerce growth strategies to help you succeed online.`}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts>
+</Layout>

@@ -8,7 +8,7 @@ export const headerData = {
       links: [
         {
           text: 'Shopify Development',
-          href: getPermalink('/homes/saas'),
+          href: getPermalink('/homes/shopifydevelopment'),
         },
         {
           text: 'Shopify Plus Development',
