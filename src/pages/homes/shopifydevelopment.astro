@@ -42,7 +42,7 @@ const metadata = {
   <Hero2
     tagline="Shopify Development Services"
     actions={[
-      { variant: 'primary', target: '_blank', text: 'Start Your Project', href: '#contact' },
+      { variant: 'primary', text: 'Start Your Project', href: 'javascript:void(0)', onclick: 'openCalendlyModal()' },
       { text: 'Explore Services', href: '#features' },
     ]}
     image={{
@@ -239,9 +239,9 @@ const metadata = {
         price: '2,500',
         period: 'one-time',
         callToAction: {
-          target: '_blank',
           text: 'Get Started',
-          href: '#contact',
+          href: 'javascript:void(0)',
+          onclick: 'openCalendlyModal()',
         },
       },
       {
@@ -250,9 +250,9 @@ const metadata = {
         price: '7,500',
         period: 'one-time',
         callToAction: {
-          target: '_blank',
           text: 'Choose Professional',
-          href: '#contact',
+          href: 'javascript:void(0)',
+          onclick: 'openCalendlyModal()',
         },
         hasRibbon: true,
         ribbonTitle: 'Most Popular',
@@ -263,9 +263,9 @@ const metadata = {
         price: 'Custom',
         period: 'Quote-based',
         callToAction: {
-          target: '_blank',
           text: 'Request Consultation',
-          href: '#contact',
+          href: 'javascript:void(0)',
+          onclick: 'openCalendlyModal()',
         },
       },
     ]}
@@ -323,12 +323,13 @@ const metadata = {
     subtitle="Let's discuss your e-commerce goals and create a development roadmap tailored to your business needs."
     callToAction={{
       text: 'Schedule a Free Consultation',
-      href: '#book-call',
+      href: 'javascript:void(0)',
+      onclick: 'openCalendlyModal()',
     }}
     items={[
       {
         title: 'Email us',
-        description: 'hello@miora.agency',
+        description: 'hello@miorasoft.com',
         icon: 'tabler:mail',
       },
       {
@@ -355,4 +356,143 @@ const metadata = {
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </BlogLatestPosts>
+
+  <!-- Calendly Modal -->
+  <div id="calendly-modal" class="calendly-modal" style="display: none;">
+    <div class="calendly-modal-overlay" onclick="closeCalendlyModal()"></div>
+    <div class="calendly-modal-content">
+      <button class="calendly-close-btn" onclick="closeCalendlyModal()">&times;</button>
+      <div id="calendly-embed"></div>
+    </div>
+  </div>
+
+  <!-- Calendly CSS -->
+  <style>
+    .calendly-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .calendly-modal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+    }
+
+    .calendly-modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      height: 90vh;
+      max-height: 700px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      z-index: 10000;
+    }
+
+    .calendly-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      background: rgba(0, 0, 0, 0.1);
+      border: none;
+      border-radius: 50%;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10001;
+      transition: all 0.2s;
+      color: #333;
+    }
+
+    .calendly-close-btn:hover {
+      background: rgba(0, 0, 0, 0.2);
+      transform: rotate(90deg);
+    }
+
+    #calendly-embed {
+      width: 100%;
+      height: 100%;
+    }
+
+    #calendly-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .calendly-modal-content {
+        width: 95%;
+        height: 95vh;
+      }
+    }
+  </style>
+
+  <!-- Calendly Widget Script -->
+  <script is:inline src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+  <!-- Calendly Modal Functions -->
+  <script is:inline>
+    function openCalendlyModal() {
+      const modal = document.getElementById('calendly-modal');
+      const embedDiv = document.getElementById('calendly-embed');
+      
+      const calendlyUrl = 'https://calendly.com/hello-miorasoft/30min';
+      
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      
+      // Calendly widget'ını embed et
+      Calendly.initInlineWidget({
+        url: calendlyUrl,
+        parentElement: embedDiv,
+        prefill: {
+          email: 'hello@miorasoft.com',
+          name: '',
+          customAnswers: {
+            a1: 'Shopify Development Services'
+          }
+        },
+        utm: {
+          utmSource: 'website',
+          utmMedium: 'popup',
+          utmCampaign: 'shopify-development'
+        }
+      });
+    }
+
+    function closeCalendlyModal() {
+      const modal = document.getElementById('calendly-modal');
+      const embedDiv = document.getElementById('calendly-embed');
+      
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      
+      // Modal kapatıldığında içeriği temizle
+      embedDiv.innerHTML = '';
+    }
+
+    // ESC tuşu ile kapatma
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeCalendlyModal();
+      }
+    });
+  </script>
 </Layout>
