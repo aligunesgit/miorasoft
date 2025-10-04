@@ -33,7 +33,7 @@ export const headerData = {
         },
         {
           text: 'AI chatbot development',
-          href: getPermalink('/services'),
+          href: getPermalink('/homes/aichatbotdevelopment'),
         },
        
       ],
