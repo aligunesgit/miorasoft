@@ -1,8 +1,8 @@
 ---
 publishDate: 2024-10-04T00:00:00Z
 author: MIORA Team
-title: Complete Guide to Shopify Dropshipping: Setup, Suppliers, and Automation in 2024
-excerpt: Learn how to build a profitable dropshipping business on Shopify with step-by-step technical setup, supplier integrations, and automation strategies that scale.
+title: "Complete Guide to Shopify Dropshipping: Setup, Suppliers, and Automation in 2024"
+excerpt: "Learn how to build a profitable dropshipping business on Shopify with step-by-step technical setup, supplier integrations, and automation strategies that scale."
 image: https://images.unsplash.com/photo-1557821552-17105176677c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2089&q=80
 category: E-commerce Strategy
 tags:
