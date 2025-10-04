@@ -1,0 +1,404 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+const metadata = {
+  title: 'Shopify AI & ChatGPT Integration Services | Agentic Commerce Solutions',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="AI-Powered Commerce"
+    title="Transform Your Shopify Store with ChatGPT & AI Integration"
+    subtitle="Position your business at the forefront of the AI commerce revolution. We integrate OpenAI's Agentic Commerce Protocol (ACP), enabling your products to be discovered and purchased directly inside ChatGPT—where millions of users already express purchase intent."
+    actions={[
+      { variant: 'primary', text: 'Get AI Integration', href: 'javascript:void(0)', onclick: 'openCalendlyModal()' },
+      { text: 'Learn More', href: '#features' }
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'AI Commerce Integration',
+    }}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    id="features"
+    title="Comprehensive AI Commerce Integration Services"
+    subtitle="We help you capitalize on the biggest shift in e-commerce since mobile: AI-driven shopping through ChatGPT and intelligent agents."
+    columns={3}
+    items={[
+      {
+        title: 'Agentic Commerce Protocol (ACP) Integration',
+        description:
+          'Connect your Shopify catalog to OpenAI\'s ACP standard, making your products instantly discoverable and purchasable inside ChatGPT. Position your brand where over 10% of users already express purchase intent.',
+        icon: 'tabler:robot',
+      },
+      {
+        title: 'ChatGPT Instant Checkout Setup',
+        description:
+          'Enable one-click purchasing directly within ChatGPT conversations. We configure secure Stripe payment flows and ensure seamless order transmission to your Shopify backend—no redirects, no friction.',
+        icon: 'tabler:shopping-cart',
+      },
+      {
+        title: 'AI Product Discovery Optimization',
+        description: `Optimize your product data for AI algorithms. We structure descriptions, metadata, and attributes so ChatGPT surfaces your products when users express relevant purchase intent during conversations.`,
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Custom AI Shopping Assistants',
+        description:
+          'Build branded ChatGPT-powered shopping assistants for your store. Provide personalized product recommendations, answer questions, and guide customers through purchase decisions—all powered by AI.',
+        icon: 'tabler:message-chatbot',
+      },
+      {
+        title: 'Voice & Visual Commerce AI',
+        description:
+          'Integrate voice-based shopping through Whisper and visual product search using GPT-4 Vision. Enable customers to find and purchase products by describing them naturally or uploading images.',
+        icon: 'tabler:microphone',
+      },
+      {
+        title: 'AI Analytics & Intent Tracking',
+        description:
+          'Track AI-driven customer journeys and purchase patterns. Understand how users discover your products through conversational AI and optimize your catalog for maximum AI visibility and conversion.',
+        icon: 'tabler:chart-dots-3',
+      },
+      {
+        title: 'Multi-Platform AI Integration',
+        description:
+          'Beyond ChatGPT—integrate with Claude, Gemini, and emerging AI shopping platforms. Future-proof your commerce strategy across the expanding AI ecosystem.',
+        icon: 'tabler:hexagons',
+      },
+      {
+        title: 'AI-Driven Inventory & Pricing',
+        description: `Implement intelligent inventory management and dynamic pricing powered by AI. Predict demand, optimize stock levels, and adjust prices in real-time based on conversational shopping trends.`,
+        icon: 'tabler:database-cog',
+      },
+      {
+        title: 'Conversational Marketing Automation',
+        description:
+          'Deploy AI agents that proactively engage customers, send personalized recommendations, recover abandoned carts, and nurture leads—all through natural language interactions.',
+        icon: 'tabler:mail-ai',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'The AI Commerce Shift',
+        description:
+          'OpenAI\'s Instant Checkout has fundamentally changed e-commerce. Customers can now purchase from Shopify stores without leaving ChatGPT. This isn\'t just a feature—it\'s the beginning of agent-based shopping where AI assists, recommends, and completes transactions on behalf of users.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'New Customer Acquisition Channel',
+        description:
+          'ChatGPT represents a massive untapped market. With over 10% of users expressing purchase intent, it\'s evolving from an information tool into a digital marketplace. Early adopters gain significant competitive advantage.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: 'Beyond Google & Meta',
+        description:
+          'Traditional ad platforms face disruption. When customers discover and purchase inside ChatGPT, the need for Google Shopping ads and Meta social commerce diminishes. AI becomes both the discovery layer and conversion funnel.',
+        icon: 'tabler:graph',
+      },
+      {
+        title: 'Maintain Customer Relationships',
+        description:
+          'Unlike marketplaces that own the customer, ACP ensures you retain payment data and customer information through Stripe. Build lasting relationships while leveraging AI\'s discovery power.',
+        icon: 'tabler:heart-handshake',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'AI Commerce Revolution',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Why AI Integration Matters Now</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'First-Mover Advantage',
+        description:
+          'AI commerce is in its infancy. Brands integrating now establish authority and visibility before the market becomes saturated. Early presence in ChatGPT shopping builds lasting brand recognition.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Reduced Marketing Costs',
+        description:
+          'As AI agents handle discovery and recommendation, dependency on paid advertising decreases. Organic visibility within AI conversations becomes the new SEO—and it\'s available now at ground-floor pricing.',
+        icon: 'tabler:coin-off',
+      },
+      {
+        title: 'Future-Proof Infrastructure',
+        description:
+          'ACP is an open standard designed for the next decade of commerce. Integrating now means your store is ready as AI shopping expands to Google Gemini, Claude, and future platforms.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Enhanced Customer Experience',
+        description:
+          'Shoppers get instant answers, personalized recommendations, and one-click purchasing—all in natural conversation. This frictionless experience dramatically increases conversion rates and customer satisfaction.',
+        icon: 'tabler:star',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Business Benefits',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Strategic Benefits</h3>
+    </Fragment>
+  </Content>
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    items={[
+      {
+        title: 'What is the Agentic Commerce Protocol (ACP)?',
+        description:
+          'ACP is OpenAI\'s open-source standard that allows merchants to make their products discoverable and purchasable inside ChatGPT. It handles product integration, search discovery, secure order transmission, and payment processing—creating a complete shopping experience within AI conversations.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'How does ChatGPT Instant Checkout work for my Shopify store?',
+        description: 'When integrated, your products appear in ChatGPT search results. Customers can purchase with one click—payment is processed through Stripe, order data is sent to your Shopify backend, and you fulfill normally. The customer never leaves ChatGPT, but you retain full control over inventory, shipping, and customer data.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Will I lose control over customer relationships?',
+        description:
+          'No. Unlike marketplaces that own customer data, ACP ensures Stripe passes payment information directly to you. You maintain customer relationships, can build email lists, and control the post-purchase experience completely.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Does this only work with Stripe, or can I use other payment processors?',
+        description: 'Currently, Stripe provides the fastest integration path. However, ACP supports alternatives through Shared Payment Token API and Delegated Payments Spec. As the ecosystem matures, more payment options will become available.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'How will this affect my Google Ads and Meta advertising spend?',
+        description: 'As more customers discover and purchase through AI conversations, traditional search and social ads may become less critical. Smart brands are diversifying now—maintaining current channels while establishing AI presence. Over time, you may reallocate budget from paid ads to AI optimization and visibility.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Is my store eligible for ChatGPT integration?',
+        description: 'Currently, ChatGPT Instant Checkout is available for U.S. Shopify stores and select Etsy sellers. We can integrate ACP-ready infrastructure for international stores, positioning you for expansion as OpenAI rolls out globally. Requirements include Shopify compatibility and Stripe payment processing.',
+        icon: 'tabler:chevrons-right',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- Testimonials Widget *********** -->
+
+  <Testimonials
+    title="Early Adopters See Results"
+    testimonials={[
+      {
+        testimonial: `Integrating with ChatGPT changed everything. We're reaching customers who weren't even searching for us—they're having conversations, and our products naturally come up. Conversion rates are 40% higher than traditional channels.`,
+        name: 'David Chen',
+        job: 'E-commerce Director, Premium Home Goods',
+        image: {
+          src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+          alt: 'David Chen',
+        },
+      },
+      {
+        testimonial: `The AI integration wasn't just about new sales—it fundamentally improved customer experience. People get instant, accurate answers and can purchase immediately. Our customer service load dropped 30% while satisfaction scores increased.`,
+        name: 'Sarah Mitchell',
+        job: 'Founder, Sustainable Fashion Brand',
+        image: {
+          src: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+          alt: 'Sarah Mitchell',
+        },
+      },
+      {
+        testimonial: `We were skeptical about AI commerce, but the team made integration seamless. Within two months, ChatGPT became our third-largest traffic source. It's not replacing our other channels—it's adding a completely new customer acquisition stream.`,
+        name: 'Marcus Rodriguez',
+        job: 'CMO, Tech Accessories Brand',
+        image: {
+          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Marcus Rodriguez',
+        },
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Schedule AI Integration Consultation',
+        href: 'javascript:void(0)',
+        onclick: 'openCalendlyModal()',
+      },
+    ]}
+    title="Ready to Lead the AI Commerce Revolution?"
+    subtitle="The future of e-commerce is conversational. Position your brand at the forefront before the market saturates. Book a consultation to discuss your AI integration strategy."
+  />
+
+  <!-- Calendly Modal -->
+  <div id="calendly-modal" class="calendly-modal" style="display: none;">
+    <div class="calendly-modal-overlay" onclick="closeCalendlyModal()"></div>
+    <div class="calendly-modal-content">
+      <button class="calendly-close-btn" onclick="closeCalendlyModal()">&times;</button>
+      <div id="calendly-embed"></div>
+    </div>
+  </div>
+
+  <!-- Calendly CSS -->
+  <style>
+    .calendly-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .calendly-modal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+    }
+
+    .calendly-modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      height: 90vh;
+      max-height: 700px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      z-index: 10000;
+    }
+
+    .calendly-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      background: rgba(0, 0, 0, 0.1);
+      border: none;
+      border-radius: 50%;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10001;
+      transition: all 0.2s;
+      color: #333;
+    }
+
+    .calendly-close-btn:hover {
+      background: rgba(0, 0, 0, 0.2);
+      transform: rotate(90deg);
+    }
+
+    #calendly-embed {
+      width: 100%;
+      height: 100%;
+    }
+
+    #calendly-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .calendly-modal-content {
+        width: 95%;
+        height: 95vh;
+      }
+    }
+  </style>
+
+  <!-- Calendly Widget Script -->
+  <script is:inline src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+  <!-- Calendly Modal Functions -->
+  <script is:inline>
+    function openCalendlyModal() {
+      const modal = document.getElementById('calendly-modal');
+      const embedDiv = document.getElementById('calendly-embed');
+      
+      const calendlyUrl = 'https://calendly.com/hello-miorasoft/30min';
+      
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      
+      Calendly.initInlineWidget({
+        url: calendlyUrl,
+        parentElement: embedDiv,
+        prefill: {
+          email: 'hello@miorasoft.com',
+          name: '',
+          customAnswers: {
+            a1: 'AI & ChatGPT Integration Services'
+          }
+        },
+        utm: {
+          utmSource: 'website',
+          utmMedium: 'popup',
+          utmCampaign: 'shopify-ai-integration'
+        }
+      });
+    }
+
+    function closeCalendlyModal() {
+      const modal = document.getElementById('calendly-modal');
+      const embedDiv = document.getElementById('calendly-embed');
+      
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      
+      embedDiv.innerHTML = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeCalendlyModal();
+      }
+    });
+  </script>
+</Layout>

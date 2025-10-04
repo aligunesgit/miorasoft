@@ -29,7 +29,7 @@ export const headerData = {
       links: [
         {
           text: 'ChatGPT integration',
-          href: getPermalink('/services'),
+          href: getPermalink('/homes/chatgptintegration'),
         },
         {
           text: 'AI chatbot development',
