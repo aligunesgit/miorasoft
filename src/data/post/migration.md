@@ -486,7 +486,7 @@ Simulate traffic spikes (especially pre-launch):
 - All redirects working correctly
 - No broken images or links
 - Proper structured data (schema.org markup)
-- Page load times <3 seconds
+- Page load times under 3 seconds
 - Mobile usability (Google's Mobile-Friendly Test)
 
 **5.5 User Acceptance Testing (UAT):**
