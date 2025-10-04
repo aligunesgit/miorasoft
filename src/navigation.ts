@@ -99,14 +99,13 @@ export const footerData = {
     {
       title: 'Services',
       links: [
-        { text: 'Shopify Development', href: '#' },
-        { text: 'Shopify Plus Development', href: '#' },
-        { text: 'Shopify Speed Optimization', href: '#' },
-        { text: 'Shopify Migration', href: '#' },
-        { text: 'Shopify Theme Development', href: '#' },
-        { text: 'Shopify Consulting', href: '#' },
-        { text: 'AI Chatbot Development', href: '#' },
-        { text: 'Shopify & ChatGPT Integraion', href: '#' },
+        { text: 'Shopify Development', href:getPermalink('/homes/shopifydevelopment') },
+        { text: 'Shopify Speed Optimization', href:getPermalink('/homes/speedoptimization') },
+        { text: 'Shopify Migration', href:getPermalink('/homes/shopifymigration') },
+        { text: 'Our Development', href:getPermalink('/homes/ourthemes')},
+        { text: 'Shopify Consulting', href:getPermalink('/homes/shopifyconsulting') },
+        { text: 'AI Chatbot Development', href:getPermalink('/homes/aichatbotdevelopment') },
+        { text: 'Shopify & ChatGPT Integraion', href:getPermalink('/homes/chatgptintegration') },
       ],
     },
     {
@@ -121,8 +120,8 @@ export const footerData = {
     {
       title: 'MIORA SOFT',
       links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
+        { text: 'About', href:getPermalink('/about') },
+        { text: 'Blog', href:getPermalink('/blog') },
         { text: 'Collabrations', href: '#' },
         { text: 'Contact', href: '#' },
       ],
