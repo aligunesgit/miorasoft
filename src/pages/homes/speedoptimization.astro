@@ -1,0 +1,455 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+
+import { headerData } from '~/navigation';
+import FAQs from '~/components/widgets/FAQs.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+
+const metadata = {
+  title: 'Shopify Speed Optimization Services | Boost Store Performance & Conversions',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      actions={[
+        {
+          variant: 'secondary',
+          text: 'Login',
+          href: '#',
+        },
+        {
+          variant: 'primary',
+          text: 'Sign Up',
+          href: '#',
+        },
+      ]}
+      isSticky
+    />
+  </Fragment>
+
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero2
+    tagline="Shopify Speed Optimization Services"
+    actions={[
+      { variant: 'primary', text: 'Speed Up My Store', href: 'javascript:void(0)', onclick: 'openCalendlyModal()' },
+      { text: 'See How We Do It', href: '#features' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80',
+      alt: 'Shopify Speed Optimization',
+    }}
+  >
+    <Fragment slot="title">
+      Turn Slow Loading Times into <span class="text-accent dark:text-white">Lightning-Fast Sales</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Every second counts. <span class="font-semibold">A 1-second delay reduces conversions by 7%.</span></span
+      >
+      We optimize your Shopify store to load in under 2 seconds, improving Core Web Vitals, boosting SEO rankings, and turning impatient visitors into loyal customers.
+    </Fragment>
+  </Hero2>
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    title="Comprehensive Speed Optimization Strategies"
+    subtitle="We don't just make your store faster—we engineer a high-performance infrastructure that drives revenue and delivers exceptional user experiences."
+    columns={2}
+    items={[
+      {
+        title: 'Core Web Vitals Optimization',
+        description:
+          'Achieve perfect Google Page Speed scores by optimizing Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS). Meet and exceed Core Web Vitals thresholds to boost search rankings and user satisfaction.',
+        icon: 'tabler:gauge',
+      },
+      {
+        title: 'Advanced Code Optimization',
+        description: 'Clean, refactor, and minify your theme code to eliminate bloat. Remove unused CSS/JS, optimize Liquid templates, reduce DOM size, and implement critical CSS for instant above-the-fold rendering that captivates visitors immediately.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Image & Asset Optimization',
+        description:
+          'Convert images to next-gen formats (WebP, AVIF), implement responsive image sizing, enable lazy loading, and compress assets without quality loss. Reduce image payload by up to 80% while maintaining visual excellence.',
+        icon: 'tabler:photo',
+      },
+      {
+        title: 'Third-Party Script Management',
+        description: 'Audit and optimize all third-party scripts including analytics, marketing pixels, and apps. Implement async/defer loading, remove unnecessary scripts, and ensure tracking tools don\'t sabotage your site speed.',
+        icon: 'tabler:layers-linked',
+      },
+      {
+        title: 'Advanced Caching Strategies',
+        description: 'Implement browser caching, leverage CDN optimization, configure service workers for offline capability, and utilize edge caching for global performance. Deliver content at blazing speeds regardless of visitor location.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Mobile Performance Enhancement',
+        description: 'Prioritize mobile-first optimization with touch-optimized interactions, reduced mobile payloads, and accelerated mobile pages (AMP) where beneficial. Ensure flawless performance on all devices and connection speeds.',
+        icon: 'tabler:device-mobile',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    title="Why Speed Matters for Your Shopify Store"
+    subtitle="Site speed isn't just a technical metric—it's directly tied to your revenue, customer satisfaction, and competitive advantage."
+    isReversed
+    items={[
+      {
+        title: 'The Speed-Revenue Connection:',
+        description:
+          'Studies show that 53% of mobile users abandon sites taking over 3 seconds to load. Amazon found that every 100ms delay costs them 1% in sales. For a store generating $100K monthly, a 1-second improvement could mean $7,000+ in additional revenue. Speed is not optional—it\'s your silent sales team working 24/7.',
+      },
+      {
+        title: 'SEO & Search Rankings:',
+        description: 'Google\'s Core Web Vitals are official ranking factors. Faster sites rank higher, get more organic traffic, and reduce paid advertising costs. Our optimization improves your search visibility while enhancing user experience—a win-win for sustainable growth.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Speed Analytics Dashboard',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Speed = Money: <br /><span class="text-2xl">The business case for optimization</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Common Speed Killers:',
+        description: 'Unoptimized images loading at full resolution. Excessive third-party apps and tracking scripts. Poorly coded themes with bloated CSS/JS files. Render-blocking resources delaying initial paint. Lack of browser caching and CDN utilization. Heavy font files and icon libraries loading synchronously.',
+      },
+      {
+        title: 'Our Solution:',
+        description: 'Systematic audit identifying every performance bottleneck. Strategic removal or optimization of speed-killing elements. Implementation of modern performance best practices. Continuous monitoring and fine-tuning post-optimization. Detailed before/after reports showing measurable improvements. Developer documentation for maintaining optimal performance.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Performance Optimization Process',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        What's Slowing You Down: <br /><span class="text-2xl">Identify and eliminate bottlenecks</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Our Proven Process:',
+        description: 'Step 1: Comprehensive Performance Audit - We analyze your current speed metrics, identify bottlenecks, and create a detailed optimization roadmap. Step 2: Strategic Implementation - Execute optimizations in priority order, from quick wins to complex improvements, ensuring zero downtime. Step 3: Testing & Validation - Rigorous testing across devices, browsers, and connection speeds to guarantee improvements. Step 4: Monitoring & Maintenance - Ongoing performance monitoring with monthly reports and proactive optimization recommendations.',
+      },
+      {
+        title: 'Expected Results:',
+        description: '40-60% reduction in page load times on average. Google PageSpeed scores improving from 30-50 to 85-95+. Significant improvement in Core Web Vitals metrics. 15-25% increase in conversion rates post-optimization. Better mobile performance with faster time-to-interactive. Enhanced SEO rankings and organic traffic growth. Reduced server response times and improved reliability.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80',
+      alt: 'Speed Optimization Results',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Our Optimization Process: <br /><span class="text-2xl">From audit to lightning-fast performance</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    items={[
+      {
+        title: 'Ongoing Performance:',
+        description: 'Speed optimization isn\'t a one-time fix—it\'s an ongoing commitment. As you add new products, apps, and features, performance can degrade. We provide monthly performance audits, proactive monitoring alerts, and continuous optimization to ensure your store stays fast as it grows.',
+      },
+      {
+        title: 'Maintenance Includes:',
+        description: 'Monthly PageSpeed and Core Web Vitals reports. New app/feature performance impact analysis. Image optimization for newly uploaded products. Code review for theme updates and modifications. Server response time monitoring and optimization. Quarterly comprehensive performance audits. Priority support for speed-related issues.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Performance Monitoring',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Stay Fast Forever: <br /><span class="text-2xl">Continuous performance monitoring</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    items={[
+      {
+        title: 'How much faster will my Shopify store be after optimization?',
+        description:
+          'Most stores see 40-60% improvement in load times. Stores currently loading in 6-8 seconds typically reach 2-3 seconds. Google PageSpeed scores improve from 30-50 range to 85-95+. Actual results depend on your current setup, but we guarantee measurable improvements or your money back.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Will speed optimization affect my store\'s design or functionality?',
+        description: 'Absolutely not. We optimize performance without compromising design, features, or user experience. All optimizations are tested thoroughly to ensure your store looks and functions exactly as intended—just significantly faster. Your customers will notice the speed, not any changes.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'How long does the optimization process take?',
+        description:
+          'Essential optimizations take 3-5 business days. Comprehensive Performance Pro packages require 7-10 business days. Enterprise-level optimizations with custom implementations take 2-3 weeks. We provide a detailed timeline during consultation and keep you updated throughout the process.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'What if I add new apps or make changes after optimization?',
+        description: 'New apps and changes can impact speed, which is why we offer ongoing monitoring packages. We\'ll audit any new additions, provide performance impact reports, and optimize accordingly. Our Performance Pro and Enterprise packages include monitoring to catch and fix speed issues proactively.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Do you guarantee specific PageSpeed scores?',
+        description: 'While we can\'t guarantee exact scores due to factors beyond our control (hosting, third-party services), we do guarantee significant improvement. Most stores achieve 85-95+ scores. If we can\'t improve your score by at least 25 points and load time by 40%, we offer a full refund.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Can you optimize Shopify Plus stores?',
+        description: 'Yes, we specialize in Shopify Plus optimization. Plus stores have additional optimization opportunities including custom checkout optimization, Script Editor performance tuning, and exclusive CDN configurations. Our Enterprise package is specifically designed for Plus merchants with high traffic volumes.',
+        icon: 'tabler:chevrons-right',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    id="contact"
+    title="Ready to Accelerate Your Store?"
+    subtitle="Get a free speed audit and discover exactly how much faster your store can be—and how much more revenue that could generate."
+    callToAction={{
+      text: 'Get Free Speed Audit',
+      href: 'javascript:void(0)',
+      onclick: 'openCalendlyModal()',
+    }}
+    items={[
+      {
+        title: 'Email us',
+        description: 'hello@miorasoft.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Book a call',
+        description: 'Schedule your free performance analysis',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: 'Follow our work',
+        description: '@miora.agency',
+        icon: 'tabler:brand-instagram',
+      },
+    ]}
+  />
+
+  <!-- BlogLatestPost Widget **************** -->
+
+  <BlogLatestPosts
+    id="blog"
+    title="Performance Optimization Insights"
+    information={`Learn advanced techniques for maintaining lightning-fast Shopify stores, understanding Core Web Vitals, and turning speed into your competitive advantage.`}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts>
+
+  <!-- Calendly Modal -->
+  <div id="calendly-modal" class="calendly-modal" style="display: none;">
+    <div class="calendly-modal-overlay" onclick="closeCalendlyModal()"></div>
+    <div class="calendly-modal-content">
+      <button class="calendly-close-btn" onclick="closeCalendlyModal()">&times;</button>
+      <div id="calendly-embed"></div>
+    </div>
+  </div>
+
+  <!-- Calendly CSS -->
+  <style>
+    .calendly-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .calendly-modal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+    }
+
+    .calendly-modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      height: 90vh;
+      max-height: 700px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      z-index: 10000;
+    }
+
+    .calendly-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      background: rgba(0, 0, 0, 0.1);
+      border: none;
+      border-radius: 50%;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10001;
+      transition: all 0.2s;
+      color: #333;
+    }
+
+    .calendly-close-btn:hover {
+      background: rgba(0, 0, 0, 0.2);
+      transform: rotate(90deg);
+    }
+
+    #calendly-embed {
+      width: 100%;
+      height: 100%;
+    }
+
+    #calendly-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .calendly-modal-content {
+        width: 95%;
+        height: 95vh;
+      }
+    }
+  </style>
+
+  <!-- Calendly Widget Script -->
+  <script is:inline src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+  <!-- Calendly Modal Functions -->
+  <script is:inline>
+    function openCalendlyModal() {
+      const modal = document.getElementById('calendly-modal');
+      const embedDiv = document.getElementById('calendly-embed');
+      
+      const calendlyUrl = 'https://calendly.com/hello-miorasoft/30min';
+      
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      
+      // Calendly widget'ını embed et
+      Calendly.initInlineWidget({
+        url: calendlyUrl,
+        parentElement: embedDiv,
+        prefill: {
+          email: 'hello@miorasoft.com',
+          name: '',
+          customAnswers: {
+            a1: 'Shopify Speed Optimization Services'
+          }
+        },
+        utm: {
+          utmSource: 'website',
+          utmMedium: 'popup',
+          utmCampaign: 'shopify-speed-optimization'
+        }
+      });
+    }
+
+    function closeCalendlyModal() {
+      const modal = document.getElementById('calendly-modal');
+      const embedDiv = document.getElementById('calendly-embed');
+      
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      
+      // Modal kapatıldığında içeriği temizle
+      embedDiv.innerHTML = '';
+    }
+
+    // ESC tuşu ile kapatma
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeCalendlyModal();
+      }
+    });
+  </script>
+</Layout>

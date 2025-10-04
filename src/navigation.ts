@@ -4,19 +4,15 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'Shopify Development',
+      text: 'Development',
       links: [
         {
-          text: 'Shopify Development',
+          text: 'Shopify & Shopify Plus Development',
           href: getPermalink('/homes/shopifydevelopment'),
         },
         {
-          text: 'Shopify Plus Development',
-          href: getPermalink('/homes/startup'),
-        },
-        {
           text: 'Shopify Speed Optimization',
-          href: getPermalink('/homes/mobile-app'),
+          href: getPermalink('/homes/speedoptimization'),
         },
         {
           text: 'Shopify Migration',
