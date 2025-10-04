@@ -1,0 +1,368 @@
+---
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+const metadata = {
+  title: 'Shopify AI Chatbot Development | Custom ChatGPT-Powered Shopping Assistants',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="AI Chatbot Development"
+    title="Build Intelligent Shopping Assistants for Your Shopify Store"
+    subtitle="Deploy custom AI chatbots powered by ChatGPT, Claude, or Gemini that understand your products, answer customer questions instantly, and guide shoppers to purchase—24/7 without human intervention."
+    actions={[
+      { variant: 'primary', text: 'Build My Chatbot', href: 'javascript:void(0)', onclick: 'openCalendlyModal()' },
+      { text: 'See Features', href: '#features' }
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'AI Chatbot Development',
+    }}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    id="features"
+    title="Advanced AI Chatbot Capabilities"
+    subtitle="From product discovery to checkout completion, our custom chatbots handle the entire customer journey with human-like intelligence."
+    columns={3}
+    items={[
+      {
+        title: 'Intelligent Product Recommendations',
+        description:
+          'AI analyzes customer queries, preferences, and browsing behavior to suggest the perfect products. No more generic recommendations—each suggestion is contextually relevant and personalized.',
+        icon: 'tabler:bulb',
+      },
+      {
+        title: 'Natural Language Understanding',
+        description:
+          'Customers ask questions naturally—"Show me waterproof jackets under $100"—and get accurate responses instantly. No keyword limitations or rigid menu navigation.',
+        icon: 'tabler:message-circle',
+      },
+      {
+        title: 'Real-Time Inventory Integration',
+        description: `Chatbots access live inventory data, pricing, and product availability. Customers get accurate information instantly without browsing multiple pages or checking stock manually.`,
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Multi-Language Support',
+        description:
+          'Serve global customers in their native language. AI chatbots automatically detect language and respond accordingly—no need for separate support teams per region.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Order Tracking & Support',
+        description:
+          'Handle post-purchase queries automatically. Check order status, process returns, answer shipping questions, and resolve common issues without human agents.',
+        icon: 'tabler:package',
+      },
+      {
+        title: 'Abandoned Cart Recovery',
+        description:
+          'Proactively engage customers who abandon carts. AI analyzes hesitation reasons, offers personalized incentives, and guides them back to complete purchases.',
+        icon: 'tabler:shopping-cart-x',
+      },
+      {
+        title: 'Visual Search & Image Recognition',
+        description:
+          'Customers upload product images, and AI identifies similar items in your catalog. Perfect for fashion, home decor, and visual-driven industries.',
+        icon: 'tabler:photo-search',
+      },
+      {
+        title: 'Voice Commerce Integration',
+        description: `Enable voice-based shopping through Whisper integration. Customers speak naturally to search products, get recommendations, and complete purchases hands-free.`,
+        icon: 'tabler:microphone',
+      },
+      {
+        title: 'Analytics & Optimization',
+        description:
+          'Track conversation patterns, identify common questions, and optimize chatbot responses. Continuous learning ensures performance improves over time.',
+        icon: 'tabler:chart-line',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'Reduce Support Costs by 70%',
+        description:
+          'AI chatbots handle 80-90% of routine customer inquiries instantly. Your human support team focuses only on complex issues requiring personal attention, dramatically reducing operational costs.',
+        icon: 'tabler:coin-off',
+      },
+      {
+        title: 'Increase Conversion Rates',
+        description:
+          'Instant answers eliminate friction in the buying journey. Customers get product information, sizing help, and purchase guidance immediately—converting browsers into buyers faster.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'Scale Without Hiring',
+        description:
+          'Handle thousands of simultaneous conversations without additional staff. Whether you have 10 or 10,000 customers visiting, the chatbot serves everyone instantly.',
+        icon: 'tabler:users-group',
+      },
+      {
+        title: '24/7 Global Availability',
+        description:
+          'Never miss a sale due to time zones or business hours. AI assistants work around the clock, serving customers in any timezone without breaks or downtime.',
+        icon: 'tabler:clock-24',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Business Benefits',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Business Impact</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'Custom Training on Your Products',
+        description:
+          'We train AI specifically on your catalog, brand voice, and business policies. The chatbot becomes an expert on your products, answering questions with accuracy and brand consistency.',
+        icon: 'tabler:school',
+      },
+      {
+        title: 'Seamless Shopify Integration',
+        description:
+          'Direct connection to your Shopify store. Access real-time product data, inventory levels, customer information, and order history—all within the chatbot interface.',
+        icon: 'tabler:plug-connected',
+      },
+      {
+        title: 'Brand Voice Customization',
+        description:
+          'Configure tone, personality, and communication style to match your brand. Whether formal, casual, playful, or professional—the chatbot reflects your identity.',
+        icon: 'tabler:palette',
+      },
+      {
+        title: 'Continuous Learning & Updates',
+        description:
+          'AI improves based on customer interactions. We regularly update training data, refine responses, and add new capabilities as your business evolves.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Customization Features',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Fully Customized Solution</h3>
+    </Fragment>
+  </Content>
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    items={[
+      {
+        title: 'Which AI models do you use for chatbot development?',
+        description:
+          'We build chatbots using GPT-4 (ChatGPT), Claude 3, Google Gemini, or custom combinations based on your needs. Each model has strengths—GPT-4 excels at conversational depth, Claude at nuanced understanding, and Gemini at multimodal interactions. We recommend the best fit during consultation.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'How long does chatbot development and deployment take?',
+        description: 'Basic chatbot implementation takes 2-3 weeks. This includes product catalog training, brand voice customization, Shopify integration, and testing. Advanced features like visual search or voice commerce add 1-2 weeks. We provide detailed timelines during planning.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Can the chatbot handle product-specific questions accurately?',
+        description:
+          'Yes. We train the AI specifically on your product catalog including descriptions, specifications, sizing, materials, and FAQs. The chatbot understands product nuances and provides accurate information. For complex technical questions, we can configure escalation to human agents.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'What happens when the chatbot can\'t answer a question?',
+        description: 'The chatbot gracefully escalates to human support when needed. It recognizes its limitations, captures the customer query, and either creates a support ticket or transfers to a live agent seamlessly. You maintain control over escalation rules and priorities.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'How do you ensure the chatbot matches our brand voice?',
+        description: 'We analyze your existing content, brand guidelines, and communication style during development. The AI is fine-tuned to match your tone—whether professional, friendly, technical, or casual. You review and approve responses before launch, and we refine continuously based on feedback.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Can the chatbot integrate with our existing tools (CRM, help desk, etc.)?',
+        description: 'Yes. We integrate with popular tools like Zendesk, Gorgias, HubSpot, Klaviyo, and custom systems via API. The chatbot can log conversations, update customer records, trigger workflows, and sync data across your tech stack for unified customer management.',
+        icon: 'tabler:chevrons-right',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Schedule Chatbot Consultation',
+        href: 'javascript:void(0)',
+        onclick: 'openCalendlyModal()',
+      },
+    ]}
+    title="Ready to Deploy Your AI Shopping Assistant?"
+    subtitle="Transform customer support and boost conversions with intelligent automation. Book a consultation to discuss your chatbot strategy and see a live demo."
+  />
+
+  <!-- Calendly Modal -->
+  <div id="calendly-modal" class="calendly-modal" style="display: none;">
+    <div class="calendly-modal-overlay" onclick="closeCalendlyModal()"></div>
+    <div class="calendly-modal-content">
+      <button class="calendly-close-btn" onclick="closeCalendlyModal()">&times;</button>
+      <div id="calendly-embed"></div>
+    </div>
+  </div>
+
+  <!-- Calendly CSS -->
+  <style>
+    .calendly-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .calendly-modal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+    }
+
+    .calendly-modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      height: 90vh;
+      max-height: 700px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      z-index: 10000;
+    }
+
+    .calendly-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      background: rgba(0, 0, 0, 0.1);
+      border: none;
+      border-radius: 50%;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10001;
+      transition: all 0.2s;
+      color: #333;
+    }
+
+    .calendly-close-btn:hover {
+      background: rgba(0, 0, 0, 0.2);
+      transform: rotate(90deg);
+    }
+
+    #calendly-embed {
+      width: 100%;
+      height: 100%;
+    }
+
+    #calendly-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .calendly-modal-content {
+        width: 95%;
+        height: 95vh;
+      }
+    }
+  </style>
+
+  <!-- Calendly Widget Script -->
+  <script is:inline src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+  <!-- Calendly Modal Functions -->
+  <script is:inline>
+    function openCalendlyModal() {
+      const modal = document.getElementById('calendly-modal');
+      const embedDiv = document.getElementById('calendly-embed');
+      
+      const calendlyUrl = 'https://calendly.com/hello-miorasoft/30min';
+      
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      
+      Calendly.initInlineWidget({
+        url: calendlyUrl,
+        parentElement: embedDiv,
+        prefill: {
+          email: 'hello@miorasoft.com',
+          name: '',
+          customAnswers: {
+            a1: 'AI Chatbot Development Services'
+          }
+        },
+        utm: {
+          utmSource: 'website',
+          utmMedium: 'popup',
+          utmCampaign: 'shopify-ai-chatbot'
+        }
+      });
+    }
+
+    function closeCalendlyModal() {
+      const modal = document.getElementById('calendly-modal');
+      const embedDiv = document.getElementById('calendly-embed');
+      
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      
+      embedDiv.innerHTML = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeCalendlyModal();
+      }
+    });
+  </script>
+</Layout>
