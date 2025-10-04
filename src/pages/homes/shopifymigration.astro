@@ -1,0 +1,454 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+
+import { headerData } from '~/navigation';
+import FAQs from '~/components/widgets/FAQs.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+
+const metadata = {
+  title: 'Shopify Migration Services | Seamless Platform Migration to Shopify',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      actions={[
+        {
+          variant: 'secondary',
+          text: 'Login',
+          href: '#',
+        },
+        {
+          variant: 'primary',
+          text: 'Sign Up',
+          href: '#',
+        },
+      ]}
+      isSticky
+    />
+  </Fragment>
+
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero2
+    tagline="Shopify Migration Services"
+    actions={[
+      { variant: 'primary', text: 'Start Migration', href: 'javascript:void(0)', onclick: 'openCalendlyModal()' },
+      { text: 'See How It Works', href: '#features' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Shopify Migration Services',
+    }}
+  >
+    <Fragment slot="title">
+      Migrate to Shopify <span class="text-accent dark:text-white">Without Losing Data, Rankings, or Sleep</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        <span class="font-semibold">Zero downtime. Zero data loss. Zero stress.</span></span
+      >
+      We carefully plan and execute your entire migration to Shopify, preserving all your products, customers, orders, and SEO rankings while accelerating your launch timeline.
+    </Fragment>
+  </Hero2>
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    title="Complete Migration Solutions for Every Platform"
+    subtitle="We specialize in seamless migrations from all major e-commerce platforms, ensuring your business continuity and growth."
+    columns={2}
+    items={[
+      {
+        title: 'WooCommerce to Shopify Migration',
+        description:
+          'Migrate from WordPress/WooCommerce to Shopify with complete product catalog transfer, customer data preservation, order history migration, and URL structure optimization. We handle plugin replacements, payment gateway setup, and ensure your WordPress blog content remains accessible.',
+        icon: 'tabler:brand-wordpress',
+      },
+      {
+        title: 'Magento to Shopify Migration',
+        description: 'Transition from Magento\'s complexity to Shopify\'s simplicity without sacrificing features. We migrate multi-store setups, complex product catalogs, customer segments, and enterprise integrations while significantly reducing your operational overhead and hosting costs.',
+        icon: 'tabler:database-export',
+      },
+      {
+        title: 'BigCommerce to Shopify Migration',
+        description:
+          'Switch from BigCommerce to unlock better app ecosystem, lower transaction fees, and superior mobile experience. Complete migration of products with variants, customer accounts, order history, and custom fields while maintaining your store\'s unique functionality.',
+        icon: 'tabler:shopping-cart',
+      },
+      {
+        title: 'Shopware to Shopify Migration',
+        description: 'Move from Shopware to Shopify for global scalability and reduced complexity. We transfer your entire product catalog, customer database, digital assets, and recreate your custom functionalities using Shopify\'s robust app ecosystem and modern APIs.',
+        icon: 'tabler:layout-grid',
+      },
+      {
+        title: 'WordPress to Shopify Migration',
+        description: 'Transform your WordPress site into a powerful Shopify store while preserving your blog content and SEO authority. We migrate e-commerce functionality, maintain content marketing assets, and create a seamless integration between your blog and store.',
+        icon: 'tabler:file-export',
+      },
+      {
+        title: 'Custom Platform Migrations',
+        description: 'Migrating from a custom-built platform or legacy system? We handle complex migrations including API integrations, database transformations, and custom feature recreation. No platform is too complicated for our migration expertise.',
+        icon: 'tabler:server',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    title="Why Migrate to Shopify?"
+    subtitle="Thousands of businesses make the switch to Shopify every month. Here's why the platform has become the gold standard for e-commerce."
+    isReversed
+    items={[
+      {
+        title: 'Cost & Performance Benefits:',
+        description:
+          'Eliminate expensive hosting infrastructure and reduce IT overhead by up to 70%. Shopify handles server maintenance, security updates, and scaling automatically. Get enterprise-level performance without enterprise costs. Most merchants see ROI within 3-6 months through reduced operational expenses and increased conversions.',
+      },
+      {
+        title: 'Superior Features & Ecosystem:',
+        description: 'Access 8,000+ apps and integrations vs. limited options on other platforms. Built-in mobile optimization, abandoned cart recovery, and multi-channel selling. Superior checkout experience with industry-leading conversion rates. Regular platform updates and new features at no additional cost. World-class POS integration for omnichannel retail.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80',
+      alt: 'Shopify Platform Benefits',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        The Shopify Advantage: <br /><span class="text-2xl">Why businesses choose to migrate</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Migration Challenges We Solve:',
+        description: 'Data loss during transfer causing revenue disruption. SEO ranking drops from improper URL redirects. Downtime affecting sales and customer trust. Incompatible features requiring custom development. Complex product structures getting corrupted. Customer account data becoming inaccessible. Payment gateway integration failures. Theme design not matching original brand.',
+      },
+      {
+        title: 'Our Solution:',
+        description: 'Automated data migration with manual verification for 100% accuracy. Comprehensive 301 redirect mapping preserving all SEO equity. Parallel site development ensuring zero downtime during launch. Feature parity analysis and replacement strategy. Advanced product mapping for complex catalogs. Secure customer account migration with password preservation options. Pre-configured payment gateways ready for day one. Pixel-perfect design recreation or modern redesign based on your needs.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Migration Process',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Migration Without Risk: <br /><span class="text-2xl">Avoiding common pitfalls</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Our 6-Phase Migration Process:',
+        description: 'Phase 1: Discovery & Planning - Comprehensive audit of your current platform, data mapping strategy, feature parity analysis, and detailed migration roadmap. Phase 2: Environment Setup - Shopify store configuration, theme development or selection, app installation, and payment/shipping setup. Phase 3: Data Migration - Automated transfer of products, customers, orders, and content with quality assurance checks. Phase 4: SEO Preservation - URL mapping, 301 redirects implementation, metadata migration, and search console updates. Phase 5: Testing & QA - Thorough testing of all functionality, checkout flows, integrations, and mobile responsiveness. Phase 6: Launch & Support - Coordinated go-live with DNS updates, post-launch monitoring, and 30-day support.',
+      },
+      {
+        title: 'Timeline & Deliverables:',
+        description: 'Small stores (under 500 products): 2-3 weeks. Medium stores (500-5000 products): 4-6 weeks. Large/enterprise stores: 8-12 weeks. Custom timeline based on complexity. Deliverables include: Fully migrated Shopify store, comprehensive redirect file, SEO audit report, training documentation, post-launch support, and data accuracy verification report.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Migration Timeline',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Structured Migration: <br /><span class="text-2xl">From planning to launch</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    items={[
+      {
+        title: 'What We Migrate:',
+        description: 'All product data including SKUs, variants, images, descriptions, and inventory levels. Complete customer database with account history and preferences. Order history with transaction details and fulfillment status. Digital assets including images, videos, and downloadable files. Blog posts and content pages with proper formatting. SEO metadata, page titles, and descriptions. Category structures and navigation hierarchies. Discount codes and gift card balances.',
+      },
+      {
+        title: 'Post-Migration Support:',
+        description: '30-day post-launch support included with all migrations. Performance monitoring and optimization. Bug fixes and functionality adjustments. Staff training on Shopify admin. Integration troubleshooting. SEO ranking monitoring and adjustment. Conversion rate optimization recommendations. Extended support packages available for ongoing assistance.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Migration Support',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Complete Care: <br /><span class="text-2xl">What's included & ongoing support</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    items={[
+      {
+        title: 'Will my SEO rankings be affected during migration?',
+        description:
+          'Not if done correctly. We implement comprehensive 301 redirects for every URL, preserve all metadata, update search console settings, and monitor rankings closely post-launch. Most stores maintain or improve their rankings within 2-4 weeks as Shopify\'s superior performance boosts SEO.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'How long will my store be offline during migration?',
+        description: 'Zero downtime. We build your Shopify store in parallel while your current store remains live. Only during the final DNS switch (15-30 minutes) might there be brief inaccessibility, which we schedule during your lowest traffic period. Most customers never notice the transition.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Will all my product data and customer information transfer correctly?',
+        description:
+          'Yes, with 100% accuracy guarantee. We use automated migration tools combined with manual verification. Every product, variant, customer record, and order is checked. We provide detailed migration reports showing exactly what was transferred and verify data integrity before launch.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'What happens to my current domain and email addresses?',
+        description: 'Your domain transfers seamlessly to Shopify. We handle all DNS configuration, SSL certificate setup, and email forwarding if needed. Your domain, subdomains, and professional email addresses continue working without interruption. We provide step-by-step guidance for the domain transfer process.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Can you recreate custom features from my old platform?',
+        description: 'Absolutely. We analyze all your custom functionality and either find equivalent Shopify apps or develop custom solutions. Most features can be replicated or improved using Shopify\'s ecosystem. We provide a feature parity report during planning so you know exactly what to expect.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Do you offer migration from platforms not listed here?',
+        description: 'Yes. We\'ve successfully migrated from virtually every e-commerce platform including Prestashop, OpenCart, Squarespace Commerce, Wix Stores, and custom-built solutions. If you can export your data, we can migrate it to Shopify. Contact us for a custom migration assessment.',
+        icon: 'tabler:chevrons-right',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    id="contact"
+    title="Ready to Make the Switch to Shopify?"
+    subtitle="Get a free migration assessment and discover exactly what it takes to move your store to Shopify—with zero risk and maximum results."
+    callToAction={{
+      text: 'Get Free Migration Assessment',
+      href: 'javascript:void(0)',
+      onclick: 'openCalendlyModal()',
+    }}
+    items={[
+      {
+        title: 'Email us',
+        description: 'hello@miorasoft.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Book a call',
+        description: 'Schedule your migration consultation',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: 'Follow our work',
+        description: '@miora.agency',
+        icon: 'tabler:brand-instagram',
+      },
+    ]}
+  />
+
+  <!-- BlogLatestPost Widget **************** -->
+
+  <BlogLatestPosts
+    id="blog"
+    title="Migration Guides & Resources"
+    information={`Expert guides on platform migration, data transfer best practices, SEO preservation strategies, and success stories from businesses that made the switch to Shopify.`}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts>
+
+  <!-- Calendly Modal -->
+  <div id="calendly-modal" class="calendly-modal" style="display: none;">
+    <div class="calendly-modal-overlay" onclick="closeCalendlyModal()"></div>
+    <div class="calendly-modal-content">
+      <button class="calendly-close-btn" onclick="closeCalendlyModal()">&times;</button>
+      <div id="calendly-embed"></div>
+    </div>
+  </div>
+
+  <!-- Calendly CSS -->
+  <style>
+    .calendly-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .calendly-modal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+    }
+
+    .calendly-modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      height: 90vh;
+      max-height: 700px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      z-index: 10000;
+    }
+
+    .calendly-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      background: rgba(0, 0, 0, 0.1);
+      border: none;
+      border-radius: 50%;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10001;
+      transition: all 0.2s;
+      color: #333;
+    }
+
+    .calendly-close-btn:hover {
+      background: rgba(0, 0, 0, 0.2);
+      transform: rotate(90deg);
+    }
+
+    #calendly-embed {
+      width: 100%;
+      height: 100%;
+    }
+
+    #calendly-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .calendly-modal-content {
+        width: 95%;
+        height: 95vh;
+      }
+    }
+  </style>
+
+  <!-- Calendly Widget Script -->
+  <script is:inline src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+  <!-- Calendly Modal Functions -->
+  <script is:inline>
+    function openCalendlyModal() {
+      const modal = document.getElementById('calendly-modal');
+      const embedDiv = document.getElementById('calendly-embed');
+      
+      const calendlyUrl = 'https://calendly.com/hello-miorasoft/30min';
+      
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      
+      // Calendly widget'ını embed et
+      Calendly.initInlineWidget({
+        url: calendlyUrl,
+        parentElement: embedDiv,
+        prefill: {
+          email: 'hello@miorasoft.com',
+          name: '',
+          customAnswers: {
+            a1: 'Shopify Migration Services'
+          }
+        },
+        utm: {
+          utmSource: 'website',
+          utmMedium: 'popup',
+          utmCampaign: 'shopify-migration'
+        }
+      });
+    }
+
+    function closeCalendlyModal() {
+      const modal = document.getElementById('calendly-modal');
+      const embedDiv = document.getElementById('calendly-embed');
+      
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      
+      // Modal kapatıldığında içeriği temizle
+      embedDiv.innerHTML = '';
+    }
+
+    // ESC tuşu ile kapatma
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeCalendlyModal();
+      }
+    });
+  </script>
+</Layout>

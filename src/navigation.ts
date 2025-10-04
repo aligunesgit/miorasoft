@@ -16,7 +16,7 @@ export const headerData = {
         },
         {
           text: 'Shopify Migration',
-          href: getPermalink('/homes/personal'),
+          href: getPermalink('/homes/shopifymigration'),
         },
         {
           text: 'Shopify Consulting',
