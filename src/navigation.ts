@@ -20,7 +20,7 @@ export const headerData = {
         },
         {
           text: 'Shopify Consulting',
-          href: getPermalink('/homes/personal'),
+          href: getPermalink('/homes/shopifyconsulting'),
         },
       ],
     },
