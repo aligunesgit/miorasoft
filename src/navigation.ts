@@ -47,7 +47,7 @@ export const headerData = {
         },
         {
           text: 'Jewelry & Accessories',
-          href: getPermalink('/services'),
+          href: getPermalink('/jewelry'),
         },
         {
           text: 'Print on Demand',
