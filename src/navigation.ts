@@ -39,7 +39,7 @@ export const headerData = {
       ],
     },
     {
-      text: 'Case Studies',
+      text: 'Clients',
       links: [
         {
           text: 'Pharmacy & Supplement',
