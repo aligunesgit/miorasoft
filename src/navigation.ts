@@ -51,7 +51,7 @@ export const headerData = {
         },
         {
           text: 'Print on Demand',
-          href: getPermalink('/services'),
+          href: getPermalink('/printondemand'),
         },
         {
           text: 'Textile & Apparel',

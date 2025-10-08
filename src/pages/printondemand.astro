@@ -1,0 +1,436 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Portfolio - Our Work | MIORA',
+  description: 'Explore our successful Shopify development projects, custom theme implementations, and e-commerce transformations.',
+};
+---
+
+<Layout metadata={metadata}>
+
+
+  <!-- Case Study: THESWAF -->
+  <Content
+    isReversed
+    title="THESWAF - Mystical Handcrafted Jewelry"
+    subtitle="Custom Shopify Theme Development from Figma Design"
+    items={[
+      {
+        title: 'Full Custom Theme Development',
+        description: 'Transformed detailed Figma designs into a pixel-perfect, high-performance Shopify theme with custom sections and advanced functionality.',
+      },
+      {
+        title: 'Shopify 2.0 Architecture',
+        description: 'Built using modern Shopify 2.0 features including customizable sections, app blocks, and theme editor compatibility for easy content management.',
+      },
+      {
+        title: 'Performance Optimized',
+        description: 'Implemented best practices for fast page loads, lazy loading, and optimized assets to ensure superior user experience across all devices.',
+      },
+      {
+        title: 'Mobile-First Design',
+        description: 'Fully responsive implementation ensuring flawless shopping experience on mobile, tablet, and desktop devices.',
+      },
+    ]}
+    image={{
+      src: 'https://theswaf.com/cdn/shop/files/saintmichaelsignetring.jpg?v=1741345155&width=1080',
+      alt: 'THESWAF - Mystical Handcrafted Jewelry Store',
+    }}
+  >
+    <Fragment slot="content">
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-3">Project Overview</h3>
+        <p class="text-muted mb-4">
+          Collaborated with THESWAF to bring their mystical handcrafted jewelry brand to life through a fully custom Shopify theme. Starting from comprehensive Figma designs, we developed a unique e-commerce experience that perfectly captures the brand's spiritual essence and ancient storytelling. The platform showcases their collection of religious motifs, mythical creatures, and sacred symbols with elegance and sophistication.
+        </p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 my-6">
+          <img 
+            src="https://theswaf.com/cdn/shop/collections/22344.951_4038ebd6-bd9a-4ee3-8e4a-925713a49336.jpg?v=1751125456&width=600" 
+            alt="THESWAF Jewelry Collection" 
+            class="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+          />
+          <img 
+            src="https://theswaf.com/cdn/shop/files/medosapc.jpg?v=1740214438" 
+            alt="THESWAF Product Detail" 
+            class="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+          />
+          <img 
+            src="https://theswaf.com/cdn/shop/files/homegreeknw.jpg?v=1732442308&width=600" 
+            alt="THESWAF Greek Mythology Collection" 
+            class="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+          />
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-3">Technical Highlights</h3>
+        <ul class="list-disc list-inside text-muted space-y-2">
+          <li>Custom Shopify 2.0 theme built from scratch</li>
+          <li>Advanced product filtering and search functionality</li>
+          <li>Dynamic collection pages with custom layouts</li>
+          <li>Integration with Shopify's native checkout</li>
+          <li>Custom JavaScript for enhanced interactivity</li>
+          <li>SEO-optimized structure and metadata</li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-gray-50 dark:bg-slate-800 p-4 rounded-lg">
+          <div class="text-3xl font-bold text-primary mb-1">45</div>
+          <div class="text-sm text-muted">Days to Launch</div>
+        </div>
+        <div class="bg-gray-50 dark:bg-slate-800 p-4 rounded-lg">
+          <div class="text-3xl font-bold text-primary mb-1">100%</div>
+          <div class="text-sm text-muted">Figma Accuracy</div>
+        </div>
+        <div class="bg-gray-50 dark:bg-slate-800 p-4 rounded-lg">
+          <div class="text-3xl font-bold text-primary mb-1">Custom</div>
+          <div class="text-sm text-muted">Theme Sections</div>
+        </div>
+      </div>
+
+      <div class="mb-6 p-6 bg-blue-50 dark:bg-slate-800 rounded-lg border-l-4 border-blue-500">
+        <div class="flex items-start">
+          <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"></path>
+          </svg>
+          <div>
+            <p class="font-semibold text-gray-900 dark:text-white mb-2">Client Testimonial</p>
+            <p class="text-gray-700 dark:text-gray-300 italic">
+              "MIORA team exceeded our expectations with the THESWAF project. They transformed our Figma designs into a stunning, fully functional Shopify store that perfectly captures the mystical essence of our handcrafted jewelry brand. Completed in just 45 days, their attention to detail and technical expertise brought our vision of ancient myths and sacred symbols to life. The seamless shopping experience has significantly improved our customer engagement and sales!"
+            </p>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">— Founder, THESWAF</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="https://theswaf.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          View Live Site →
+        </a>
+        <a
+          href="/contact"
+          class="btn btn-outline"
+        >
+          Start Your Project
+        </a>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Case Study: DIALLURE -->
+  <Content
+    title="DIALLURE - Luxury Custom Jewelry"
+    subtitle="Custom Shopify Theme Development with Advanced Customization Features"
+    items={[
+      {
+        title: 'Custom Carat Diamonds™ System',
+        description: 'Developed proprietary customization system allowing customers to adjust diamond carat and budget in real-time, revolutionizing the online jewelry shopping experience.',
+      },
+      {
+        title: 'Advanced Product Customization',
+        description: 'Built comprehensive customization interface for metal types (18K Vermeil, 14K/18K Gold) and gemstone selection with live preview and pricing updates.',
+      },
+      {
+        title: 'Made-to-Order Architecture',
+        description: 'Implemented sophisticated order management system for made-to-order jewelry with custom workflows and production tracking.',
+      },
+      {
+        title: 'Premium User Experience',
+        description: 'Crafted elegant, intuitive interface highlighting artisanal craftsmanship while maintaining modern e-commerce functionality.',
+      },
+    ]}
+    image={{
+      src: 'https://diallure.myshopify.com/cdn/shop/files/dial_all_products_2360x.jpg?v=1680739386',
+      alt: 'DIALLURE - Luxury Custom Jewelry Collection',
+    }}
+  >
+    <Fragment slot="content">
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-3">Project Overview</h3>
+        <p class="text-muted mb-4">
+          Partnered with DIALLURE to create a sophisticated e-commerce platform that brings their direct-to-consumer luxury jewelry vision to life. Founded by Cem Adiguzel, who has over two decades of experience in Istanbul's renowned goldsmithing tradition, DIALLURE needed a platform that could showcase their commitment to unique, handcrafted, timeless, and affordable jewelry while providing advanced customization capabilities.
+        </p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 my-6">
+          <img 
+            src="https://diallure.myshopify.com/cdn/shop/products/155241-792-Ver-White_large.jpg?v=1664805304" 
+            alt="DIALLURE Quatrefoil Pendant" 
+            class="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+          />
+          <img 
+            src="https://diallure.myshopify.com/cdn/shop/products/TJR-651-R-CreatedSapphireandPreciosaWhite_600x.jpg?v=1664892681" 
+            alt="DIALLURE Custom Ring" 
+            class="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+          />
+          <img 
+            src="https://diallure.myshopify.com/cdn/shop/files/dial_all_products_2360x.jpg?v=1680739386" 
+            alt="DIALLURE Jewelry Collection" 
+            class="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+          />
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-3">Technical Highlights</h3>
+        <ul class="list-disc list-inside text-muted space-y-2">
+          <li>Custom Shopify 2.0 theme with advanced product customization engine</li>
+          <li>Real-time price calculation based on metal and gemstone selections</li>
+          <li>Dynamic inventory management for made-to-order products</li>
+          <li>Custom Carat Diamonds™ proprietary adjustment system</li>
+          <li>Wishlist and gift options integration</li>
+          <li>Free upgrade service workflow automation</li>
+          <li>Engraving customization interface</li>
+          <li>Optimized for luxury jewelry presentation with high-resolution imagery</li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-gray-50 dark:bg-slate-800 p-4 rounded-lg">
+          <div class="text-3xl font-bold text-primary mb-1">45</div>
+          <div class="text-sm text-muted">Days to Launch</div>
+        </div>
+        <div class="bg-gray-50 dark:bg-slate-800 p-4 rounded-lg">
+          <div class="text-3xl font-bold text-primary mb-1">100%</div>
+          <div class="text-sm text-muted">Custom Features</div>
+        </div>
+        <div class="bg-gray-50 dark:bg-slate-800 p-4 rounded-lg">
+          <div class="text-3xl font-bold text-primary mb-1">Unique</div>
+          <div class="text-sm text-muted">Customization Engine</div>
+        </div>
+      </div>
+
+      <div class="mb-6 p-6 bg-blue-50 dark:bg-slate-800 rounded-lg border-l-4 border-blue-500">
+        <div class="flex items-start">
+          <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"></path>
+          </svg>
+          <div>
+            <p class="font-semibold text-gray-900 dark:text-white mb-2">Client Testimonial</p>
+            <p class="text-gray-700 dark:text-gray-300 italic">
+              "Working with MIORA was transformative for our business. They understood our vision of bringing Istanbul's millennium-old goldsmithing tradition to the modern digital marketplace. The Custom Carat Diamonds™ system they developed is revolutionary - our customers love being able to adjust their budget and see real-time options. Completed in just 45 days, the platform perfectly balances our artisanal heritage with cutting-edge e-commerce functionality. Customer engagement and average order values have exceeded our expectations!"
+            </p>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">— Founder, DIALLURE</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="https://diallure.myshopify.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          View Live Site →
+        </a>
+        <a
+          href="/contact"
+          class="btn btn-outline"
+        >
+          Start Your Project
+        </a>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Case Study: Custom Print House -->
+  <Content
+    isReversed
+    title="Custom Print House - Print on Demand Platform"
+    subtitle="Full-Stack Shopify Store with Advanced Print-on-Demand Integration"
+    items={[
+      {
+        title: 'Printify Integration',
+        description: 'Seamlessly integrated Printify API for automated print-on-demand fulfillment, connecting hundreds of products with multiple print providers for optimal quality and delivery times.',
+      },
+      {
+        title: 'Multi-Product Catalog Management',
+        description: 'Built comprehensive product management system supporting t-shirts, hoodies, mugs, phone cases, and home decor items with variant-based customization options.',
+      },
+      {
+        title: 'Automated Order Processing',
+        description: 'Implemented automated workflow from order placement to production, eliminating manual intervention and ensuring fast turnaround times for custom print orders.',
+      },
+      {
+        title: 'Custom Design Upload System',
+        description: 'Developed user-friendly interface allowing customers to upload designs, preview on products, and place orders with confidence in the final result.',
+      },
+    ]}
+    image={{
+      src: 'https://customprinthouse.us/cdn/shop/files/CPH_3_1024x1024.png?v=1735067717',
+      alt: 'Custom Print House - Print on Demand Platform',
+    }}
+  >
+    <Fragment slot="content">
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-3">Project Overview</h3>
+        <p class="text-muted mb-4">
+          Developed a complete print-on-demand e-commerce platform for Custom Print House, enabling them to offer personalized products without inventory management. The solution integrates advanced print provider APIs, automated fulfillment workflows, and a user-friendly design customization interface. The platform supports a wide range of products from apparel to home decor, all fulfilled through a network of trusted print partners across the United States.
+        </p>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 my-6">
+          <img 
+            src="https://customprinthouse.us/cdn/shop/files/CPH_3_1024x1024.png?v=1735067717" 
+            alt="Custom Print House Products" 
+            class="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+          />
+          <img 
+            src="https://customprinthouse.us/cdn/shop/files/CPH_1_1024x1024.png?v=1735067717" 
+            alt="Custom Print House Apparel" 
+            class="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+          />
+          <img 
+            src="https://customprinthouse.us/cdn/shop/files/CPH_2_1024x1024.png?v=1735067717" 
+            alt="Custom Print House Home Decor" 
+            class="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+          />
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-3">Technical Highlights</h3>
+        <ul class="list-disc list-inside text-muted space-y-2">
+          <li>Full Printify API integration for automated print fulfillment</li>
+          <li>Custom Shopify 2.0 theme optimized for print-on-demand business model</li>
+          <li>Multi-variant product system with size, color, and material options</li>
+          <li>Real-time shipping cost calculation based on product and location</li>
+          <li>Automated order routing to optimal print providers</li>
+          <li>Product mockup generator for customer preview</li>
+          <li>Bulk order management system for B2B customers</li>
+          <li>Responsive design optimized for mobile shopping experience</li>
+        </ul>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-gray-50 dark:bg-slate-800 p-4 rounded-lg">
+          <div class="text-3xl font-bold text-primary mb-1">38</div>
+          <div class="text-sm text-muted">Days to Launch</div>
+        </div>
+        <div class="bg-gray-50 dark:bg-slate-800 p-4 rounded-lg">
+          <div class="text-3xl font-bold text-primary mb-1">500+</div>
+          <div class="text-sm text-muted">Products Integrated</div>
+        </div>
+        <div class="bg-gray-50 dark:bg-slate-800 p-4 rounded-lg">
+          <div class="text-3xl font-bold text-primary mb-1">Automated</div>
+          <div class="text-sm text-muted">Fulfillment System</div>
+        </div>
+      </div>
+
+      <div class="mb-6 p-6 bg-blue-50 dark:bg-slate-800 rounded-lg border-l-4 border-blue-500">
+        <div class="flex items-start">
+          <svg class="w-6 h-6 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd"></path>
+          </svg>
+          <div>
+            <p class="font-semibold text-gray-900 dark:text-white mb-2">Client Testimonial</p>
+            <p class="text-gray-700 dark:text-gray-300 italic">
+              "MIORA transformed our print-on-demand business concept into reality. The Printify integration they developed works flawlessly - orders automatically route to the best print providers, and our customers receive high-quality products fast. In just 38 days, they built a complete platform that handles everything from design uploads to automated fulfillment. We can now focus on marketing and customer service while the system handles the complex logistics. The automated workflows have saved us countless hours and scaled our business beyond what we imagined!"
+            </p>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">— Owner, Custom Print House</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <a
+          href="https://customprinthouse.us"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          View Live Site →
+        </a>
+        <a
+          href="/contact"
+          class="btn btn-outline"
+        >
+          Start Your Project
+        </a>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Technologies Used -->
+  <Features3
+    title="Technologies & Expertise"
+    subtitle="Tools and technologies we leverage across our projects"
+    columns={3}
+    items={[
+      {
+        title: 'Shopify 2.0',
+        description: 'Latest Shopify architecture with customizable sections and enhanced theme editor capabilities.',
+        icon: 'tabler:shopping-cart',
+      },
+      {
+        title: 'Liquid Templating',
+        description: 'Advanced Liquid code for dynamic content rendering and custom functionality.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Custom JavaScript',
+        description: 'Vanilla JavaScript and modern ES6+ for enhanced interactivity and user experience.',
+        icon: 'tabler:brand-javascript',
+      },
+      {
+        title: 'API Integrations',
+        description: 'Third-party API integrations including Printify, payment gateways, and fulfillment services.',
+        icon: 'tabler:api',
+      },
+      {
+        title: 'Responsive CSS',
+        description: 'Mobile-first CSS with advanced animations and transitions for smooth user experience.',
+        icon: 'tabler:device-mobile',
+      },
+      {
+        title: 'Performance Optimization',
+        description: 'Image optimization, lazy loading, and code minification for fast page loads.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'SEO Best Practices',
+        description: 'Structured data, meta tags, and semantic HTML for optimal search engine visibility.',
+        icon: 'tabler:seo',
+      },
+      {
+        title: 'E-commerce Analytics',
+        description: 'Integration with analytics platforms for tracking conversions and customer behavior.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Custom App Development',
+        description: 'Shopify app development for extended functionality and business-specific requirements.',
+        icon: 'tabler:puzzle',
+      },
+    ]}
+  />
+
+  <!-- CTA Section -->
+  <CallToAction
+    title="Ready to Transform Your E-commerce Store?"
+    subtitle="Let's discuss how we can bring your vision to life with custom Shopify development."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Get Started',
+        href: '/contact',
+      },
+      {
+        variant: 'secondary',
+        text: 'View Services',
+        href: '/services',
+      },
+    ]}
+  />
+</Layout>
