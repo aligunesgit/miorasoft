@@ -1,99 +1,3 @@
-import About from './pages/about.astro';
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
-
-export const headerData = {
-  links: [
-    {
-      text: 'Development',
-      links: [
-        {
-          text: 'Shopify & Shopify Plus Development',
-          href: getPermalink('/homes/shopifydevelopment'),
-        },
-        {
-          text: 'Shopify Speed Optimization',
-          href: getPermalink('/homes/speedoptimization'),
-        },
-        {
-          text: 'Shopify Migration',
-          href: getPermalink('/homes/shopifymigration'),
-        },
-        {
-          text: 'Shopify Consulting',
-          href: getPermalink('/homes/shopifyconsulting'),
-        },
-      ],
-    },
-    {
-      text: 'AI Development',
-      links: [
-        {
-          text: 'ChatGPT integration',
-          href: getPermalink('/homes/chatgptintegration'),
-        },
-        {
-          text: 'AI chatbot development',
-          href: getPermalink('/homes/aichatbotdevelopment'),
-        },
-       
-      ],
-    },
-    {
-      text: 'Clients',
-      links: [
-        {
-          text: 'Pharmacy & Supplement',
-          href: getPermalink('/services'),
-        },
-        {
-          text: 'Jewelry & Accessories',
-          href: getPermalink('/jewelry'),
-        },
-        {
-          text: 'Print on Demand',
-          href: getPermalink('/services'),
-        },
-        {
-          text: 'Textile & Apparel',
-          href: getPermalink('/services'),
-        },
-        {
-          text: 'Home & Living',
-          href: getPermalink('/about'),
-        },
-        {
-          text: 'Checmical & Industrial',
-          href: getPermalink('/contact'),
-        },
-         {
-          text: 'Leather & Luxury',
-          href: getPermalink('/contact'),
-        },
-           {
-          text: 'Other Categories',
-          href: getPermalink('/contact'),
-        },
-       
-      ],
-    },
-     {
-      text: 'Our Shopify Themes',
-      href: getBlogPermalink(),
-    },
-    
-     {
-      text: 'Blog',
-          href: getBlogPermalink(),
-    },
-     {
-      text: 'About',
-       href: getPermalink('/about'),
-    },
-    
-  ],
-  actions: [{ text: 'GET A QUOTE', href:getPermalink('/getaquote'), target: '_blank' }],
-};
-
 export const footerData = {
   links: [
     {
@@ -137,6 +41,10 @@ export const footerData = {
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
   ],
   footNote: `
-    Made by MIORA @ 2025
+    <div class="text-sm">
+      <p class="mb-1">30 N Gould St, STE R, Sheridan, Wyoming, 82801, United States</p>
+      <p class="mb-2"><a href="mailto:hello@miorasoft.com" class="hover:underline">hello@miorasoft.com</a></p>
+      <p>Made by MIORA @ 2025</p>
+    </div>
   `,
 };
