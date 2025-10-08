@@ -4,6 +4,7 @@ import Hero from '~/components/widgets/Hero.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { getImage } from 'astro:assets';
 
 const metadata = {
   title: 'Portfolio - Our Work | MIORA',
@@ -39,8 +40,7 @@ const metadata = {
     image={{
       src: '/1.png',
       alt: 'Custom Print House - DTF Transfer & Embroidery Services',
-      width: 1024,
-      height: 1024,
+      inferSize: true,
     }}
   >
     <Fragment slot="content">
@@ -54,23 +54,20 @@ const metadata = {
           <img 
             src="/2.png" 
             alt="Custom Print House DTF Transfer Services" 
-            width="1024"
-            height="1024"
             class="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+            loading="lazy"
           />
           <img 
             src="/3.png" 
             alt="Custom Work Wear and Construction Safety Gear" 
-            width="1024"
-            height="1024"
             class="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+            loading="lazy"
           />
           <img 
             src="/4.png" 
             alt="High Visibility Safety Apparel with Custom Logos" 
-            width="1024"
-            height="1024"
             class="rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+            loading="lazy"
           />
         </div>
       </div>
