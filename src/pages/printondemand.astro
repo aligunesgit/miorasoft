@@ -4,7 +4,6 @@ import Hero from '~/components/widgets/Hero.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import { getImage } from 'astro:assets';
 
 const metadata = {
   title: 'Portfolio - Our Work | MIORA',
@@ -38,9 +37,8 @@ const metadata = {
       },
     ]}
     image={{
-      src: '/1.png',
+      src: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200&h=800&fit=crop',
       alt: 'Custom Print House - DTF Transfer & Embroidery Services',
-      inferSize: true,
     }}
   >
     <Fragment slot="content">
