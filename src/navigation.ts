@@ -55,7 +55,7 @@ export const headerData = {
         },
         {
           text: 'Textile & Apparel',
-          href: getPermalink('/services'),
+          href: getPermalink('/emolos'),
         },
         {
           text: 'Home & Living',
