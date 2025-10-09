@@ -1,0 +1,196 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Portfolio - Our Work | MIORA',
+  description: 'Explore our successful Shopify development projects, custom theme implementations, and e-commerce transformations across diverse industries.',
+};
+
+const projects = [
+  {
+    title: 'THESWAF',
+    description: 'Custom Shopify theme from Figma designs for mystical handcrafted jewelry brand.',
+    image: 'https://theswaf.com/cdn/shop/files/saintmichaelsignetring.jpg?v=1741345155&width=1080',
+    category: 'Jewelry',
+    categoryColor: 'bg-purple-600',
+    duration: '45 days',
+    feature: 'Custom Theme',
+    link: 'https://theswaf.com',
+    detailPage: '/casestudies#theswaf',
+  },
+  {
+    title: 'DIALLURE',
+    description: 'Custom Carat Diamonds™ system with advanced product customization for luxury jewelry.',
+    image: 'https://diallure.myshopify.com/cdn/shop/files/dial_all_products_2360x.jpg?v=1680739386',
+    category: 'Luxury Jewelry',
+    categoryColor: 'bg-amber-600',
+    duration: '45 days',
+    feature: 'Custom Features',
+    link: 'https://diallure.myshopify.com',
+    detailPage: '/casestudies#diallure',
+  },
+  {
+    title: 'Custom Print House',
+    description: 'Professional DTF transfer and embroidery services with 24-48 hour delivery system.',
+    image: 'https://raw.githubusercontent.com/aligunesgit/miorasoft/main/src/assets/images/1.png',
+    category: 'Printing Services',
+    categoryColor: 'bg-green-600',
+    duration: '42 days',
+    feature: 'B2B Platform',
+    link: 'https://customprinthouse.us',
+    detailPage: '/printondemand',
+  },
+  {
+    title: 'Emolos',
+    description: 'London-based menswear brand with 35+ years of textile manufacturing experience.',
+    image: 'https://raw.githubusercontent.com/aligunesgit/miorasoft/main/src/assets/images/emolos/emolos1.png',
+    category: 'Fashion',
+    categoryColor: 'bg-indigo-600',
+    duration: '30 days',
+    feature: 'Multi-Currency',
+    link: 'https://emolos.com',
+    detailPage: '/emolos',
+  },
+  {
+    title: 'Bilcee',
+    description: 'Multi-region sportswear platform serving EU and US markets since 1996.',
+    image: 'https://raw.githubusercontent.com/aligunesgit/miorasoft/main/src/assets/images/bilcee/bilcee1.png',
+    category: 'Sportswear',
+    categoryColor: 'bg-red-600',
+    duration: '30 days',
+    feature: 'Multi-Region',
+    link: 'https://eu.bilcee.com',
+    detailPage: '/emolos#bilcee',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-blue-600 to-purple-700 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">Our Portfolio</h1>
+        <p class="text-xl md:text-2xl text-blue-100 mb-4">
+          Transforming Visions into Digital Success Stories
+        </p>
+        <p class="text-lg text-blue-200 max-w-3xl mx-auto">
+          We specialize in building custom Shopify e-commerce platforms that drive results. From fashion brands to print services, our portfolio showcases diverse projects united by excellence in design, development, and user experience.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-4xl font-bold text-blue-600 mb-2">6+</div>
+          <div class="text-gray-600">Successful Projects</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-blue-600 mb-2">30-45</div>
+          <div class="text-gray-600">Days Average Launch</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-blue-600 mb-2">100%</div>
+          <div class="text-gray-600">Custom Development</div>
+        </div>
+        <div>
+          <div class="text-4xl font-bold text-blue-600 mb-2">5+</div>
+          <div class="text-gray-600">Industries Served</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro Text -->
+  <section class="py-16 bg-gray-50 dark:bg-slate-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Our Expertise</h2>
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+        At MIORA, we bring together years of experience in e-commerce development, custom Shopify solutions, and digital strategy. Each project in our portfolio represents a unique challenge solved with innovative thinking, technical excellence, and attention to detail.
+      </p>
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+        Our approach combines modern development practices with deep understanding of e-commerce business needs. From jewelry brands requiring sophisticated customization systems to sportswear companies needing multi-region platforms, we deliver solutions that scale and perform.
+      </p>
+      <div class="bg-blue-50 dark:bg-slate-800 border-l-4 border-blue-600 p-6 rounded-r-lg">
+        <p class="text-gray-800 dark:text-white font-semibold mb-2">What Sets Us Apart:</p>
+        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+          <li>✓ Full-stack custom Shopify development</li>
+          <li>✓ Rapid 30-45 day launch timelines</li>
+          <li>✓ Mobile-first responsive design</li>
+          <li>✓ Advanced integrations and automation</li>
+          <li>✓ SEO optimization and performance tuning</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Gallery -->
+  <section class="py-16 bg-white dark:bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">Featured Projects</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project) => (
+          <div class="group bg-white dark:bg-slate-900 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative overflow-hidden h-64">
+              <img 
+                src={project.image} 
+                alt={project.title}
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 text-white">
+                <span class={`${project.categoryColor} text-xs px-3 py-1 rounded-full`}>
+                  {project.category}
+                </span>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
+              <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-500 dark:text-gray-500">
+                  {project.duration} • {project.feature}
+                </span>
+                <a 
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-semibold"
+                >
+                  View Site →
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Closing Section -->
+  <section class="py-16 bg-gray-50 dark:bg-slate-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 text-center">Ready to Start Your Project?</h2>
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+        Every successful project begins with understanding your unique business needs. We take the time to learn about your brand, your customers, and your goals before writing a single line of code. This approach ensures that the final product isn't just technically sound, but strategically aligned with your business objectives.
+      </p>
+      <p class="text-lg text-gray-700 dark:text-gray-300 mb-8">
+        Whether you're launching a new brand, migrating from another platform, or scaling your existing business, we bring the expertise and dedication needed to make your project a success. Our proven track record across diverse industries demonstrates our ability to adapt and excel regardless of the challenge.
+      </p>
+      <div class="text-center">
+        <a 
+          href="/contact" 
+          class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+        >
+          Get Started Today →
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -39,42 +39,8 @@ export const headerData = {
       ],
     },
     {
-      text: 'Clients',
-      links: [
-        {
-          text: 'Pharmacy & Supplement',
-          href: getPermalink('/services'),
-        },
-        {
-          text: 'Jewelry & Accessories',
-          href: getPermalink('/jewelry'),
-        },
-        {
-          text: 'Print on Demand',
-          href: getPermalink('/printondemand'),
-        },
-        {
-          text: 'Textile & Apparel',
-          href: getPermalink('/textile'),
-        },
-        {
-          text: 'Home & Living',
-          href: getPermalink('/about'),
-        },
-        {
-          text: 'Checmical & Industrial',
-          href: getPermalink('/contact'),
-        },
-         {
-          text: 'Leather & Luxury',
-          href: getPermalink('/contact'),
-        },
-           {
-          text: 'Other Categories',
-          href: getPermalink('/contact'),
-        },
-       
-      ],
+      text: 'Portfolio',
+      href: getPermalink('/portfolio'),
     },
      {
       text: 'Our Shopify Themes',
