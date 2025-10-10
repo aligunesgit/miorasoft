@@ -1,0 +1,323 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import Brands from '~/components/widgets/Brands.astro';
+import BookingWidget from '~/components/widgets/bookacall.astro';
+
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const metadata = {
+  title: 'Tasarım, geliştirme ve pazarlamada AI destekli Shopify & Shopify Plus uzman hizmetleri. Startup\'lardan küresel perakendecilere kadar büyüme ve dünya çapında hakimiyet desteği',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+  <Hero
+    actions={[
+      { text: 'Nasıl Olduğunu Gör', href: '#features' },
+    ]}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
+  >
+    <Fragment slot="title">
+     Shopify Geliştirme Ajansı
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      AI destekli stratejilerden yararlanan şirketimiz, dünya çapında bireysel girişimcilerden kurumsal liderlere kadar yüzlerce Shopify ve Shopify Plus satıcısına son teknoloji tasarım ve geliştirme başarısı sunmaktadır
+    </Fragment>
+  </Hero>
+
+  <!-- Stats Widget ****************** -->
+  <Stats
+    stats={[
+      { title: 'Müşterileri Online Satışa Güçlendirme', amount: '15+ YIL' },
+      { title: 'Oluşturulan Mağaza', amount: '300+' },
+      { title: 'Gelir Etkisi', amount: 'MİLYON $' },
+      { title: 'E-ticaret Çözümleri', amount: 'HEPSİ BİR ARADA' }
+    ]}
+  />
+
+  <!-- Features Widget *************** -->
+  <Features
+    id="features"
+    tagline="Özellikler"
+    title="Geniş Shopify Geliştirme Hizmetleri Yelpazemiz"
+    subtitle="Shopify üzerinde tasarlamaya, geliştirmeye veya ölçeklendirmeye hazır mısınız? İhtiyacınız olan çözüm bizde."
+    items={[
+      {
+        title: 'Özel Shopify Geliştirme',
+        description:
+          'Mağazanızın ihtiyaç duyduğu her türlü işlevselliği Shopify geliştiricilerimiz oluşturabilir. Özel şablonlardan ürün oluşturuculara, KDV çözümlerinden çok para birimli ödemelere, özel besleme ve üst satışlara kadar her şeyi kodlayabiliriz. Yıllar içinde uzmanlığımız dünya çapında binlerce mağazaya güç verdi ve yüz milyonlarca satış üretti. Hesap makinelerinden ve dinamik üst satışlardan gerçek zamanlı API entegrasyonlarına ve envanter senkronizasyonuna kadar—ne hayal ederseniz, biz zaten onu inşa ettik.',
+        icon: 'tabler:brand-tailwind',
+      },
+      {
+        title: 'Özel Shopify Tema Geliştirme',
+        description:
+          'Daha fazlasını talep eden hırslı perakendeciler için özel Shopify kurulumları. Markanıza özel olarak tasarlanmış piksel-mükemmel temalar, özel şablonlar ve benzersiz uygulamalar. Hazır çözümler küçük satıcılar için işe yarayabilir, ancak büyük markalar sıfırdan inşa edilmiş e-ticaret deneyimlerine ihtiyaç duyar. İşletmenize ve müşterilerinize özel olarak tasarlanmış %100 benzersiz Shopify mağazaları ve uygulamalar oluşturma konusunda uzmanız.',
+        icon: 'tabler:components',
+      },
+      {
+        title: 'Shopify\'a Taşıma',
+        description:
+          'Gereksiz stresten kaçınmanıza ve Shopify mağazanızın lansmanını hızlandırmanıza yardımcı olmak için tüm taşıma sürecini dikkatlice planlıyoruz.<br />' +
+          '• WooCommerce\'den Shopify\'a Taşıma<br />' +
+          '• Magento\'dan Shopify\'a Taşıma<br />' +
+          '• BigCommerce\'den Shopify\'a Taşıma<br />' +
+          '• Shopware\'den Shopify\'a Taşıma<br />' +
+          '• WordPress\'ten Shopify\'a Taşıma',
+        icon: 'tabler:list-check',
+      },
+      {
+        title: 'AI Geliştirme ve Entegrasyon',
+        description:
+          'AI entegrasyon ve geliştirme hizmetlerimiz, işletmeniz için akıllı, geleceğe hazır çözümler sunar. Üretken AI ve OpenAI destekli iş akışlarından özel sohbet botlarına ve Whisper entegrasyonuna kadar, AI\'ın en fazla değer katabileceği yerleri ortaya çıkarırız. Süreçleri kolaylaştıran, müşteri deneyimlerini geliştiren ve büyümeyi açan gelişmiş sistemleri uzman rehberliği ve sizi önde tutacak net bir yol haritası ile tasarlıyor, test ediyor ve uyguluyoruz.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Shopify Hız ve Performans Optimizasyonu',
+        description:
+          'Shopify mağazanızı tema kodunu iyileştirerek, varlıkları sıkıştırarak, tembel yükleme uygulayarak ve üçüncü taraf betik şişkinliğini en aza indirerek optimize ediyoruz. Sürecimiz Temel Web Vitallerini iyileştirir, sayfa yükleme sürelerini azaltır ve daha pürüzsüz bir kullanıcı deneyimi için sunucu yanıtını geliştirir. Gelişmiş önbellekleme, görüntü optimizasyonu ve duyarlı ayarlamalarla, mağazanızın tüm cihazlarda verimli çalışmasını sağlıyoruz—bu da daha yüksek etkileşim, daha güçlü SEO performansı ve gelişmiş dönüşüm oranları ile sonuçlanır.',
+        icon: 'tabler:arrows-right-left',
+      },
+      {
+        title: 'Shopify Danışmanlık',
+        description:
+          'Shopify danışmanlık hizmetlerimiz, pazarlama, içerik ve sosyal medya disiplinlerini tek çatı altında birleştiren 360° hizmet modeline dayanmaktadır. Sizi hiçbir komisyon almadan sektörün en yetkin uzmanlarıyla doğrudan bağlıyor, projenizin strateji, tasarım, entegrasyon ve büyüme aşamalarında kusursuz profesyonellik sağlıyoruz. Amacımız markanızın dijital vitrinini güçlendirmek ve satış performansınızı sürdürülebilir şekilde artırmaktır; her adımda yanınızdayız.',
+        icon: 'tabler:bulb',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+  <Content
+    isReversed
+    tagline="Shopify Uzmanları"
+    title="Daha hızlı, daha güçlü ve daha yüksek satan Shopify mağazaları oluşturuyoruz."
+    items={[
+      {
+        title: 'Sorunsuz E-Ticaret, Daha Güçlü Markalar',
+        description:
+          'Teknik sorunlara zaman kaybeden markalar için e-ticaret çözümleri geliştiriyoruz. Yavaş yüklenen sayfaların, bozuk mobil düzenlerin ve karmaşık ödeme süreçlerinin ne kadar sinir bozucu olabileceğini biliyoruz. Bunlar sadece teknik aksaklıklar değil — marka algınıza zarar verirler ve müşterilerinizi doğrudan rakiplerinize yönlendirirler.',
+      },
+      {
+        title: 'Daha İyi Tasarım. Daha Hızlı Hız. Daha Güçlü Mağaza',
+        description:
+          'Mağazanızın mevcut durumunu analiz ediyor, özel bir iyileştirme planı oluşturuyor ve sitenizin tasarımını, hızını ve işlevselliğini sektörünüzde öne çıkacak şekilde yükseltiyoruz. Doğru altyapı ve profesyonel destekle, ziyaretçilerinizin gerçekten hak ettiği üstün deneyimi sunabilirsiniz.',
+      },
+      {
+        title: 'Güvenilir Shopify Ajansınız',
+        description:
+          'MIORA\'da temel mağaza kurulumlarının ötesine geçiyoruz — uzun vadeli Shopify ortağınız oluyoruz. Özel tasarımdan performans optimizasyonuna, sorunsuz entegrasyonlara kadar ekibimiz mağazanızın daha hızlı, daha pürüzsüz ve daha akıllı çalışmasını sağlar. Kanıtlanmış uzmanlık ve sonuç odaklı yaklaşımla, markaların büyümeyi açmasına ve olağanüstü alışveriş deneyimleri sunmasına yardımcı oluyoruz. Shopify mağazanızı en güçlü iş varlığınıza dönüştürmek için bize güvenin.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Renkli Görsel',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">İşletmeniz için Shopify geliştirme hizmetlerini seçin</h3>
+      İşinize odaklanın. Zor kısmı uzmanlarımız halletsin.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Features2 Widget **************** -->
+  <Features2
+    title="Uzmanlaştığımız Ana Sektörleri Keşfedin"
+    subtitle="Etkili projeler sunduğumuz bazı önemli sektörler"
+    tagline="MIORA"
+    items={[
+      {
+        title: 'Perakende Sektörü',
+        description: 'Perakende işletmeleri tüm Shopify mağazalarının %13\'ünü oluşturarak platformdaki en üst sektörler arasında yer alır. Profesyonel e-ticaret tasarımına yatırım yaparak, özellikle perakende sektörü için oluşturulmuş tamamen özelleştirilmiş bir Shopify mağazası oluşturabilirsiniz. Şirketinizin büyüklüğü veya cirosu ne olursa olsun, iyi hazırlanmış bir çevrimiçi mağaza her zaman güçlü bir varlık olarak hizmet edecektir.',
+        icon: 'tabler:shopping-cart',
+      },
+      {
+        title: 'Giyim ve Moda',
+        description:
+          'Shopify, tamamen entegre bir e-ticaret çözümüyle sıfırdan bir giyim markası oluşturmanızı sağlar. Son teknoloji özellikler kullanarak premium giyim satın ve markanızın büyümesine yardımcı olmak için tasarlanmış uzman müşteri desteğinden yararlanın.',
+        icon: 'tabler:hanger',
+      },
+      {
+        title: 'Deri Aksesuarlar',
+        description:
+          'Kemerlerden cüzdanlara kadar tüm deri aksesuar hattınızı Shopify ile sorunsuz bir şekilde yönetin. Satışları takip edin, envanteri düzenleyin ve işinizi çevrimiçi hale getirerek markanızı büyütün.',
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Mücevherat',
+        description: 'Gümüş ve altın mücevher koleksiyonlarınızı erkek yüzükleri ve zincirlerinden kadın kolyelerine ve küpelerine kadar tek bir Shopify mağazasında yönetin. Satışları takip edin, envanteri düzenleyin ve mücevher markanızı çevrimiçi olarak büyütün. Shopify\'ın güçlü araçları ve özel desteğiyle, gümüş ve altın mücevher işinizi ölçeklendirmek hiç bu kadar kolay olmamıştı.',
+        icon: 'tabler:diamond',
+      },
+      {
+        title: 'Endüstriyel ve Özel Ürünler',
+        description:
+          'Yapıştırıcı ve bio etanolden kalıp ayırıcı ajanlara, PU köpük spreylerinden, iplik kilitleyicilere ve balon parlatıcı spreylere kadar geniş bir endüstriyel ve özel ürün yelpazesini tek bir Shopify mağazasında satın ve yönetin. Satışlarınızı, iş verilerinizi ve envanterinizi sorunsuz bir şekilde takip edin. Shopify\'ın güçlü e-ticaret araçları ve özel desteğiyle, özel ürünler işinizi çevrimiçi olarak ölçeklendirmek hiç bu kadar kolay olmamıştı.',
+        icon: 'tabler:tools',
+      },
+      {
+        title: 'Talep Üzerine Baskı',
+        description: 'Shopify ile Talep Üzerine Baskı işinizi başlatın ve ölçeklendirin. Özel tişörtlerden ve sweatshirt\'lerden kupalara, telefon kılıflarına ve daha fazlasına kadar tüm kataloğunuzu tek bir yerde yönetin. Otomatik sipariş karşılama, satış takibi ve özel destekle Shopify, POD markanızı çevrimiçi olarak büyütmeyi basit hale getirir.',
+        icon: 'tabler:printer',
+      },
+      {
+        title: 'Spor Giyim',
+        description: 'Shopify ile spor giyim ve tekstil markanızı oluşturun ve ölçeklendirin. Performans tişörtlerinden ve taytlardan ceketlere ve spor salonu aksesuarlarına kadar tüm ürün hattınızı, satış verilerinizi ve envanterinizi tek bir yerde yönetin. Spor giyim işinizi çevrimiçi hale getirin ve Shopify\'ın güçlü araçlarıyla büyütün.',
+        icon: 'tabler:run',
+      },
+      {
+        title: 'Halılar ve Kilimler',
+        description:
+          'Halılarınızı ve kilimlerinizi özel bir Shopify mağazasıyla çevrimiçi olarak sergileyin ve satın. Envanterinizi yönetin, satışları takip edin ve geleneksel el dokuma kilimlerden modern halılara kadar her tasarımı tek bir yerde görüntüleyin. Shopify\'ın araçları ve desteğiyle ev dekorasyonu işinizi ölçeklendirmek her zamankinden daha kolay.',
+        icon: 'tabler:sofa',
+      },
+      {
+        title: 'Eczane ve Kozmetik',
+        description: 'Shopify ile takviyelerinizi ve kozmetiklerinizi satın ve yönetin. Vitaminlerden ve sağlıklı yaşam ürünlerinden cilt bakımı ve güzellik esanslarına kadar envanterinizi, satışlarınızı ve müşteri verilerinizi tek bir güçlü platformda takip edin. Sağlık ve güzellik markanızı kolaylıkla çevrimiçi olarak ölçeklendirin.',
+        icon: 'tabler:pills',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- BlogLatestPosts Widget ******* -->
+  <BlogLatestPosts
+    title="Blog'umuzda Daha Fazla İçerik Keşfedin"
+    information={``}
+  />
+
+  <!-- Testimonials Widget ******************* -->
+  <Testimonials
+    title="Müşteri Referansları"
+    subtitle="Müşterilerin MIORA ekibiyle çalışma deneyimleri hakkında söylediklerini keşfedin."
+    testimonials={[
+      {
+        testimonial: `MIORA ekibi eski Shopify mağazamızı yüksek performanslı bir e-ticaret platformuna dönüştürdü. Özel tema geliştirmeleri marka vizyonumuzla mükemmel bir şekilde uyumlu ve her aşamadaki detaylara dikkat olağanüstüydü. Dönüşüm oranımız ilk ay içinde %35 arttı!`,
+        name: 'Mark Thompson',
+        job: 'E-ticaret Direktörü',
+        image: {
+          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Mark Thompson Görseli',
+        },
+      },
+      {
+        testimonial: `Shopify hız optimizasyonu için MIORA\'yı tuttuk ve sonuçlar inanılmazdı. Sayfa yükleme süremiz 6 saniyeden 2 saniyenin altına düştü. Teknik uzmanlıkları ve performansa olan bağlılıkları işlerinde gerçekten parlıyor. Müşteri memnuniyeti hiç bu kadar yüksek olmamıştı!`,
+        name: 'Emily Martinez',
+        job: 'CEO',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=772&q=80',
+          alt: 'Emily Martinez Görseli',
+        },
+      },
+      {
+        testimonial: `MIORA ekibinin iş ihtiyaçlarını anlama ve bunları işlevsel tasarıma dönüştürme konusunda olağanüstü bir yeteneği var. Kar amacı gütmeyen kuruluşumuz için sadece misyonumuzu temsil etmekle kalmayıp aynı zamanda bağışları da artıran özel bir Shopify teması geliştirdiler. Profesyonellikleri ve bağlılıkları onları olağanüstü kalibreli bir geliştirme ortağı yapıyor.`,
+        name: 'Laura Simmons',
+        job: 'STK Kurucusu',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Laura Simmons Görseli',
+        },
+      },
+      {
+        testimonial: `Tam Shopify geliştirme projemizi MIORA\'ya emanet ettik ve sonuçlar şaşırtıcıydı. Sezgisel özel tema tasarımları kullanıcı deneyimini önemli ölçüde geliştirdi, bu da etkileşimde %45 artışa ve satışlarda önemli bir artışa yol açtı. Estetik, işlevsellik ve dönüşüm optimizasyonunun sinerjisini gerçekten anlıyorlar.`,
+        name: 'Alex Foster',
+        job: 'E-ticaret Direktörü',
+        image: {
+          src: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Alex Foster Görseli',
+        },
+      },
+      {
+        testimonial: `MIORA ekibi Shopify mağaza vizyonumuzu alıp hayal gücünün ötesine taşıdı. Özel tema geliştirmeleri marka özümüzü mükemmel şekilde yakaladı ve hız optimizasyon çalışmaları sitemizi şimşek hızında yaptı. Onlarla çalışmak ilham verici ve karlı bir yolculuk oldu. Mobil dönüşüm oranımız ikiye katlandı!`,
+        name: 'Jessica Collins',
+        job: 'Ürün Yöneticisi',
+        image: {
+          src: 'https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=778&q=80',
+          alt: 'Jessica Collins Görseli',
+        },
+      },
+      {
+        testimonial: `MIORA\'nın Shopify gereksinimlerimizi yüksek performanslı bir çevrimiçi mağazaya dönüştürme yeteneği olağanüstüden başka bir şey değil. Özel tema geliştirmemizi ve hız optimizasyonumuzu olağanüstü uzmanlıkla ele aldılar. Site artık 2 saniyenin altında yükleniyor ve her cihazda muhteşem görünüyor. Adanmışlıkları ve teknik becerileri onları herhangi bir e-ticaret projesi için paha biçilmez bir ortak yapıyor.`,
+        name: 'Michael Carter',
+        job: 'Online Mağaza Müdürü',
+        image: {
+          src: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Michael Carter Görseli',
+        },
+      },
+    ]}
+  />
+
+  <!-- BookingWidget ******************* -->
+  <BookingWidget
+    id="book-call"
+    title="Keşif Görüşmenizi Planlayın"
+    subtitle="Shopify mağazanızı dönüştürmeye hazır mısınız? Uzmanlarımızla ücretsiz 30 dakikalık bir danışma rezervasyonu yapın ve büyümenizi nasıl hızlandırabileceğimizi keşfedin."
+  />
+
+  <!-- FAQs Widget ******************* -->
+  <FAQs
+    title="Sık Sorulan Sorular"
+    tagline="SSS"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: 'Shopify Güvenli mi?',
+        description:
+          'Shopify, sunucu ve işlem güvenliği söz konusu olduğunda dünyanın en güvenli e-ticaret platformlarından biridir. Sürekli kendini geliştiren Shopify, çevrimiçi mağazanızın kesintisiz sorunsuz çalışmasını garanti eder. Sağlam altyapısıyla olası her soruna çözüm sunar. Tam işlevsel bir sistem olarak, tüm süreçleri tek bir kontrol panelinden kolayca yönetmenize olanak tanır. Verileriniz açık izniniz olmadan asla üçüncü taraflarla paylaşılmaz. Ödemeler için Shopify, dünya çapında tanınan ve güvenilen yöntemler sunarak sorunsuz ve güvenilir bir ödeme süreci sağlar. Mağazanızın güvenliği için yapmanız gereken tek şey Shopify Admin şifrenizi korumak ve asla kimseyle paylaşmamaktır.',
+      },
+      {
+        title: 'E-ticaret işim için neden Shopify\'ı seçmeliyim?',
+        description:
+          'Shopify, güvenli, ölçeklenebilir ve kullanıcı dostu bir platform sunan küresel bir e-ticaret lideridir. Mağazanızı yönetmek için ihtiyacınız olan her şeyi — barındırmadan ödeme ağ geçitlerine, uygulamalardan entegrasyonlara kadar — tek bir yerde sağlar.',
+      },
+      {
+        title: 'Mağaza lansmanından sonra sürekli destek sağlıyor musunuz?',
+        description:
+          'Kesinlikle. İşletmeniz büyüdükçe güncellemeler, sorun giderme, performans izleme ve yeni özellikler ekleme dahil sürekli destek ve bakım paketleri sunuyoruz.',
+      },
+      {
+        title: 'Shopify ile Shopify Plus Arasındaki Fark Nedir?',
+        description:
+          'Shopify, işletmenizi büyütmek ve yönetmek için bir e-ticaret platformu iken, Shopify Plus, daha yüksek yıllık gelire sahip markalar ve satıcılar için özel olarak tasarlanmış bir kurumsal e-ticaret yazılım sistemidir.',
+      },
+      {
+        title: 'Shopify dropshipping için uygun mu?',
+        description:
+          'Evet! Shopify dropshipping için en iyi platformlardan biridir. Oberlo, DSers veya Spocket gibi uygulamalar aracılığıyla tedarikçilerle kolayca bağlantı kurmanıza ve ürünleri, envanteri ve siparişleri otomatik olarak senkronize etmenize olanak tanır. Shopify\'ın güvenli ödeme sistemleri, özelleştirilebilir vitrinleri ve ölçeklenebilir özellikleriyle, fiziksel envanter yönetmeden bir dropshipping işi başlatabilir ve büyütebilirsiniz.',
+      },
+       {
+        title: 'Hangi Shopify planını seçmeliyim?',
+        description:
+          'Shopify ile başlarken, ilk adım işletme ihtiyaçlarınıza en uygun planı seçmektir. Ana seçenekler şunlardır: Temel Shopify – E-ticaret yolculuğuna yeni başlayanlar için mükemmel, uygun maliyetli giriş paketi. Shopify (Standart) – Büyüyen işletmeler için ideal, profesyonel raporlar ve ek özellikler sunar. Gelişmiş Shopify – Daha düşük işlem ücretleri, gelişmiş raporlama ve nakliye ücreti hesaplamaları ile daha büyük işletmeler için en iyisi. Ayrıca, alan adı desteği olmayan sınırlı bir plan olan Shopify Lite ve gelişmiş ihtiyaçlara sahip kurumsal düzeydeki şirketler için tasarlanan Shopify Plus vardır.',
+      },
+       {
+        title: 'Shopify mağazamda nasıl ödeme kabul edebilirim?',
+        description:
+          'Shopify\'da ödemeleri iki ana şekilde alabilirsiniz: Entegre Ödeme Sistemleri – Bunlar kredi kartı işlemlerini kapsar ve ödemeler otomatik olarak hesabınıza işlenir. Shopify ile entegre edebileceğiniz güvenilir sağlayıcılar arasında Iyzico, PayU Sanal POS ve Garanti Sanal POS bulunur. Manuel Ödeme Yöntemleri – Kredi kartı kullanmayı tercih etmeyen müşteriler için kapıda ödeme, banka havalesi veya EFT gibi alternatifler sunabilirsiniz. Shopify\'ın sağlam altyapısıyla, ödeme süreçleriniz sorunsuz çalışır ve tüm işlemler doğrudan mağazanızın yönetim panelinden yönetilebilir.',
+      },
+    ]}
+  />
+</Layout>

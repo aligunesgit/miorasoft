@@ -1,6 +1,5 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
@@ -13,7 +12,12 @@ import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import Brands from '~/components/widgets/Brands.astro';
-import BookingWidget from '~/components/widgets/bookacall.astro'; // YENİ IMPORT
+import BookingWidget from '~/components/widgets/bookacall.astro';
+
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const metadata = {
   title: 'AI-powered Shopify & Shopify Plus expert services in design, development, and marketing. Supporting startups to global retailers to grow and dominate worldwide',
@@ -23,10 +27,8 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
-
   <Hero
     actions={[
-     
       { text: 'See How', href: '#features' },
     ]}
     image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
@@ -40,10 +42,7 @@ const metadata = {
     </Fragment>
   </Hero>
 
-  <!-- Note Widget ******************* -->
-
- <!-- Stats Widget ****************** -->
-
+  <!-- Stats Widget ****************** -->
   <Stats
     stats={[
       { title: 'Empowering Clients to Sell Online', amount: '15+ YEARS' },
@@ -54,7 +53,6 @@ const metadata = {
   />
 
   <!-- Features Widget *************** -->
-
   <Features
     id="features"
     tagline="Features"
@@ -64,7 +62,7 @@ const metadata = {
       {
         title: 'Custom Shopify Development',
         description:
-          'Any functionality your store needs, our Shopify developers can build it. From custom templates, product builders, VAT solutions, and multi-currency checkouts to bespoke feeds and upsells, we can code it all. Over the years, our expertise has powered thousands of stores worldwide and generated hundreds of millions in sales. From calculators and dynamic upsells to real-time API integrations and inventory sync—whatever you imagine, weve already built it.',
+          'Any functionality your store needs, our Shopify developers can build it. From custom templates, product builders, VAT solutions, and multi-currency checkouts to bespoke feeds and upsells, we can code it all. Over the years, our expertise has powered thousands of stores worldwide and generated hundreds of millions in sales. From calculators and dynamic upsells to real-time API integrations and inventory sync—whatever you imagine, we have already built it.',
         icon: 'tabler:brand-tailwind',
       },
       {
@@ -106,7 +104,6 @@ const metadata = {
   />
 
   <!-- Content Widget **************** -->
-
   <Content
     isReversed
     tagline="Shopify Experts"
@@ -115,12 +112,12 @@ const metadata = {
       {
         title: 'Seamless E-Commerce, Stronger Brands',
         description:
-          'We develop e-commerce solutions for brands losing time to technical problems. We know how frustrating slow-loading pages, broken mobile layouts, and complicated checkout processes can be. These aren’t just technical glitches — they damage your brand perception and drive your customers straight to competitors',
+          'We develop e-commerce solutions for brands losing time to technical problems. We know how frustrating slow-loading pages, broken mobile layouts, and complicated checkout processes can be. These aren't just technical glitches — they damage your brand perception and drive your customers straight to competitors',
       },
       {
         title: 'Better Design. Faster Speed. Stronger Store',
         description:
-          'We analyze your store’s current state, create a tailored improvement plan, and elevate your site’s design, speed, and functionality to stand out in your industry. With the right infrastructure and professional support, you can deliver the superior experience your visitors truly deserve.',
+          'We analyze your store's current state, create a tailored improvement plan, and elevate your site's design, speed, and functionality to stand out in your industry. With the right infrastructure and professional support, you can deliver the superior experience your visitors truly deserve.',
       },
       {
         title: 'Your Trusted Shopify Agency',
@@ -143,11 +140,10 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- Content Widget **************** -->
-
+  <!-- Features2 Widget **************** -->
   <Features2
     title="Discover The Major Industries We Specialize In"
-    subtitle="Some of the key industries where we’ve delivered impactful projects"
+    subtitle="Some of the key industries where we've delivered impactful projects"
     tagline="MIORA"
     items={[
       {
@@ -206,76 +202,75 @@ const metadata = {
     </Fragment>
   </Features2>
 
-  <!-- HighlightedPosts Widget ******* -->
-
+  <!-- BlogLatestPosts Widget ******* -->
   <BlogLatestPosts
     title="Find out more content in our Blog"
-    information={`
-                `}
+    information={``}
   />
 
+  <!-- Testimonials Widget ******************* -->
   <Testimonials
-  title="Client testimonials"
-  subtitle="Discover what clients have to say about their experiences working with MIORA team."
-  testimonials={[
-    {
-      testimonial: `MIORA team transformed our outdated Shopify store into a high-performing e-commerce platform. Their custom theme development perfectly aligned with our brand vision, and the attention to detail in every aspect was exceptional. Our conversion rate increased by 35% within the first month!`,
-      name: 'Mark Thompson',
-      job: 'E-commerce Director',
-      image: {
-        src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-        alt: 'Mark Thompson Image',
+    title="Client testimonials"
+    subtitle="Discover what clients have to say about their experiences working with MIORA team."
+    testimonials={[
+      {
+        testimonial: `MIORA team transformed our outdated Shopify store into a high-performing e-commerce platform. Their custom theme development perfectly aligned with our brand vision, and the attention to detail in every aspect was exceptional. Our conversion rate increased by 35% within the first month!`,
+        name: 'Mark Thompson',
+        job: 'E-commerce Director',
+        image: {
+          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Mark Thompson Image',
+        },
       },
-    },
-    {
-      testimonial: `We hired MIORA for Shopify speed optimization, and the results were incredible. Our page load time went from 6 seconds to under 2 seconds. Their technical expertise and dedication to performance truly shine through their work. Customer satisfaction has never been higher!`,
-      name: 'Emily Martinez',
-      job: 'CEO',
-      image: {
-        src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=772&q=80',
-        alt: 'Emily Martinez Image',
+      {
+        testimonial: `We hired MIORA for Shopify speed optimization, and the results were incredible. Our page load time went from 6 seconds to under 2 seconds. Their technical expertise and dedication to performance truly shine through their work. Customer satisfaction has never been higher!`,
+        name: 'Emily Martinez',
+        job: 'CEO',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=772&q=80',
+          alt: 'Emily Martinez Image',
+        },
       },
-    },
-    {
-      testimonial: `MIORA team has an exceptional ability to understand business needs and translate them into functional design. They developed a custom Shopify theme for our non-profit that not only represents our mission but also drives donations. Their professionalism and commitment make them a development partner of exceptional caliber.`,
-      name: 'Laura Simmons',
-      job: 'Founder of an NGO',
-      image: {
-        src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-        alt: 'Laura Simmons Image',
+      {
+        testimonial: `MIORA team has an exceptional ability to understand business needs and translate them into functional design. They developed a custom Shopify theme for our non-profit that not only represents our mission but also drives donations. Their professionalism and commitment make them a development partner of exceptional caliber.`,
+        name: 'Laura Simmons',
+        job: 'Founder of an NGO',
+        image: {
+          src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Laura Simmons Image',
+        },
       },
-    },
-    {
-      testimonial: `We entrusted MIORA with our complete Shopify development project, and the results were astounding. Their intuitive custom theme design enhanced user experience dramatically, leading to a 45% increase in engagement and a significant boost in sales. They truly understand the synergy of aesthetics, functionality, and conversion optimization.`,
-      name: 'Alex Foster',
-      job: 'Director of E-commerce',
-      image: {
-        src: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-        alt: 'Alex Foster Image',
+      {
+        testimonial: `We entrusted MIORA with our complete Shopify development project, and the results were astounding. Their intuitive custom theme design enhanced user experience dramatically, leading to a 45% increase in engagement and a significant boost in sales. They truly understand the synergy of aesthetics, functionality, and conversion optimization.`,
+        name: 'Alex Foster',
+        job: 'Director of E-commerce',
+        image: {
+          src: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Alex Foster Image',
+        },
       },
-    },
-    {
-      testimonial: `MIORA team took our Shopify store vision and elevated it beyond imagination. Their custom theme development captured our brand essence perfectly, and their speed optimization work made our site lightning-fast. Working with them has been an inspiring and profitable journey. Our mobile conversion rate doubled!`,
-      name: 'Jessica Collins',
-      job: 'Product Manager',
-      image: {
-        src: 'https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=778&q=80',
-        alt: 'Jessica Collins Image',
+      {
+        testimonial: `MIORA team took our Shopify store vision and elevated it beyond imagination. Their custom theme development captured our brand essence perfectly, and their speed optimization work made our site lightning-fast. Working with them has been an inspiring and profitable journey. Our mobile conversion rate doubled!`,
+        name: 'Jessica Collins',
+        job: 'Product Manager',
+        image: {
+          src: 'https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=778&q=80',
+          alt: 'Jessica Collins Image',
+        },
       },
-    },
-    {
-      testimonial: `MIORA's ability to transform our Shopify requirements into a high-performing online store is nothing short of extraordinary. They handled our custom theme development and speed optimization with exceptional expertise. The site now loads in under 2 seconds and looks stunning on every device. Their dedication and technical skills make them an invaluable partner for any e-commerce project.`,
-      name: 'Michael Carter',
-      job: 'Online Store Manager',
-      image: {
-        src: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-        alt: 'Michael Carter Image',
+      {
+        testimonial: `MIORA's ability to transform our Shopify requirements into a high-performing online store is nothing short of extraordinary. They handled our custom theme development and speed optimization with exceptional expertise. The site now loads in under 2 seconds and looks stunning on every device. Their dedication and technical skills make them an invaluable partner for any e-commerce project.`,
+        name: 'Michael Carter',
+        job: 'Online Store Manager',
+        image: {
+          src: 'https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Michael Carter Image',
+        },
       },
-    },
-  ]}
-/>
+    ]}
+  />
 
-  <!-- YENİ BOOKING WIDGET -->
+  <!-- BookingWidget ******************* -->
   <BookingWidget
     id="book-call"
     title="Schedule Your Discovery Call"
@@ -283,7 +278,6 @@ const metadata = {
   />
 
   <!-- FAQs Widget ******************* -->
-
   <FAQs
     title="Frequently Asked Questions"
     tagline="FAQs"
@@ -292,7 +286,7 @@ const metadata = {
       {
         title: 'Is Shopify Secure?',
         description:
-          "Shopify is one of the world’s most secure e-commerce platforms when it comes to server and transaction safety. Constantly improving itself, Shopify guarantees that your online store runs smoothly without interruptions. With its robust infrastructure, it provides solutions to any potential issues.As a fully operational system, it allows you to manage all processes easily from a single dashboard. Your data is never shared with third parties without your explicit permission. For payments, Shopify offers globally recognized and trusted methods, ensuring a smooth and reliable checkout process. For the security of your store, the only thing you need to do is protect your Shopify Admin password — and never share it with anyone.",
+          "Shopify is one of the world's most secure e-commerce platforms when it comes to server and transaction safety. Constantly improving itself, Shopify guarantees that your online store runs smoothly without interruptions. With its robust infrastructure, it provides solutions to any potential issues.As a fully operational system, it allows you to manage all processes easily from a single dashboard. Your data is never shared with third parties without your explicit permission. For payments, Shopify offers globally recognized and trusted methods, ensuring a smooth and reliable checkout process. For the security of your store, the only thing you need to do is protect your Shopify Admin password — and never share it with anyone.",
       },
       {
         title: 'Why should I choose Shopify for my e-commerce business?',
@@ -312,7 +306,7 @@ const metadata = {
       {
         title: "Is Shopify suitable for dropshipping?",
         description:
-          "Yes! Shopify is one of the best platforms for dropshipping. It allows you to easily connect with suppliers through apps like Oberlo, DSers, or Spocket and automatically sync products, inventory, and orders. With Shopify’s secure payment systems, customizable storefronts, and scalable features, you can launch and grow a dropshipping business without managing physical inventory.",
+          "Yes! Shopify is one of the best platforms for dropshipping. It allows you to easily connect with suppliers through apps like Oberlo, DSers, or Spocket and automatically sync products, inventory, and orders. With Shopify's secure payment systems, customizable storefronts, and scalable features, you can launch and grow a dropshipping business without managing physical inventory.",
       },
        {
         title: "Which Shopify plan should I choose?",
@@ -322,12 +316,8 @@ const metadata = {
        {
         title: "How can I accept payments on my Shopify store?",
         description:
-          'You can receive payments on Shopify in two main ways: Integrated Payment Systems – These cover credit card transactions, with payments automatically processed into your account. Reliable providers you can integrate with Shopify include Iyzico, PayU Virtual POS, and Garanti Virtual POS. Manual Payment Methods – For customers who prefer not to use credit cards, you can offer alternatives such as cash on delivery, bank transfers, or wire transfers. With Shopify’s robust infrastructure, your payment processes run smoothly, and all transactions can be managed directly from your store’s admin.',
+          'You can receive payments on Shopify in two main ways: Integrated Payment Systems – These cover credit card transactions, with payments automatically processed into your account. Reliable providers you can integrate with Shopify include Iyzico, PayU Virtual POS, and Garanti Virtual POS. Manual Payment Methods – For customers who prefer not to use credit cards, you can offer alternatives such as cash on delivery, bank transfers, or wire transfers. With Shopify's robust infrastructure, your payment processes run smoothly, and all transactions can be managed directly from your store's admin.',
       },
-    
     ]}
   />
-
-  <!-- CallToAction Widget *********** -->
-
 </Layout>
