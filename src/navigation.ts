@@ -1,110 +1,95 @@
+import About from './pages/about.astro';
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
-// Dil tespiti için yardımcı fonksiyon
-export function getNavigationData(lang: 'en' | 'tr' = 'en') {
-  if (lang === 'tr') {
-    return {
-      headerData: headerDataTr,
-      footerData: footerDataTr,
-    };
-  }
-  return {
-    headerData: headerDataEn,
-    footerData: footerDataEn,
-  };
-}
-
-// İngilizce Header Data
-export const headerDataEn = {
+export const headerData = {
   links: [
     {
-      text: 'Home',
-      href: getPermalink('/'),
+      text: 'Development',
+      links: [
+        {
+          text: 'Shopify & Shopify Plus Development',
+          href: getPermalink('/homes/shopifydevelopment'),
+        },
+        {
+          text: 'Shopify Speed Optimization',
+          href: getPermalink('/homes/speedoptimization'),
+        },
+        {
+          text: 'Shopify Migration',
+          href: getPermalink('/homes/shopifymigration'),
+        },
+        {
+          text: 'Shopify Consulting',
+          href: getPermalink('/homes/shopifyconsulting'),
+        },
+      ],
     },
     {
-      text: 'About',
-      href: getPermalink('/about'),
-    },
-    {
-      text: 'Services',
-      href: getPermalink('/services'),
+      text: 'AI Development',
+      links: [
+        {
+          text: 'ChatGPT integration',
+          href: getPermalink('/homes/chatgptintegration'),
+        },
+        {
+          text: 'AI chatbot development',
+          href: getPermalink('/homes/aichatbotdevelopment'),
+        },
+       
+      ],
     },
     {
       text: 'Portfolio',
       href: getPermalink('/portfolio'),
     },
-    {
+     {
+      text: 'Our Shopify Themes',
+      href: getPermalink(),
+    },
+    
+     {
       text: 'Blog',
-      href: getBlogPermalink(),
+          href: getBlogPermalink(),
     },
-    {
-      text: 'Contact',
-      href: getPermalink('/contact'),
+     {
+      text: 'About',
+       href: getPermalink('/about'),
     },
+    
   ],
-  actions: [
-    {
-      text: 'Get a Quote',
-      href: getPermalink('/getaquote'),
-      target: '_self',
-    },
-  ],
+  actions: [{ text: 'GET A QUOTE', href:getPermalink('/getaquote'), target: '_blank' }],
 };
 
-// Türkçe Header Data
-export const headerDataTr = {
+export const footerData = {
   links: [
-    {
-      text: 'Ana Sayfa',
-      href: getPermalink('/tr'),
-    },
-    {
-      text: 'Hakkımızda',
-      href: getPermalink('/tr/hakkimizda'),
-    },
-    {
-      text: 'Hizmetler',
-      href: getPermalink('/tr/hizmetler'),
-    },
-    {
-      text: 'Portfolyo',
-      href: getPermalink('/tr/portfolyo'),
-    },
-    {
-      text: 'Blog',
-      href: getPermalink('/tr/blog'),
-    },
-    {
-      text: 'İletişim',
-      href: getPermalink('/tr/iletisim'),
-    },
-  ],
-  actions: [
-    {
-      text: 'Teklif Al',
-      href: getPermalink('/tr/teklif-al'),
-      target: '_self',
-    },
-  ],
-};
-
-// İngilizce Footer Data
-export const footerDataEn = {
-  links: [
-    {
-      title: 'Company',
-      links: [
-        { text: 'About', href: '/about' },
-        { text: 'Blog', href: '/blog' },
-        { text: 'Contact', href: '/contact' },
-      ],
-    },
     {
       title: 'Services',
       links: [
-        { text: 'Shopify Development', href: '/services' },
-        { text: 'Theme Development', href: '/services' },
-        { text: 'Speed Optimization', href: '/services' },
+        { text: 'Shopify Development', href:getPermalink('/homes/shopifydevelopment') },
+        { text: 'Shopify Speed Optimization', href:getPermalink('/homes/speedoptimization') },
+        { text: 'Shopify Migration', href:getPermalink('/homes/shopifymigration') },
+        { text: 'Our Development', href:getPermalink('/homes/ourthemes')},
+        { text: 'Shopify Consulting', href:getPermalink('/homes/shopifyconsulting') },
+        { text: 'AI Chatbot Development', href:getPermalink('/homes/aichatbotdevelopment') },
+        { text: 'Shopify & ChatGPT Integraion', href:getPermalink('/homes/chatgptintegration') },
+      ],
+    },
+    {
+      title: 'Our Shopify Themes',
+      links: [
+        { text: 'Themes', href: '#' },
+        { text: 'Help Center', href: '#' },
+        { text: 'Documentation', href: '#' },
+        { text: 'Help Center', href: '#' },
+      ],
+    },
+    {
+      title: 'MIORA SOFT',
+      links: [
+        { text: 'About', href:getPermalink('/about') },
+        { text: 'Blog', href:getPermalink('/blog') },
+        { text: 'Collabrations', href: '#' },
+        { text: 'Contact', href: '#' },
       ],
     },
   ],
@@ -118,44 +103,10 @@ export const footerDataEn = {
     { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
   ],
   footNote: `
-    Made by <a class="text-blue-600 underline dark:text-muted" href="https://miora.com.tr/"> MIORA</a> · All rights reserved.
+    <div class="text-sm">
+      <p class="mb-1">30 N Gould St, STE R, Sheridan, Wyoming, 82801, United States</p>
+      <p class="mb-2"><a href="mailto:hello@miorasoft.com" class="hover:underline">hello@miorasoft.com</a></p>
+      <p>Made by MIORA @ 2025</p>
+    </div>
   `,
 };
-
-// Türkçe Footer Data
-export const footerDataTr = {
-  links: [
-    {
-      title: 'Şirket',
-      links: [
-        { text: 'Hakkımızda', href: '/tr/hakkimizda' },
-        { text: 'Blog', href: '/tr/blog' },
-        { text: 'İletişim', href: '/tr/iletisim' },
-      ],
-    },
-    {
-      title: 'Hizmetler',
-      links: [
-        { text: 'Shopify Geliştirme', href: '/tr/hizmetler' },
-        { text: 'Tema Geliştirme', href: '/tr/hizmetler' },
-        { text: 'Hız Optimizasyonu', href: '/tr/hizmetler' },
-      ],
-    },
-  ],
-  secondaryLinks: [
-    { text: 'Şartlar', href: getPermalink('/tr/sartlar') },
-    { text: 'Gizlilik Politikası', href: getPermalink('/tr/gizlilik') },
-  ],
-  socialLinks: [
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
-  ],
-  footNote: `
-    <a class="text-blue-600 underline dark:text-muted" href="https://miora.com.tr/"> MIORA</a> tarafından yapılmıştır · Tüm hakları saklıdır.
-  `,
-};
-
-// Varsayılan export (geriye uyumluluk için)
-export const headerData = headerDataEn;
-export const footerData = footerDataEn;
