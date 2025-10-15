@@ -1,24 +1,28 @@
 ---
+// Astro.url yerine Astro.site kullan
+const baseUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://miorasoft.com';
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "MIORA",
   "alternateName": "MIORA Soft",
-  "url": "https://miorasoft.com",
-  "logo": "https://miorasoft.com/favicon.svg",
+  "url": baseUrl,
+  "logo": `${baseUrl}/favicon.svg`,
   "description": "Expert Shopify development agency specializing in custom theme development, store optimization, and seamless platform migrations.",
   "address": {
     "@type": "PostalAddress",
+    "addressLocality": "Istanbul",
     "addressCountry": "TR"
   },
   "sameAs": [
-    "https://twitter.com/arthelokyo",
-    "https://www.linkedin.com/company/miorasoft"
+    "https://twitter.com/arthelokyo"
   ],
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "Customer Service",
-    "availableLanguage": ["English", "Turkish"]
+    "availableLanguage": ["English", "Turkish"],
+    "url": `${baseUrl}/contact`
   }
 };
 
@@ -26,11 +30,11 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "MIORA",
-  "url": "https://miorasoft.com",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://miorasoft.com/search?q={search_term_string}",
-    "query-input": "required name=search_term_string"
+  "url": baseUrl,
+  "description": "Professional Shopify development agency",
+  "publisher": {
+    "@type": "Organization",
+    "name": "MIORA"
   }
 };
 
@@ -38,19 +42,14 @@ const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "MIORA - Shopify Development Agency",
-  "image": "https://miorasoft.com/og-image.png",
-  "@id": "https://miorasoft.com",
-  "url": "https://miorasoft.com",
-  "telephone": "+90-XXX-XXX-XXXX",
+  "image": `${baseUrl}/og-image.png`,
+  "@id": baseUrl,
+  "url": baseUrl,
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
+    "addressLocality": "Istanbul",
     "addressCountry": "TR"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 41.0082,
-    "longitude": 28.9784
   },
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
@@ -63,32 +62,10 @@ const localBusinessSchema = {
     ],
     "opens": "09:00",
     "closes": "18:00"
-  },
-  "sameAs": [
-    "https://twitter.com/arthelokyo"
-  ]
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [{
-    "@type": "ListItem",
-    "position": 1,
-    "name": "Home",
-    "item": "https://miorasoft.com"
-  }]
+  }
 };
 ---
 
-<!-- Organization Schema -->
 <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
-
-<!-- Website Schema -->
 <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
-
-<!-- LocalBusiness Schema -->
 <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
-
-<!-- Breadcrumb Schema -->
-<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
