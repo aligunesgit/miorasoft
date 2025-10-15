@@ -1,213 +1,30 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
-import BookingWidget from '~/components/widgets/bookacall.astro';
+import Header from '~/components/widgets/Header.astro';
 
-const metadata = {
-  title: 'Shopify Geliştirme Ajansı - MIORA',
-  ignoreTitleTemplate: true,
+const testHeaderData = {
+  links: [
+    { text: 'Ana Sayfa', href: '/tr/' },
+    { text: 'Hakkımızda', href: '/tr/hakkimizda' },
+    { text: 'İletişim', href: '/tr/iletisim' },
+  ],
+  actions: [
+    { text: 'Teklif Al', href: '/tr/teklif-al' },
+  ],
 };
 ---
 
-<Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-  <Hero
-    actions={[
-      { text: 'Nasıl Olduğunu Gör', href: '#features' },
-    ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'MIORA Hero' }}
-  >
-    <Fragment slot="title">
-     Shopify Geliştirme Ajansı
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      AI destekli stratejilerden yararlanan şirketimiz, dünya çapında bireysel girişimcilerden kurumsal liderlere kadar yüzlerce Shopify ve Shopify Plus satıcısına son teknoloji tasarım ve geliştirme başarısı sunmaktadır
-    </Fragment>
-  </Hero>
-
-  <!-- Stats Widget ****************** -->
-  <Stats
-    stats={[
-      { title: 'Müşterileri Online Satışa Güçlendirme', amount: '15+ YIL' },
-      { title: 'Oluşturulan Mağaza', amount: '300+' },
-      { title: 'Gelir Etkisi', amount: 'MİLYON $' },
-      { title: 'E-ticaret Çözümleri', amount: 'HEPSİ BİR ARADA' }
-    ]}
-  />
-
-  <!-- Features Widget *************** -->
-  <Features
-    id="features"
-    tagline="Özellikler"
-    title="Geniş Shopify Geliştirme Hizmetleri Yelpazemiz"
-    subtitle="Shopify üzerinde tasarlamaya, geliştirmeye veya ölçeklendirmeye hazır mısınız? İhtiyacınız olan çözüm bizde."
-    items={[
-      {
-        title: 'Özel Shopify Geliştirme',
-        description:
-          'Mağazanızın ihtiyaç duyduğu her türlü işlevselliği Shopify geliştiricilerimiz oluşturabilir. Özel şablonlardan ürün oluşturuculara, KDV çözümlerinden çok para birimli ödemelere, özel besleme ve üst satışlara kadar her şeyi kodlayabiliriz.',
-        icon: 'tabler:brand-tailwind',
-      },
-      {
-        title: 'Özel Shopify Tema Geliştirme',
-        description:
-          'Daha fazlasını talep eden hırslı perakendeciler için özel Shopify kurulumları. Markanıza özel olarak tasarlanmış piksel-mükemmel temalar, özel şablonlar ve benzersiz uygulamalar.',
-        icon: 'tabler:components',
-      },
-      {
-        title: 'Shopify\'a Taşıma',
-        description:
-          'Gereksiz stresten kaçınmanıza ve Shopify mağazanızın lansmanını hızlandırmanıza yardımcı olmak için tüm taşıma sürecini dikkatlice planlıyoruz.<br />' +
-          '• WooCommerce\'den Shopify\'a Taşıma<br />' +
-          '• Magento\'dan Shopify\'a Taşıma<br />' +
-          '• BigCommerce\'den Shopify\'a Taşıma<br />' +
-          '• Shopware\'den Shopify\'a Taşıma<br />' +
-          '• WordPress\'ten Shopify\'a Taşıma',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'AI Geliştirme ve Entegrasyon',
-        description:
-          'AI entegrasyon ve geliştirme hizmetlerimiz, işletmeniz için akıllı, geleceğe hazır çözümler sunar.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Shopify Hız ve Performans Optimizasyonu',
-        description:
-          'Shopify mağazanızı tema kodunu iyileştirerek, varlıkları sıkıştırarak, tembel yükleme uygulayarak ve üçüncü taraf betik şişkinliğini en aza indirerek optimize ediyoruz.',
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Shopify Danışmanlık',
-        description:
-          'Shopify danışmanlık hizmetlerimiz, pazarlama, içerik ve sosyal medya disiplinlerini tek çatı altında birleştiren 360° hizmet modeline dayanmaktadır.',
-        icon: 'tabler:bulb',
-      },
-    ]}
-  />
-
-  <!-- Content Widget **************** -->
-  <Content
-    isReversed
-    tagline="Shopify Uzmanları"
-    title="Daha hızlı, daha güçlü ve daha yüksek satan Shopify mağazaları oluşturuyoruz."
-    items={[
-      {
-        title: 'Sorunsuz E-Ticaret, Daha Güçlü Markalar',
-        description:
-          'Teknik sorunlara zaman kaybeden markalar için e-ticaret çözümleri geliştiriyoruz.',
-      },
-      {
-        title: 'Daha İyi Tasarım. Daha Hızlı Hız. Daha Güçlü Mağaza',
-        description:
-          'Mağazanızın mevcut durumunu analiz ediyor, özel bir iyileştirme planı oluşturuyor ve sitenizin tasarımını, hızını ve işlevselliğini sektörünüzde öne çıkacak şekilde yükseltiyoruz.',
-      },
-      {
-        title: 'Güvenilir Shopify Ajansınız',
-        description:
-          'MIORA\'da temel mağaza kurulumlarının ötesine geçiyoruz — uzun vadeli Shopify ortağınız oluyoruz.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Renkli Görsel',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">İşletmeniz için Shopify geliştirme hizmetlerini seçin</h3>
-      İşinize odaklanın. Zor kısmı uzmanlarımız halletsin.
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Features2 Widget -->
-  <Features2
-    title="Uzmanlaştığımız Ana Sektörleri Keşfedin"
-    subtitle="Etkili projeler sunduğumuz bazı önemli sektörler"
-    tagline="MIORA"
-    items={[
-      {
-        title: 'Perakende Sektörü',
-        description: 'Perakende işletmeleri için özel e-ticaret çözümleri.',
-        icon: 'tabler:shopping-cart',
-      },
-      {
-        title: 'Giyim ve Moda',
-        description: 'Moda markaları için premium Shopify çözümleri.',
-        icon: 'tabler:hanger',
-      },
-      {
-        title: 'Mücevherat',
-        description: 'Mücevher koleksiyonlarınızı tek bir platformda yönetin.',
-        icon: 'tabler:diamond',
-      },
-      {
-        title: 'Talep Üzerine Baskı',
-        description: 'POD işinizi Shopify ile büyütün.',
-        icon: 'tabler:printer',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
-
-  <!-- BlogLatestPosts Widget -->
-  <BlogLatestPosts
-    title="Blog'umuzda Daha Fazla İçerik Keşfedin"
-    information={``}
-  />
-
-  <!-- Testimonials Widget -->
-  <Testimonials
-    title="Müşteri Referansları"
-    subtitle="Müşterilerin MIORA ekibiyle çalışma deneyimleri hakkında söylediklerini keşfedin."
-    testimonials={[
-      {
-        testimonial: `MIORA ekibi eski Shopify mağazamızı yüksek performanslı bir e-ticaret platformuna dönüştürdü. Dönüşüm oranımız ilk ay içinde %35 arttı!`,
-        name: 'Mark Thompson',
-        job: 'E-ticaret Direktörü',
-        image: {
-          src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=774&q=80',
-          alt: 'Mark Thompson',
-        },
-      },
-    ]}
-  />
-
-  <!-- BookingWidget -->
-  <BookingWidget
-    id="book-call"
-    title="Keşif Görüşmenizi Planlayın"
-    subtitle="Shopify mağazanızı dönüştürmeye hazır mısınız? Uzmanlarımızla ücretsiz 30 dakikalık bir danışma rezervasyonu yapın."
-  />
-
-  <!-- FAQs Widget -->
-  <FAQs
-    title="Sık Sorulan Sorular"
-    tagline="SSS"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Shopify Güvenli mi?',
-        description: 'Shopify, sunucu ve işlem güvenliği söz konusu olduğunda dünyanın en güvenli e-ticaret platformlarından biridir.',
-      },
-      {
-        title: 'E-ticaret işim için neden Shopify\'ı seçmeliyim?',
-        description: 'Shopify, güvenli, ölçeklenebilir ve kullanıcı dostu bir platform sunan küresel bir e-ticaret lideridir.',
-      },
-    ]}
-  />
-</Layout>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Test</title>
+</head>
+<body>
+  <Header {...testHeaderData} isSticky showToggleTheme />
+  
+  <main style="padding: 100px 20px;">
+    <h1>Test Sayfası</h1>
+    <p>Eğer üstte menü görüyorsanız, header çalışıyor demektir.</p>
+  </main>
+</body>
+</html>
