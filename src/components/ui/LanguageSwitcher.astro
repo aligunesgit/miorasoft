@@ -1,0 +1,119 @@
+---
+import { languages } from '~/i18n/ui';
+import { translatePath } from '~/i18n/utils';
+
+const currentPath = Astro.url.pathname;
+const currentLang = currentPath.startsWith('/tr') ? 'tr' : 'en';
+
+// Mevcut sayfanın path'ini al (dil prefix'i olmadan)
+const pathWithoutLang = currentPath.startsWith('/tr') 
+  ? currentPath.replace(/^\/tr/, '') || '/'
+  : currentPath;
+
+// Her dil için URL oluştur
+function getUrlForLang(lang: string) {
+  if (lang === 'en') {
+    // Türkçe'den İngilizce'ye
+    return pathWithoutLang === '/' ? '/' : pathWithoutLang;
+  } else {
+    // İngilizce'den Türkçe'ye - translatePath fonksiyonunu kullan
+    return translatePath(pathWithoutLang, 'tr');
+  }
+}
+---
+
+<div class="language-switcher">
+  {Object.entries(languages).map(([lang, name]) => {
+    const url = getUrlForLang(lang);
+    const isActive = currentLang === lang;
+    
+    return (
+      <a 
+        href={url}
+        class:list={['lang-link', { active: isActive }]}
+        data-lang={lang}
+        aria-label={`Switch to ${name}`}
+      >
+        <span class="lang-code">{lang.toUpperCase()}</span>
+        <span class="lang-name">{name}</span>
+      </a>
+    );
+  })}
+</div>
+
+<script>
+  // Cookie ayarla
+  document.querySelectorAll('.lang-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const lang = (e.currentTarget as HTMLElement).getAttribute('data-lang');
+      if (lang) {
+        const maxAge = 60 * 60 * 24 * 30; // 30 gün
+        document.cookie = `preferred-lang=${lang}; path=/; max-age=${maxAge}; SameSite=Lax`;
+      }
+    });
+  });
+</script>
+
+<style>
+  .language-switcher {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .lang-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    background-color: transparent;
+  }
+  
+  .lang-code {
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+  
+  .lang-name {
+    font-size: 0.875rem;
+    display: none;
+  }
+  
+  @media (min-width: 768px) {
+    .lang-name {
+      display: inline;
+    }
+  }
+  
+  .lang-link.active {
+    background-color: var(--aw-color-primary, #007bff);
+    color: white;
+    border-color: var(--aw-color-primary, #007bff);
+  }
+  
+  .lang-link:not(.active) {
+    color: var(--aw-color-text-default, #333);
+    border-color: var(--aw-color-border, #ddd);
+  }
+  
+  .lang-link:not(.active):hover {
+    background-color: var(--aw-color-bg-page, #f8f9fa);
+    border-color: var(--aw-color-primary, #007bff);
+    color: var(--aw-color-primary, #007bff);
+  }
+
+  /* Dark mode support */
+  :global(.dark) .lang-link:not(.active) {
+    color: var(--aw-color-text-default, #e5e7eb);
+    border-color: var(--aw-color-border, #374151);
+  }
+  
+  :global(.dark) .lang-link:not(.active):hover {
+    background-color: var(--aw-color-bg-page, #1f2937);
+  }
+</style>
