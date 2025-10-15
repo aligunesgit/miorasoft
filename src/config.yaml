@@ -19,7 +19,7 @@ metadata:
     title: Professional Shopify Development & Migration Services
     description: Transform your e-commerce vision into reality with custom Shopify solutions. Expert developers for theme customization, speed optimization, and hassle-free platform migrations.
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/hero-image.png'
         width: 1200
         height: 628
         alt: MIORA SOFT Shopify Development Agency
