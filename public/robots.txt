@@ -1,2 +1,14 @@
+# Robots.txt for miorasoft.com
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemaps
+Sitemap: https://miorasoft.com/sitemap-index.xml
+
+# Block admin/private areas (if any)
+Disallow: /admin/
+Disallow: /_astro/
+Disallow: /api/
+
+# Crawl-delay (optional, prevents aggressive crawling)
+Crawl-delay: 1
