@@ -1,13 +1,13 @@
 ---
-import { GoogleAnalytics } from '@astrolib/analytics';
-import { ANALYTICS } from 'astrowind:config';
+// Direct Google Analytics implementation
+const GA_ID = 'G-T8WYZJF646';
 ---
 
-{
-  ANALYTICS?.vendors?.googleAnalytics?.id ? (
-    <GoogleAnalytics
-      id={String(ANALYTICS.vendors.googleAnalytics.id)}
-      partytown={ANALYTICS?.vendors?.googleAnalytics?.partytown}
-    />
-  ) : null
-}
+<!-- Google tag (gtag.js) -->
+<script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(...args){dataLayer.push(args);}
+  gtag('js', new Date());
+  gtag('config', 'G-T8WYZJF646');
+</script>
