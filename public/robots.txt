@@ -7,8 +7,7 @@ Sitemap: https://miorasoft.com/sitemap-index.xml
 
 # Block admin/private areas (if any)
 Disallow: /admin/
-Disallow: /_astro/
 Disallow: /api/
 
-# Crawl-delay (optional, prevents aggressive crawling)
-Crawl-delay: 1
+# Note: /_astro/ contains optimized static assets, blocking is usually not necessary
+# Note: Crawl-delay is ignored by Google and may slow other bots unnecessarily
