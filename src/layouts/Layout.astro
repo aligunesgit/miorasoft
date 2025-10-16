@@ -9,8 +9,8 @@ import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
-import StructuredData from '~/components/common/StructuredData.astro'; // YENİ
-import PerformanceOptimizations from '~/components/common/PerformanceOptimizations.astro'; // YENİ
+import StructuredData from '~/components/common/StructuredData.astro';
+import PerformanceOptimizations from '~/components/common/PerformanceOptimizations.astro';
 import { ClientRouter } from 'astro:transitions';
 import type { MetaData as MetaDataType } from '~/types';
 
@@ -20,6 +20,9 @@ export interface Props {
 
 const { metadata = {} } = Astro.props;
 const { language, textDirection } = I18N;
+
+// Canonical URL oluştur - SEO için kritik
+const canonicalURL = metadata.canonical || new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <!doctype html>
@@ -29,10 +32,18 @@ const { language, textDirection } = I18N;
     <Favicons />
     <CustomStyles />
     <ApplyColorMode />
-    <PerformanceOptimizations /> <!-- YENİ -->
+    <PerformanceOptimizations />
     <Metadata {...metadata} />
+    
+    <!-- Canonical URL - SEO için kritik -->
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Alternate languages - Çoklu dil desteği için -->
+    <link rel="alternate" hreflang="en" href={canonicalURL} />
+    <link rel="alternate" hreflang="x-default" href={canonicalURL} />
+    
     <SiteVerification />
-    <StructuredData /> <!-- YENİ -->
+    <StructuredData />
     <Analytics />
     <ClientRouter fallback="swap" />
   </head>

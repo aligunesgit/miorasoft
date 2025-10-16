@@ -1,19 +1,78 @@
+site:
+  name: 'MIORA'
+  site: 'https://miorasoft.com'
+  base: '/'
+  trailingSlash: false
+
 metadata:
   title:
-    default: MIORA - Expert Shopify Development Agency
+    default: 'MIORA - Expert Shopify Development Agency'
     template: '%s | MIORA'
   description: "Professional Shopify development, custom themes, speed optimization & seamless migrations. Transform your e-commerce vision into reality."
+  keywords: 'shopify development, shopify partner, shopify plus, e-commerce development, shopify themes, shopify apps, web development, react, typescript, nodejs, tailwind css'
   robots:
     index: true
     follow: true
+  
   openGraph:
-    site_name: MIORA - Shopify Experts
-    type: website
+    site_name: 'MIORA - Shopify Experts'
+    type: 'website'
+    locale: 'en_US'
     images:
-      - url: '~/assets/images/og-image.png?v=2'
+      - url: '~/assets/images/og-image.png'
         width: 1200
         height: 630
+        alt: 'MIORA - Expert Shopify Development Agency'
+  
   twitter:
     handle: '@arthelokyo'
     site: '@arthelokyo'
-    cardType: summary_large_image
+    cardType: 'summary_large_image'
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: 'G-T8WYZJF646'  # Google Analytics ID (G-XXXXXXXXXX)
+    googleTagManager:
+      id: ''  # Google Tag Manager ID (GTM-XXXXXXX)
+
+i18n:
+  language: 'en'
+  textDirection: 'ltr'
+  dateFormatter: 'en-US'
+
+business:
+  name: 'MIORA'
+  legalName: 'Miorasoft'
+  description: 'Expert Shopify Development Agency'
+  foundingDate: '2020'
+  logo: '/logo.png'
+  email: 'info@miorasoft.com'
+  phone: ''
+  address:
+    streetAddress: ''
+    addressLocality: 'Istanbul'
+    addressRegion: 'Istanbul'
+    postalCode: ''
+    addressCountry: 'TR'
+  social:
+    twitter: 'https://twitter.com/arthelokyo'
+    linkedin: ''
+    github: 'https://github.com/aligunesgit'
+    facebook: ''
+    instagram: ''
+
+services:
+  - name: 'Custom Shopify Theme Development'
+    description: 'Bespoke Shopify themes tailored to your brand'
+  - name: 'Shopify App Development'
+    description: 'Custom apps to extend your store functionality'
+  - name: 'Shopify Store Migration'
+    description: 'Seamless migration from other platforms to Shopify'
+  - name: 'Performance Optimization'
+    description: 'Speed up your Shopify store for better conversions'
+  - name: 'Shopify Plus Development'
+    description: 'Enterprise-level Shopify Plus solutions'
+
+ui:
+  theme: 'system' # system, light, dark

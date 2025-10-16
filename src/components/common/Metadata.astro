@@ -4,11 +4,36 @@ import { AstroSeo } from '@astrolib/seo';
 
 import type { Props as AstroSeoProps } from '@astrolib/seo';
 
-import { SITE, METADATA, I18N } from 'astrowind:config';
-import type { MetaData } from '~/types';
-import { getCanonical } from '~/utils/permalinks';
+// Production config - config.yaml'dan gelecek
+const SITE = { name: 'MIORA' };
+const METADATA = {
+  title: { default: 'MIORA - Expert Shopify Development Agency', template: '%s | MIORA' },
+  description: 'Professional Shopify development, custom themes, speed optimization & seamless migrations. Transform your e-commerce vision into reality.',
+  robots: { index: true, follow: true },
+  openGraph: {
+    site_name: 'MIORA - Shopify Experts',
+    type: 'website',
+  },
+  twitter: {
+    handle: '@arthelokyo',
+    site: '@arthelokyo',
+    cardType: 'summary_large_image'
+  }
+};
+const I18N = { language: 'en' };
 
+import type { MetaData } from '~/types';
 import { adaptOpenGraphImages } from '~/utils/images';
+
+// getCanonical fonksiyonu - Production URL
+const getCanonical = (path: string) => {
+  const baseUrl = Astro.site?.toString().replace(/\/$/, '') || 'https://miorasoft.com';
+  try {
+    return new URL(path, baseUrl).href;
+  } catch (e) {
+    return baseUrl + path;
+  }
+};
 
 export interface Props extends MetaData {
   dontUseTitleTemplate?: boolean;
@@ -17,7 +42,7 @@ export interface Props extends MetaData {
 const {
   title,
   ignoreTitleTemplate = false,
-  canonical = String(getCanonical(String(Astro.url.pathname))),
+  canonical = getCanonical(Astro.url.pathname),
   robots = {},
   description,
   openGraph = {},
@@ -29,8 +54,8 @@ const seoProps: AstroSeoProps = merge(
     title: '',
     titleTemplate: '%s',
     canonical: canonical,
-    noindex: true,
-    nofollow: true,
+    noindex: false,  // Production'da false olmalı
+    nofollow: false, // Production'da false olmalı
     description: undefined,
     openGraph: {
       url: canonical,
@@ -40,6 +65,8 @@ const seoProps: AstroSeoProps = merge(
       type: 'website',
     },
     twitter: {
+      handle: METADATA?.twitter?.handle,
+      site: METADATA?.twitter?.site,
       cardType: openGraph?.images?.length ? 'summary_large_image' : 'summary',
     },
   },
