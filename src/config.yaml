@@ -32,9 +32,9 @@ metadata:
 analytics:
   vendors:
     googleAnalytics:
-      id: 'G-T8WYZJF646'  # Google Analytics ID (G-XXXXXXXXXX)
+      id: 'G-T8WYZJF646'
     googleTagManager:
-      id: ''  # Google Tag Manager ID (GTM-XXXXXXX)
+      id: 'G-T8WYZJF646'
 
 i18n:
   language: 'en'
@@ -75,4 +75,36 @@ services:
     description: 'Enterprise-level Shopify Plus solutions'
 
 ui:
-  theme: 'system' # system, light, dark
+  theme: 'system'
+
+blog:
+  isEnabled: true
+  postsPerPage: 6
+  
+  post:
+    isEnabled: true
+    permalink: '/blog/%slug%'
+    robots:
+      index: true
+      follow: true
+  
+  list:
+    isEnabled: true
+    pathname: 'blog'
+    robots:
+      index: true
+      follow: true
+  
+  category:
+    isEnabled: true
+    pathname: 'category'
+    robots:
+      index: true
+      follow: true
+  
+  tag:
+    isEnabled: true
+    pathname: 'tag'
+    robots:
+      index: true
+      follow: true

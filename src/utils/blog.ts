@@ -33,11 +33,11 @@ const generatePermalink = async ({
     .replace('%minute%', minute)
     .replace('%second%', second);
 
-  return permalink
-    .split('/')
-    .map((el) => trimSlash(el))
-    .filter((el) => !!el)
-    .join('/');
+return '/' + permalink
+  .split('/')
+  .map((el) => trimSlash(el))
+  .filter((el) => !!el)
+  .join('/');
 };
 
 const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> => {

@@ -49,7 +49,7 @@ export const headerData = {
     
      {
       text: 'Blog',
-          href: getBlogPermalink(),
+          href: getPermalink('/blog'),
     },
      {
       text: 'About',
