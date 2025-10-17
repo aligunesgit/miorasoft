@@ -302,10 +302,10 @@ const { id, title, subtitle, classes } = Astro.props;
     let currentMonth = 8; // September (0-indexed)
     let currentYear = 2025;
     let selectedDate = '25';
-    let selectedTime = null;
+    let selectedTime: string | null = null;
     
-    const dateButtons = document.querySelectorAll('.date-btn');
-    const timeButtons = document.querySelectorAll('.time-btn');
+    const dateButtons = document.querySelectorAll<HTMLButtonElement>('.date-btn');
+    const timeButtons = document.querySelectorAll<HTMLButtonElement>('.time-btn');
     const bookButton = document.getElementById('book-meeting-btn');
     const dateDisplay = document.getElementById('selected-date-display');
     const monthYearDisplay = document.getElementById('month-year');
@@ -327,6 +327,72 @@ const { id, title, subtitle, classes } = Astro.props;
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const monthNamesShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    
+    // LocalStorage'dan randevuları al
+    function getBookedSlots(): any[] {
+      const bookedSlots = localStorage.getItem('bookedMeetings');
+      return bookedSlots ? JSON.parse(bookedSlots) : [];
+    }
+    
+    // Randevu kaydet
+    function saveBooking(dateKey: string, time: string, details: any) {
+      const bookedSlots = getBookedSlots();
+      bookedSlots.push({
+        dateKey,
+        time,
+        details,
+        timestamp: new Date().toISOString()
+      });
+      localStorage.setItem('bookedMeetings', JSON.stringify(bookedSlots));
+    }
+    
+    // Belirli bir tarih ve saat dolu mu kontrol et
+    function isSlotBooked(dateKey: string, time: string): boolean {
+      const bookedSlots = getBookedSlots();
+      return bookedSlots.some((slot: any) => slot.dateKey === dateKey && slot.time === time);
+    }
+    
+    // Mevcut seçili tarih için dolu saatleri güncelle
+    function updateAvailableTimes() {
+      const dateKey = `${currentYear}-${currentMonth + 1}-${selectedDate}`;
+      
+      timeButtons.forEach(button => {
+        const time = button.getAttribute('data-time');
+        if (time && isSlotBooked(dateKey, time)) {
+          // Dolu saati devre dışı bırak
+          button.disabled = true;
+          button.classList.remove('border-blue-200', 'dark:border-blue-800', 'text-blue-600', 'dark:text-blue-400', 'hover:bg-blue-50', 'dark:hover:bg-blue-900');
+          button.classList.add('border-gray-300', 'dark:border-gray-700', 'text-gray-400', 'dark:text-gray-600', 'cursor-not-allowed', 'opacity-50');
+          
+          // "Booked" etiketi ekle
+          if (!button.querySelector('.booked-label')) {
+            const label = document.createElement('span');
+            label.className = 'booked-label block text-[10px] text-red-500';
+            label.textContent = '✕';
+            button.appendChild(label);
+          }
+        } else {
+          // Müsait saati aktif et
+          button.disabled = false;
+          button.classList.add('border-blue-200', 'dark:border-blue-800', 'text-blue-600', 'dark:text-blue-400', 'hover:bg-blue-50', 'dark:hover:bg-blue-900');
+          button.classList.remove('border-gray-300', 'dark:border-gray-700', 'text-gray-400', 'dark:text-gray-600', 'cursor-not-allowed', 'opacity-50', 'bg-blue-600', 'text-white', 'border-blue-600');
+          
+          // "Booked" etiketini kaldır
+          const label = button.querySelector('.booked-label');
+          if (label) {
+            label.remove();
+          }
+        }
+      });
+      
+      // Eğer seçili saat dolu ise, seçimi kaldır
+      if (selectedTime) {
+        const dateKey = `${currentYear}-${currentMonth + 1}-${selectedDate}`;
+        if (isSlotBooked(dateKey, selectedTime)) {
+          selectedTime = null;
+        }
+      }
+    }
     
     // Ay değiştirme
     if (prevMonthBtn) {
@@ -369,6 +435,7 @@ const { id, title, subtitle, classes } = Astro.props;
         this.classList.add('bg-blue-600', 'text-white', 'ring-2', 'ring-blue-500');
         
         selectedDate = this.getAttribute('data-date') || '25';
+        selectedTime = null; // Tarih değişince saat seçimini sıfırla
         
         const date = new Date(currentYear, currentMonth, parseInt(selectedDate));
         const dayName = dayNames[date.getDay()];
@@ -377,6 +444,9 @@ const { id, title, subtitle, classes } = Astro.props;
         if (dateDisplay) {
           dateDisplay.textContent = `${dayName}, ${monthName} ${selectedDate}, ${currentYear}`;
         }
+        
+        // Yeni tarih için müsait saatleri güncelle
+        updateAvailableTimes();
       });
     });
     
@@ -385,9 +455,16 @@ const { id, title, subtitle, classes } = Astro.props;
       button.addEventListener('click', function(e) {
         e.preventDefault();
         
+        // Eğer bu slot dolu ise, seçim yapma
+        if (button.disabled) {
+          return;
+        }
+        
         timeButtons.forEach(btn => {
           btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
-          btn.classList.add('border-blue-200', 'dark:border-blue-800', 'text-blue-600', 'dark:text-blue-400');
+          if (!btn.disabled) {
+            btn.classList.add('border-blue-200', 'dark:border-blue-800', 'text-blue-600', 'dark:text-blue-400');
+          }
         });
         
         this.classList.remove('border-blue-200', 'dark:border-blue-800', 'text-blue-600', 'dark:text-blue-400');
@@ -396,6 +473,9 @@ const { id, title, subtitle, classes } = Astro.props;
         selectedTime = this.getAttribute('data-time');
       });
     });
+    
+    // Sayfa yüklendiğinde müsait saatleri göster
+    updateAvailableTimes();
     
     // Book Meeting butonu
     if (bookButton) {
@@ -427,6 +507,23 @@ const { id, title, subtitle, classes } = Astro.props;
           alert('Please enter a valid email address');
           return;
         }
+        
+        // Slot'un hala müsait olup olmadığını kontrol et
+        const dateKey = `${currentYear}-${currentMonth + 1}-${selectedDate}`;
+        if (isSlotBooked(dateKey, selectedTime)) {
+          alert('Sorry, this time slot has just been booked. Please select another time.');
+          updateAvailableTimes();
+          return;
+        }
+        
+        // Randevuyu kaydet
+        saveBooking(dateKey, selectedTime, {
+          firstName,
+          lastName,
+          email,
+          phone,
+          note
+        });
         
         // Modal içeriğini güncelle
         const date = new Date(currentYear, currentMonth, parseInt(selectedDate));
@@ -463,6 +560,9 @@ const { id, title, subtitle, classes } = Astro.props;
         // Email otomatik gönder (mailto link)
         window.location.href = `mailto:hello@miorasoft.com?subject=${subject}&body=${body}`;
         
+        // Müsait saatleri güncelle
+        updateAvailableTimes();
+        
         // Modal'ı göster
         if (modal) {
           modal.classList.remove('hidden');
@@ -484,6 +584,15 @@ const { id, title, subtitle, classes } = Astro.props;
           if (emailInput) emailInput.value = '';
           if (phoneInput) phoneInput.value = '';
           if (noteInput) noteInput.value = '';
+          
+          // Seçili zamanı sıfırla
+          selectedTime = null;
+          timeButtons.forEach(btn => {
+            if (!btn.disabled) {
+              btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
+              btn.classList.add('border-blue-200', 'dark:border-blue-800', 'text-blue-600', 'dark:text-blue-400');
+            }
+          });
         }
       });
     }
