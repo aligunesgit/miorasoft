@@ -177,6 +177,72 @@ const { id, title, subtitle, classes } = Astro.props;
   </div>
 </section>
 
+<!-- Modern Success Modal -->
+<div id="success-modal" class="hidden fixed inset-0 z-50 overflow-y-auto">
+  <!-- Backdrop -->
+  <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm transition-opacity"></div>
+  
+  <!-- Modal -->
+  <div class="flex min-h-full items-center justify-center p-4">
+    <div class="relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl max-w-md w-full p-8 transform transition-all">
+      <!-- Success Icon -->
+      <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 dark:bg-green-900 mb-4">
+        <svg class="h-10 w-10 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+      </div>
+      
+      <!-- Title -->
+      <h3 class="text-2xl font-bold text-center text-gray-900 dark:text-white mb-2">
+        Meeting Scheduled!
+      </h3>
+      
+      <!-- Description -->
+      <p class="text-center text-gray-600 dark:text-gray-400 mb-6">
+        Your discovery call has been reserved. We'll send you a confirmation email shortly.
+      </p>
+      
+      <!-- Meeting Details -->
+      <div class="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-slate-800 dark:to-slate-800 rounded-xl p-4 mb-6 space-y-3">
+        <div class="flex items-start">
+          <svg class="w-5 h-5 text-blue-600 dark:text-blue-400 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          <div>
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">Date & Time</p>
+            <p id="modal-datetime" class="text-sm text-gray-600 dark:text-gray-400">Thu, Sep 25, 2025 at 15:00</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start">
+          <svg class="w-5 h-5 text-purple-600 dark:text-purple-400 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+          </svg>
+          <div>
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">Platform</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Google Meets (30 minutes)</p>
+          </div>
+        </div>
+        
+        <div class="flex items-start">
+          <svg class="w-5 h-5 text-green-600 dark:text-green-400 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          <div>
+            <p class="text-sm font-semibold text-gray-900 dark:text-white">Contact</p>
+            <a href="mailto:hello@miorasoft.com" class="text-sm text-blue-600 dark:text-blue-400 hover:underline">hello@miorasoft.com</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Close Button -->
+      <button id="close-modal" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+        Got it, thanks!
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     let currentMonth = 8; // September (0-indexed)
@@ -191,32 +257,41 @@ const { id, title, subtitle, classes } = Astro.props;
     const monthYearDisplay = document.getElementById('month-year');
     const prevMonthBtn = document.getElementById('prev-month');
     const nextMonthBtn = document.getElementById('next-month');
+    const modal = document.getElementById('success-modal');
+    const closeModalBtn = document.getElementById('close-modal');
+    const modalDatetime = document.getElementById('modal-datetime');
     
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const monthNamesShort = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     
     // Ay değiştirme
-    prevMonthBtn.addEventListener('click', function() {
-      currentMonth--;
-      if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
-      }
-      updateMonthDisplay();
-    });
+    if (prevMonthBtn) {
+      prevMonthBtn.addEventListener('click', function() {
+        currentMonth--;
+        if (currentMonth < 0) {
+          currentMonth = 11;
+          currentYear--;
+        }
+        updateMonthDisplay();
+      });
+    }
     
-    nextMonthBtn.addEventListener('click', function() {
-      currentMonth++;
-      if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
-      }
-      updateMonthDisplay();
-    });
+    if (nextMonthBtn) {
+      nextMonthBtn.addEventListener('click', function() {
+        currentMonth++;
+        if (currentMonth > 11) {
+          currentMonth = 0;
+          currentYear++;
+        }
+        updateMonthDisplay();
+      });
+    }
     
     function updateMonthDisplay() {
-      monthYearDisplay.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+      if (monthYearDisplay) {
+        monthYearDisplay.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+      }
     }
     
     // Tarih seçimi
@@ -232,14 +307,16 @@ const { id, title, subtitle, classes } = Astro.props;
         this.classList.remove('text-gray-900', 'dark:text-white');
         this.classList.add('bg-blue-600', 'text-white', 'ring-2', 'ring-blue-500');
         
-        selectedDate = this.getAttribute('data-date');
+        selectedDate = this.getAttribute('data-date') || '25';
         
         // Tarihi güncelle
         const date = new Date(currentYear, currentMonth, parseInt(selectedDate));
         const dayName = dayNames[date.getDay()];
         const monthName = monthNamesShort[currentMonth];
         
-        dateDisplay.textContent = `${dayName}, ${monthName} ${selectedDate}, ${currentYear}`;
+        if (dateDisplay) {
+          dateDisplay.textContent = `${dayName}, ${monthName} ${selectedDate}, ${currentYear}`;
+        }
       });
     });
     
@@ -266,13 +343,44 @@ const { id, title, subtitle, classes } = Astro.props;
     if (bookButton) {
       bookButton.addEventListener('click', function() {
         if (!selectedDate || !selectedTime) {
-          alert('Lütfen tarih ve saat seçin!');
+          alert('Please select both date and time!');
           return;
         }
         
-        const monthName = monthNames[currentMonth];
+        // Modal içeriğini güncelle
+        const date = new Date(currentYear, currentMonth, parseInt(selectedDate));
+        const dayName = dayNames[date.getDay()];
+        const monthName = monthNamesShort[currentMonth];
         
-        alert(`✅ Randevu Detayları\n\nTarih: ${selectedDate} ${monthName} ${currentYear}\nSaat: ${selectedTime} (GMT+3 Istanbul)\nSüre: 30 dakika\nPlatform: Google Meets\n\nRezervasyonunuzu onaylamak için lütfen bizimle iletişime geçin:\n📧 ali.gunes@miorasoft.com`);
+        if (modalDatetime) {
+          modalDatetime.textContent = `${dayName}, ${monthName} ${selectedDate}, ${currentYear} at ${selectedTime} (GMT+3)`;
+        }
+        
+        // Modal'ı göster
+        if (modal) {
+          modal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    }
+    
+    // Modal'ı kapat
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', function() {
+        if (modal) {
+          modal.classList.add('hidden');
+          document.body.style.overflow = 'auto';
+        }
+      });
+    }
+    
+    // Modal dışına tıklanınca kapat
+    if (modal) {
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.add('hidden');
+          document.body.style.overflow = 'auto';
+        }
       });
     }
   });
