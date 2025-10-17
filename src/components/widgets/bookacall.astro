@@ -298,6 +298,22 @@ const { id, title, subtitle, classes } = Astro.props;
 </div>
 
 <script>
+  // Type definitions
+  interface BookingDetails {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+    note: string;
+  }
+
+  interface BookedSlot {
+    dateKey: string;
+    time: string;
+    details: BookingDetails;
+    timestamp: string;
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
     let currentMonth = 8; // September (0-indexed)
     let currentYear = 2025;
@@ -329,13 +345,13 @@ const { id, title, subtitle, classes } = Astro.props;
     const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     
     // LocalStorage'dan randevuları al
-    function getBookedSlots(): any[] {
+    function getBookedSlots(): BookedSlot[] {
       const bookedSlots = localStorage.getItem('bookedMeetings');
-      return bookedSlots ? JSON.parse(bookedSlots) : [];
+      return bookedSlots ? JSON.parse(bookedSlots) as BookedSlot[] : [];
     }
     
     // Randevu kaydet
-    function saveBooking(dateKey: string, time: string, details: any) {
+    function saveBooking(dateKey: string, time: string, details: BookingDetails): void {
       const bookedSlots = getBookedSlots();
       bookedSlots.push({
         dateKey,
@@ -349,11 +365,11 @@ const { id, title, subtitle, classes } = Astro.props;
     // Belirli bir tarih ve saat dolu mu kontrol et
     function isSlotBooked(dateKey: string, time: string): boolean {
       const bookedSlots = getBookedSlots();
-      return bookedSlots.some((slot: any) => slot.dateKey === dateKey && slot.time === time);
+      return bookedSlots.some((slot: BookedSlot) => slot.dateKey === dateKey && slot.time === time);
     }
     
     // Mevcut seçili tarih için dolu saatleri güncelle
-    function updateAvailableTimes() {
+    function updateAvailableTimes(): void {
       const dateKey = `${currentYear}-${currentMonth + 1}-${selectedDate}`;
       
       timeButtons.forEach(button => {
@@ -417,7 +433,7 @@ const { id, title, subtitle, classes } = Astro.props;
       });
     }
     
-    function updateMonthDisplay() {
+    function updateMonthDisplay(): void {
       if (monthYearDisplay) {
         monthYearDisplay.textContent = `${monthNames[currentMonth]} ${currentYear}`;
       }
@@ -477,9 +493,9 @@ const { id, title, subtitle, classes } = Astro.props;
     // Sayfa yüklendiğinde müsait saatleri göster
     updateAvailableTimes();
     
-    // Book Meeting butonu
+    // Book Meeting butonu - Web3Forms ile email gönderimi
     if (bookButton) {
-      bookButton.addEventListener('click', function(e) {
+      bookButton.addEventListener('click', async function(e) {
         e.preventDefault();
         
         // Form validasyonu
@@ -516,57 +532,89 @@ const { id, title, subtitle, classes } = Astro.props;
           return;
         }
         
-        // Randevuyu kaydet
-        saveBooking(dateKey, selectedTime, {
-          firstName,
-          lastName,
-          email,
-          phone,
-          note
-        });
-        
-        // Modal içeriğini güncelle
+        // Tarih formatı
         const date = new Date(currentYear, currentMonth, parseInt(selectedDate));
         const dayName = dayNames[date.getDay()];
         const monthName = monthNamesShort[currentMonth];
+        const fullDate = `${dayName}, ${monthName} ${selectedDate}, ${currentYear}`;
         
-        if (modalDatetime) {
-          modalDatetime.textContent = `${dayName}, ${monthName} ${selectedDate}, ${currentYear} at ${selectedTime} (GMT+3)`;
-        }
+        // Loading state - butonu disable et
+        bookButton.disabled = true;
+        bookButton.textContent = 'Sending...';
         
-        if (modalName) {
-          modalName.textContent = `${firstName} ${lastName}`;
-        }
-        
-        if (modalEmail) {
-          modalEmail.textContent = email;
-        }
-        
-        // Email gönder (mailto kullanarak)
-        const subject = encodeURIComponent(`New Meeting Request - ${firstName} ${lastName}`);
-        const body = encodeURIComponent(
-          `New Meeting Booking Request\n\n` +
-          `Name: ${firstName} ${lastName}\n` +
-          `Email: ${email}\n` +
-          `Phone: ${phone}\n` +
-          `Date: ${dayName}, ${monthName} ${selectedDate}, ${currentYear}\n` +
-          `Time: ${selectedTime} (GMT+3)\n` +
-          `Duration: 30 minutes\n` +
-          `Platform: Google Meets\n\n` +
-          `${note ? `Note: ${note}\n\n` : ''}` +
-          `Please confirm this meeting request.`
-        );
-        
-        // Email otomatik gönder (mailto link)
-        window.location.href = `mailto:hello@miorasoft.com?subject=${subject}&body=${body}`;
-        
-        // Müsait saatleri güncelle
-        updateAvailableTimes();
-        
-        // Modal'ı göster
-        if (modal) {
-          modal.classList.remove('hidden');
-          document.body.style.overflow = 'hidden';
+        try {
+          // Web3Forms'a email gönder
+          const formData = new FormData();
+          formData.append('access_key', 'sjsz92gjb52782');
+          formData.append('subject', `🗓️ New Meeting Request - ${firstName} ${lastName}`);
+          formData.append('from_name', `${firstName} ${lastName}`);
+          formData.append('reply_to', email);
+          formData.append('name', `${firstName} ${lastName}`);
+          formData.append('email', email);
+          formData.append('phone', phone);
+          formData.append('meeting_date', fullDate);
+          formData.append('meeting_time', `${selectedTime} (GMT+3)`);
+          formData.append('note', note || 'No additional notes');
+          formData.append('message', 
+            `📅 NEW MEETING BOOKING REQUEST\n\n` +
+            `👤 Contact Information:\n` +
+            `Name: ${firstName} ${lastName}\n` +
+            `Email: ${email}\n` +
+            `Phone: ${phone}\n\n` +
+            `📆 Meeting Details:\n` +
+            `Date: ${fullDate}\n` +
+            `Time: ${selectedTime} (GMT+3 Istanbul)\n` +
+            `Duration: 30 minutes\n` +
+            `Platform: Google Meets\n\n` +
+            `${note ? `📝 Additional Notes:\n${note}\n\n` : ''}` +
+            `---\n` +
+            `This is an automated booking request from miorasoft.com`
+          );
+          
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+          });
+          
+          const result = await response.json() as { success: boolean; message?: string };
+          
+          if (result.success) {
+            // Randevuyu kaydet
+            saveBooking(dateKey, selectedTime, {
+              firstName,
+              lastName,
+              email,
+              phone,
+              note
+            });
+            
+            // Modal içeriğini güncelle ve göster
+            if (modalDatetime) {
+              modalDatetime.textContent = `${fullDate} at ${selectedTime} (GMT+3)`;
+            }
+            if (modalName) {
+              modalName.textContent = `${firstName} ${lastName}`;
+            }
+            if (modalEmail) {
+              modalEmail.textContent = email;
+            }
+            
+            updateAvailableTimes();
+            
+            if (modal) {
+              modal.classList.remove('hidden');
+              document.body.style.overflow = 'hidden';
+            }
+          } else {
+            throw new Error(result.message || 'Failed to send email');
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          alert('❌ Booking failed. Please try again or contact us directly at hello@miorasoft.com');
+        } finally {
+          // Butonu tekrar aktif et
+          bookButton.disabled = false;
+          bookButton.textContent = 'Book Meeting';
         }
       });
     }
