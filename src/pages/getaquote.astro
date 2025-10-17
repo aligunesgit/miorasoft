@@ -6,24 +6,20 @@ import Features2 from '~/components/widgets/Features2.astro';
 import BookingWidget from '~/components/widgets/bookacall.astro';
 
 const metadata = {
-  title: 'Contact',
+  title: 'Get A Quote - MIORA',
+  description: 'Schedule a free consultation with our Shopify experts and transform your e-commerce vision into reality.',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
-
-  <!-- YENİ BOOKING WIDGET -->
+  <!-- BOOKING WIDGET -->
   <BookingWidget
     id="book-call"
     title="Schedule Your Discovery Call"
     subtitle="Ready to transform your Shopify store? Book a free 30-minute consultation with our experts and discover how we can accelerate your growth."
   />
 
-
-
   <!-- Features2 Widget ************** -->
-
   <Features2
     title="We are here to help!"
     items={[
@@ -48,7 +44,7 @@ const metadata = {
       },
       {
         title: 'Email',
-        description: 'contact@miorasoft.com',
+        description: 'hello@miorasoft.com',
         icon: 'tabler:mail',
       },
       {
