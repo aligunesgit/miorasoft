@@ -15,7 +15,7 @@ const METADATA = {
     type: 'website',
     images: [
       {
-        url: '/images/og-image.png',
+        url: 'https://miorasoft.com/images/og-image.png',
         width: 1200,
         height: 630,
         alt: 'MIORA - Professional Shopify Development & Migration Services'
@@ -31,7 +31,6 @@ const METADATA = {
 const I18N = { language: 'en' };
 
 import type { MetaData } from '~/types';
-import { adaptOpenGraphImages } from '~/utils/images';
 
 // getCanonical fonksiyonu - Production URL
 const getCanonical = (path: string) => {
@@ -100,4 +99,16 @@ const seoProps: AstroSeoProps = merge(
 );
 ---
 
-<AstroSeo {...{ ...seoProps, openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site) }} />
+<AstroSeo {...seoProps} />
+```
+
+## 📂 Dosya Yapısı
+```
+miorasoft/
+├── public/
+│   └── images/
+│       └── og-image.png  👈 1200x630 piksel PNG dosyası buraya
+└── src/
+    └── components/
+        └── common/
+            └── Metadata.astro  👈 Yukarıdaki kod buraya
