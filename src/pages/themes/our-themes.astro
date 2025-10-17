@@ -8,6 +8,9 @@ import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 
+// ✅ Görseli import edin
+import maizaPresets from '~/assets/images/themes/maiza-presets.png';
+
 const metadata = {
   title: 'MAIZA - Premium Shopify Theme for Jewelry Stores',
   description: 'Breathtaking Shopify theme designed specifically for luxury jewelry brands. Features 3 stunning presets, advanced customization, and lifetime updates.',
@@ -130,24 +133,31 @@ const metadata = {
     ]}
   />
 
-  <!-- Presets -->
+  <!-- Presets Section -->
   <Content
     id="presets"
     title="3 Ready-Made Designs"
     subtitle="MAIZA comes with 3 stunning presets for your jewelry store"
     isReversed
+    image={{
+      src: maizaPresets,
+      alt: 'MAIZA Theme - Elegant, Modern, and Classic Presets',
+    }}
     items={[
       {
-        title: 'Elegant Preset',
+        title: '💎 Elegant Preset',
         description: 'Classic sophistication with soft colors, serif typography, and timeless layouts. Perfect for traditional luxury jewelers and heritage brands.',
+        icon: 'tabler:diamond',
       },
       {
-        title: 'Modern Preset',
+        title: '✨ Modern Preset',
         description: 'Bold, contemporary design with striking visuals, sans-serif fonts, and dynamic layouts. Ideal for fashion-forward jewelry brands.',
+        icon: 'tabler:sparkles',
       },
       {
-        title: 'Classic Preset',
+        title: '🏆 Classic Preset',
         description: 'Refined and minimalist with clean lines, ample whitespace, and focus on products. Best for high-end boutique jewelry stores.',
+        icon: 'tabler:crown',
       },
     ]}
   >
@@ -155,7 +165,11 @@ const metadata = {
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
         Choose Your Style
       </h3>
-      Switch between presets instantly. Customize every detail to match your brand identity.
+      Switch between presets instantly. Customize every detail to match your brand identity. Each preset is fully customizable while maintaining its unique character.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
 

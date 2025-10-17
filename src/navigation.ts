@@ -44,7 +44,7 @@ export const headerData = {
     },
      {
       text: 'Our Shopify Themes',
-      href: getPermalink(),
+      href: getPermalink('/themes/our-themes'),
     },
     
      {
