@@ -48,7 +48,18 @@ const canonicalURL = metadata.canonical || new URL(Astro.url.pathname, Astro.sit
     <ClientRouter fallback="swap" />
   </head>
   <body class="antialiased text-default bg-page tracking-tight">
-    <slot />
-    <BasicScripts />
+   <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe 
+      src="https://www.googletagmanager.com/ns.html?id=GTM-PP66PNB5"
+      height="0" 
+      width="0" 
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+  <slot />
+  <BasicScripts />
   </body>
 </html>
