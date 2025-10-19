@@ -5,86 +5,174 @@ import { getLangFromUrl } from '~/i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const currentPath = Astro.url.pathname;
 
-// Generate alternate URL
-function getAlternateUrl(targetLang: string) {
+const pathTranslations = {
+  'about': 'hakkimizda',
+  'services': 'hizmetler',
+  'portfolio': 'portfolyo',
+  'contact': 'iletisim',
+  'getaquote': 'teklif-al',
+  'jewelry': 'mucevher',
+  'printondemand': 'baski-talebi',
+  'textile': 'tekstil',
+};
+
+function getAlternateUrl(targetLang) {
+  if (lang === targetLang) return currentPath;
+  
   if (lang === 'en' && targetLang === 'tr') {
-    // English to Turkish: add /tr prefix
-    return `/tr${currentPath}`;
-  } else if (lang === 'tr' && targetLang === 'en') {
-    // Turkish to English: remove /tr prefix
-    return currentPath.replace(/^\/tr/, '') || '/';
+    if (currentPath === '/') return '/tr';
+    const pathWithoutSlash = currentPath.replace(/^\//, '');
+    const translatedPath = pathTranslations[pathWithoutSlash] || pathWithoutSlash;
+    return '/tr/' + translatedPath;
   }
+  
+  if (lang === 'tr' && targetLang === 'en') {
+    if (currentPath === '/tr' || currentPath === '/tr/') return '/';
+    const pathWithoutTr = currentPath.replace(/^\/tr\/?/, '');
+    let englishPath = pathWithoutTr;
+    for (const [en, tr] of Object.entries(pathTranslations)) {
+      if (pathWithoutTr === tr) {
+        englishPath = en;
+        break;
+      }
+    }
+    return '/' + englishPath;
+  }
+  
   return currentPath;
 }
+
+const langCodes = {
+  en: 'EN',
+  tr: 'TR',
+};
 ---
 
-<div class="language-switcher">
-  <div class="relative inline-block text-left">
-    <button 
-      type="button" 
-      class="inline-flex items-center justify-center w-full rounded-md border border-gray-300 dark:border-gray-700 shadow-sm px-4 py-2 bg-white dark:bg-slate-800 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-      id="language-menu-button"
-      aria-expanded="false"
-      aria-haspopup="true"
-    >
-      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-      </svg>
-      {languages[lang]}
-      <svg class="ml-2 -mr-1 h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-      </svg>
-    </button>
+<div class="lang-switcher">
+  <button type="button" class="lang-btn">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+    </svg>
+    <span>{langCodes[lang]}</span>
+    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+    </svg>
+  </button>
 
-    <div 
-      class="language-dropdown hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-slate-800 ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
-      role="menu"
-      aria-orientation="vertical"
-      aria-labelledby="language-menu-button"
-    >
-      <div class="py-1" role="none">
-        {Object.entries(languages).map(([code, name]) => (
-          <a
-            href={getAlternateUrl(code)}
-            class={`block px-4 py-2 text-sm ${
-              lang === code 
-                ? 'bg-gray-100 dark:bg-slate-700 text-gray-900 dark:text-white font-semibold' 
-                : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
-            }`}
-            role="menuitem"
-          >
-            {name}
-          </a>
-        ))}
-      </div>
-    </div>
+  <div class="lang-dropdown">
+    {Object.entries(languages).map(([code, name]) => {
+      const isActive = lang === code;
+      return (
+        <a
+          href={getAlternateUrl(code)}
+          class={isActive ? 'active' : ''}
+        >
+          {name}
+        </a>
+      );
+    })}
   </div>
 </div>
 
-<script>
-  // Toggle dropdown
-  const button = document.getElementById('language-menu-button');
-  const dropdown = document.querySelector('.language-dropdown');
-
-  if (button && dropdown) {
-    button.addEventListener('click', () => {
-      const isHidden = dropdown.classList.contains('hidden');
-      dropdown.classList.toggle('hidden', !isHidden);
-      button.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (event) => {
-      if (!button.contains(event.target as Node) && !dropdown.contains(event.target as Node)) {
-        dropdown.classList.add('hidden');
-        button.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
-</script>
-
 <style>
-  .language-switcher {
+  .lang-switcher {
+    position: relative;
     display: inline-block;
+  }
+
+  .lang-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgb(55, 65, 81);
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .lang-btn:hover {
+    color: rgb(17, 24, 39);
+  }
+
+  :global(.dark) .lang-btn {
+    color: rgb(209, 213, 219);
+  }
+
+  :global(.dark) .lang-btn:hover {
+    color: rgb(255, 255, 255);
+  }
+
+  .lang-dropdown {
+    position: absolute;
+    right: 0;
+    margin-top: 0.5rem;
+    width: 8rem;
+    border-radius: 0.375rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    z-index: 50;
+    
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease-in-out;
+  }
+
+  /* Show on hover */
+  .lang-switcher:hover .lang-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  :global(.dark) .lang-dropdown {
+    background-color: rgb(30, 41, 59);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .lang-dropdown a {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    color: rgb(55, 65, 81);
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+
+  .lang-dropdown a:first-child {
+    border-radius: 0.375rem 0.375rem 0 0;
+  }
+
+  .lang-dropdown a:last-child {
+    border-radius: 0 0 0.375rem 0.375rem;
+  }
+
+  .lang-dropdown a:hover {
+    background-color: rgb(249, 250, 251);
+  }
+
+  .lang-dropdown a.active {
+    background-color: rgb(243, 244, 246);
+    color: rgb(17, 24, 39);
+    font-weight: 600;
+  }
+
+  :global(.dark) .lang-dropdown a {
+    color: rgb(209, 213, 219);
+  }
+
+  :global(.dark) .lang-dropdown a:hover {
+    background-color: rgb(51, 65, 85);
+  }
+
+  :global(.dark) .lang-dropdown a.active {
+    background-color: rgb(51, 65, 85);
+    color: rgb(255, 255, 255);
   }
 </style>

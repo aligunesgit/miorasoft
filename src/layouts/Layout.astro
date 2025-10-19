@@ -11,8 +11,12 @@ import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
 import StructuredData from '~/components/common/StructuredData.astro';
 import PerformanceOptimizations from '~/components/common/PerformanceOptimizations.astro';
+import LanguageDetector from '~/components/common/Languagedetector.astro'; // BU SATIRI EKLEYİN
 import { ClientRouter } from 'astro:transitions';
 import type { MetaData as MetaDataType } from '~/types';
+
+
+
 
 export interface Props {
   metadata?: MetaDataType;
@@ -32,9 +36,10 @@ const canonicalURL = metadata.canonical || new URL(Astro.url.pathname, Astro.sit
     <Favicons />
     <CustomStyles />
     <ApplyColorMode />
+    <LanguageDetector />
     <PerformanceOptimizations />
-    <Metadata {...metadata} />
-    
+  <Metadata {...metadata} />  <!-- BU SATIR EKSİKSE EKLEYİN -->
+  
     <!-- Canonical URL - SEO için kritik -->
     <link rel="canonical" href={canonicalURL} />
     

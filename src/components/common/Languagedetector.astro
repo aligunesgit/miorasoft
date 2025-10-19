@@ -1,0 +1,46 @@
+---
+// Automatic language detection based on browser settings
+---
+
+<script is:inline>
+  (function() {
+    // Check if user already has a language preference
+    const langCookie = document.cookie.split('; ').find(row => row.startsWith('preferred-lang='));
+    const hasLangPreference = !!langCookie;
+    
+    // Get current path and language
+    const currentPath = window.location.pathname;
+    const currentLang = currentPath.startsWith('/tr') ? 'tr' : 'en';
+    
+    // If user already made a manual choice, respect it
+    if (hasLangPreference) {
+      const preferredLang = langCookie.split('=')[1];
+      
+      // Only redirect if current page doesn't match preference
+      if (preferredLang === 'tr' && currentLang === 'en') {
+        // Add /tr prefix
+        const newPath = currentPath === '/' ? '/tr' : '/tr' + currentPath;
+        window.location.href = newPath;
+      } else if (preferredLang === 'en' && currentLang === 'tr') {
+        // Remove /tr prefix
+        const newPath = currentPath.replace(/^\/tr/, '') || '/';
+        window.location.href = newPath;
+      }
+      return;
+    }
+    
+    // First visit - detect browser language
+    const browserLang = navigator.language || navigator.userLanguage;
+    const isTurkish = browserLang.toLowerCase().startsWith('tr');
+    
+    // Set cookie for future visits (1 year)
+    const expires = new Date();
+    expires.setFullYear(expires.getFullYear() + 1);
+    document.cookie = `preferred-lang=${isTurkish ? 'tr' : 'en'}; path=/; expires=${expires.toUTCString()}`;
+    
+    // Only redirect on first visit if browser is Turkish
+    if (isTurkish && currentLang === 'en' && currentPath === '/') {
+      window.location.href = '/tr';
+    }
+  })();
+</script>
