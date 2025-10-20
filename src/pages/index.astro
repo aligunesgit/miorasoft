@@ -30,75 +30,72 @@ const metadata = {
   <!-- Hero Widget ******************* -->
   <Hero
     actions={[
-      { text: 'See How', href: '#features' },
+      { text: t('home.hero.cta'), href: '#features' },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
+    image={{ src: '~/assets/images/hero-image.png', alt: 'MIORA Shopify Development' }}
   >
     <Fragment slot="title">
-     Shopify Development Agency
+      {t('home.hero.title')}
     </Fragment>
 
     <Fragment slot="subtitle">
-      Harnessing AI-driven strategies, we empower hundreds of Shopify & Shopify Plus merchants with cutting-edge design and development success from solopreneurs to enterprise leaders worldwide
+      {t('home.hero.subtitle')}
     </Fragment>
   </Hero>
 
   <!-- Stats Widget ****************** -->
   <Stats
     stats={[
-      { title: 'Empowering Clients to Sell Online', amount: '15+ YEARS' },
-      { title: 'Stores Crafted', amount: '300+' },
-      { title: 'Revenue Impact', amount: 'MILLION $' },
-      { title: 'E-commerce Solutions', amount: 'ALL-IN-ONE' }
+      { title: t('home.stats.clients'), amount: '15+ YEARS' },
+      { title: t('home.stats.stores'), amount: '300+' },
+      { title: t('home.stats.revenue'), amount: 'MILLION' },
+      { title: t('home.stats.solutions'), amount: 'ALL-IN-ONE' }
     ]}
   />
-<PartnersAndTech />
+
+  <PartnersAndTech />
+
   <!-- Features Widget *************** -->
   <Features
     id="features"
-    tagline="Features"
-    title="Our Wide Range of Shopify Development Services"
-    subtitle="Ready to design, develop, or scale on Shopify? We've got the solution you need."
+    tagline={t('home.features.tagline')}
+    title={t('home.features.title')}
+    subtitle={t('home.features.subtitle')}
     items={[
       {
-        title: 'Custom Shopify Development',
-        description:
-          'Any functionality your store needs, our Shopify developers can build it. From custom templates, product builders, VAT solutions, and multi-currency checkouts to bespoke feeds and upsells, we can code it all. Over the years, our expertise has powered thousands of stores worldwide and generated hundreds of millions in sales. From calculators and dynamic upsells to real-time API integrations and inventory sync—whatever you imagine, we have already built it.',
+        title: t('home.feature.custom.title'),
+        description: t('home.feature.custom.desc'),
         icon: 'tabler:brand-tailwind',
       },
       {
-        title: 'Custom Shopify Theme Development',
-        description:
-          'Bespoke Shopify builds for ambitious retailers who demand more. Pixel-perfect themes, custom templates, and unique apps designed exclusively for your brand. Off-the-Helf solutions may work for small merchants, but big brands need ecommerce experiences built from the ground up. We specialize in crafting 100% unique Shopify stores and apps tailored to your business and customers.',
+        title: t('home.feature.theme.title'),
+        description: t('home.feature.theme.desc'),
         icon: 'tabler:components',
       },
       {
-        title: 'Migration to Shopify',
+        title: t('home.feature.migration.title'),
         description:
-          'We carefully plan the entire migration process to help you avoid unnecessary stress and speed up the launch of your Shopify store.<br />' +
-          '• WooCommerce to Shopify Migration<br />' +
-          '• Magento to Shopify Migration<br />' +
-          '• BigCommerce to Shopify Migration<br />' +
-          '• Shopware to Shopify Migration<br />' +
-          '• WordPress to Shopify migration',
+          t('home.feature.migration.desc') + '<br />' +
+          '• ' + t('home.feature.migration.woo') + '<br />' +
+          '• ' + t('home.feature.migration.magento') + '<br />' +
+          '• ' + t('home.feature.migration.bigcommerce') + '<br />' +
+          '• ' + t('home.feature.migration.shopware') + '<br />' +
+          '• ' + t('home.feature.migration.wordpress'),
         icon: 'tabler:list-check',
       },
       {
-        title: 'AI Development & Integration',
-        description:
-          'Our AI integration and development services deliver intelligent, future-ready solutions for your business. From Generative AI and OpenAI-powered workflows to custom chatbots and Whisper integration, we uncover where AI can add the most value. We design, test, and implement advanced systems that streamline processes, enhance customer experiences, and unlock growth — with expert guidance and a clear roadmap to keep you ahead.',
+        title: t('home.feature.ai.title'),
+        description: t('home.feature.ai.desc'),
         icon: 'tabler:rocket',
       },
       {
-        title: 'Shopify Speed & Performance Optimization',
-        description:
-          "We optimize your Shopify store by refining theme code, compressing assets, implementing lazy loading, and minimizing third-party script bloat. Our process improves Core Web Vitals, reduces page load times, and enhances server response for a smoother user experience. With advanced caching, image optimization, and responsive adjustments, we ensure your store operates efficiently across all devices—resulting in higher engagement, stronger SEO performance, and improved conversion rates.",
+        title: t('home.feature.speed.title'),
+        description: t('home.feature.speed.desc'),
         icon: 'tabler:arrows-right-left',
       },
       {
-        title: 'Shopify Consulting',
-        description:
-          'Our Shopify consulting services are based on a 360° service model that combines marketing, content, and social media disciplines under one roof. We connect you directly with the industrys most competent experts without charging any commission, providing impeccable professionalism throughout the strategy, design, integration, and growth phases of your project. Our goal is to strengthen your brands digital storefront and sustainably increase your sales performance; we are here for you every step of the way.',
+        title: t('home.feature.consulting.title'),
+        description: t('home.feature.consulting.desc'),
         icon: 'tabler:bulb',
       },
     ]}
@@ -107,23 +104,20 @@ const metadata = {
   <!-- Content Widget **************** -->
   <Content
     isReversed
-    tagline="Shopify Experts"
-    title="We create faster, stronger, and higher-selling Shopify stores."
+    tagline={t('home.content.tagline')}
+    title={t('home.content.title')}
     items={[
       {
-        title: 'Seamless E-Commerce, Stronger Brands',
-        description:
-          'We develop e-commerce solutions for brands losing time to technical problems. We know how frustrating slow-loading pages, broken mobile layouts, and complicated checkout processes can be. These arent just technical glitches — they damage your brand perception and drive your customers straight to competitors',
+        title: t('home.content.item1.title'),
+        description: t('home.content.item1.desc'),
       },
       {
-        title: 'Better Design. Faster Speed. Stronger Store',
-        description:
-          'We analyze your stores current state, create a tailored improvement plan, and elevate your sites design, speed, and functionality to stand out in your industry. With the right infrastructure and professional support, you can deliver the superior experience your visitors truly deserve.',
+        title: t('home.content.item2.title'),
+        description: t('home.content.item2.desc'),
       },
       {
-        title: 'Your Trusted Shopify Agency',
-        description:
-          'At MIORA, we go beyond basic store setups — we become your long-term Shopify partner. From custom design and performance optimization to seamless integrations, our team ensures your store runs faster, smoother, and smarter. With proven expertise and a results-driven approach, we help brands unlock growth and deliver outstanding shopping experiences. Trust us to turn your Shopify store into your strongest business asset',
+        title: t('home.content.item3.title'),
+        description: t('home.content.item3.desc'),
       },
     ]}
     image={{
@@ -132,8 +126,10 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Choose Shopify development services for your business</h3>
-      Focus on your business. Let our experts handle the hard part.
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        {t('home.content.heading')}
+      </h3>
+      {t('home.content.subheading')}
     </Fragment>
 
     <Fragment slot="bg">
@@ -141,59 +137,55 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- Features2 Widget **************** -->
+  <!-- Features2 Widget - Industries **************** -->
   <Features2
-    title="Discover The Major Industries We Specialize In"
-    subtitle="Some of the key industries where we've delivered impactful projects"
-    tagline="MIORA"
+    title={t('home.industries.title')}
+    subtitle={t('home.industries.subtitle')}
+    tagline={t('home.industries.tagline')}
     items={[
       {
-        title: 'Retail Industry',
-        description: "Retail businesses make up 13% of all Shopify stores, ranking among the top industries on the platform. By investing in professional eCommerce design, you can create a fully customized Shopify store built specifically for the retail sector. Regardless of your companys size or turnover, a well-crafted online store will always serve as a powerful asset.",
+        title: t('home.industry.retail.title'),
+        description: t('home.industry.retail.desc'),
         icon: 'tabler:shopping-cart',
       },
       {
-        title: 'Apparel and Fashion',
-        description:
-          "Shopify empowers you to create a clothing brand from scratch with a fully integrated eCommerce solution. Sell premium apparel using cutting-edge features and benefit from expert customer support designed to help your brand grow.",
+        title: t('home.industry.apparel.title'),
+        description: t('home.industry.apparel.desc'),
         icon: 'tabler:hanger',
       },
       {
-        title: 'Leather Accessories',
-        description:
-          'From belts to wallets, manage your entire leather accessories line seamlessly with Shopify. Track sales, organize inventory, and grow your brand by bringing your business online.',
+        title: t('home.industry.leather.title'),
+        description: t('home.industry.leather.desc'),
         icon: 'tabler:briefcase',
       },
       {
-        title: 'Jewellery',
-        description: "Manage your silver and gold jewellery collections from mens rings and chains to womens necklaces and earrings all in one Shopify store. Track sales, organize inventory, and grow your jewellery brand online. With Shopifys powerful tools and dedicated support, scaling your silver and gold jewellery business has never been easier.",
+        title: t('home.industry.jewelry.title'),
+        description: t('home.industry.jewelry.desc'),
         icon: 'tabler:diamond',
       },
       {
-        title: 'Industrial & Specialty Products',
-        description:
-          'Sell and manage a wide range of industrial and specialty products — from glue and bio ethanol to mold release agents, PU foam sprays, threadlockers, and balloon shine sprays — all within one Shopify store. Keep track of your sales, business data, and inventory seamlessly. With Shopifys powerful eCommerce tools and dedicated support, scaling your specialty products business online has never been easier.',
+        title: t('home.industry.industrial.title'),
+        description: t('home.industry.industrial.desc'),
         icon: 'tabler:tools',
       },
       {
-        title: 'Print on Demand',
-        description: 'Start and scale your Print on Demand business with Shopify. From custom T-shirts and hoodies to mugs, phone cases, and more, manage your entire catalogue in one place. With automated order fulfillment, sales tracking, and dedicated support, Shopify makes it simple to grow your POD brand online.',
+        title: t('home.industry.pod.title'),
+        description: t('home.industry.pod.desc'),
         icon: 'tabler:printer',
       },
       {
-        title: 'Sportswear',
-        description: 'Build and scale your sportswear & textile brand with Shopify. From performance T-shirts and leggings to jackets and gym accessories, manage your entire product line, sales data, and inventory in one place. Take your sportswear business online and grow with Shopifys powerful tools.',
+        title: t('home.industry.sportswear.title'),
+        description: t('home.industry.sportswear.desc'),
         icon: 'tabler:run',
       },
       {
-        title: 'Carpets & Rugs',
-        description:
-          'Showcase and sell your carpets and rugs online with a custom Shopify store. Manage your inventory, track sales, and display every design — from traditional handwoven rugs to modern carpets — all in one place. With Shopifys tools and support, scaling your home décor business is easier than ever.',
+        title: t('home.industry.carpets.title'),
+        description: t('home.industry.carpets.desc'),
         icon: 'tabler:sofa',
       },
       {
-        title: 'Pharmacy & Cosmetics',
-        description: "Sell and manage your supplements and cosmetics with Shopify. From vitamins and wellness products to skincare and beauty essentials, keep track of your inventory, sales, and customer data in one powerful platform. Scale your health & beauty brand online with ease.",
+        title: t('home.industry.pharmacy.title'),
+        description: t('home.industry.pharmacy.desc'),
         icon: 'tabler:pills',
       },
     ]}
@@ -205,14 +197,14 @@ const metadata = {
 
   <!-- BlogLatestPosts Widget ******* -->
   <BlogLatestPosts
-    title="Find out more content in our Blog"
+    title={t('home.blog.title')}
     information={``}
   />
 
   <!-- Testimonials Widget ******************* -->
   <Testimonials
-    title="Client testimonials"
-    subtitle="Discover what clients have to say about their experiences working with MIORA team."
+    title={t('home.testimonials.title')}
+    subtitle={t('home.testimonials.subtitle')}
     testimonials={[
       {
         testimonial: `MIORA team transformed our outdated Shopify store into a high-performing e-commerce platform. Their custom theme development perfectly aligned with our brand vision, and the attention to detail in every aspect was exceptional. Our conversion rate increased by 35% within the first month!`,
@@ -274,50 +266,43 @@ const metadata = {
   <!-- BookingWidget ******************* -->
   <BookingWidget
     id="book-call"
-    title="Schedule Your Discovery Call"
-    subtitle="Ready to transform your Shopify store? Book a free 30-minute consultation with our experts and discover how we can accelerate your growth."
+    title={t('home.booking.title')}
+    subtitle={t('home.booking.subtitle')}
   />
 
   <!-- FAQs Widget ******************* -->
   <FAQs
-    title="Frequently Asked Questions"
-    tagline="FAQs"
+    title={t('home.faqs.title')}
+    tagline={t('home.faqs.tagline')}
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
-        title: 'Is Shopify Secure?',
-        description:
-          "Shopify is one of the world's most secure e-commerce platforms when it comes to server and transaction safety. Constantly improving itself, Shopify guarantees that your online store runs smoothly without interruptions. With its robust infrastructure, it provides solutions to any potential issues.As a fully operational system, it allows you to manage all processes easily from a single dashboard. Your data is never shared with third parties without your explicit permission. For payments, Shopify offers globally recognized and trusted methods, ensuring a smooth and reliable checkout process. For the security of your store, the only thing you need to do is protect your Shopify Admin password — and never share it with anyone.",
+        title: t('home.faq1.q'),
+        description: t('home.faq1.a'),
       },
       {
-        title: 'Why should I choose Shopify for my e-commerce business?',
-        description:
-          'Shopify is a global leader in e-commerce, offering a secure, scalable, and user-friendly platform. It provides everything you need to run your store — from hosting and payment gateways to apps and integrations — all in one place.',
+        title: t('home.faq2.q'),
+        description: t('home.faq2.a'),
       },
       {
-        title: 'Do you provide ongoing support after the store launch?',
-        description:
-          " Absolutely. We offer continuous support and maintenance packages, including updates, troubleshooting, performance monitoring, and adding new features as your business grows.",
+        title: t('home.faq3.q'),
+        description: t('home.faq3.a'),
       },
       {
-        title: "What Is the Difference Between Shopify and Shopify Plus?",
-        description:
-          "Shopify is an ecommerce platform to grow and manage your business, whereas Shopify Plus is an enterprise ecommerce software system exclusively crafted for brands and merchants with higher annual revenue",
+        title: t('home.faq4.q'),
+        description: t('home.faq4.a'),
       },
       {
-        title: "Is Shopify suitable for dropshipping?",
-        description:
-          "Yes! Shopify is one of the best platforms for dropshipping. It allows you to easily connect with suppliers through apps like Oberlo, DSers, or Spocket and automatically sync products, inventory, and orders. With Shopify's secure payment systems, customizable storefronts, and scalable features, you can launch and grow a dropshipping business without managing physical inventory.",
+        title: t('home.faq5.q'),
+        description: t('home.faq5.a'),
       },
-       {
-        title: "Which Shopify plan should I choose?",
-        description:
-          'When starting with Shopify, the first step is to select the plan that best suits your business needs. The main options are : Basic Shopify – A cost-effective entry package, perfect for those just starting their e-commerce journey. Shopify (Standard) – Ideal for growing businesses, offering professional reports and additional features. Advanced Shopify – Best for larger businesses, with lower transaction fees, advanced reporting, and shipping rate calculations. In addition, there is Shopify Lite, a limited plan without domain support, and Shopify Plus, designed for enterprise-level companies with advanced needs.',
+      {
+        title: t('home.faq6.q'),
+        description: t('home.faq6.a'),
       },
-       {
-        title: "How can I accept payments on my Shopify store?",
-        description:
-          'You can receive payments on Shopify in two main ways: Integrated Payment Systems – These cover credit card transactions, with payments automatically processed into your account. Reliable providers you can integrate with Shopify include Iyzico, PayU Virtual POS, and Garanti Virtual POS. Manual Payment Methods – For customers who prefer not to use credit cards, you can offer alternatives such as cash on delivery, bank transfers, or wire transfers. With Shopifys robust infrastructure, your payment processes run smoothly, and all transactions can be managed directly from your stores admin.',
+      {
+        title: t('home.faq7.q'),
+        description: t('home.faq7.a'),
       },
     ]}
   />

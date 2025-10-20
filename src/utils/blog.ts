@@ -34,6 +34,7 @@ const generatePermalink = async ({
     .replace('%second%', second);
 
 return '/' + permalink
+
   .split('/')
   .map((el) => trimSlash(el))
   .filter((el) => !!el)

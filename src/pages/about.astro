@@ -2,100 +2,91 @@
 import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const metadata = {
-  title: 'About us',
+  title: t('about.title'),
 };
 ---
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
-
   <Hero
     image={{
       src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
+      alt: 'About MIORA',
     }}
   >
     <Fragment slot="title">
-      MIORA SOFT<br />
+      {t('about.hero.title')}<br />
     </Fragment>
 
     <Fragment slot="subtitle">
-      We are a USA-based team specializing in Shopify solutions. With years of experience, we bring fast, reliable, and tailored expertise to your business—whether it’s auditing your store, identifying issues, or implementing seamless fixes. Our approach is rooted in Shopify’s latest documentation and best practices, ensuring your store is configured for long-term stability, performance, and compliance. More than just a solutions partner, we aim to be a trusted friend on your e-commerce journey—supporting your growth every step of the way.
+      {t('about.hero.subtitle')}
     </Fragment>
   </Hero>
 
-
+  <!-- Features3 Widget - First Row ************** -->
   <Features3
     subtitle=""
     columns={3}
     isBeforeContent={true}
     items={[
       {
-        title: 'Shopify Development',
-        description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
+        title: t('about.service.shopify'),
+        description: t('about.service.shopify.desc'),
         icon: 'tabler:template',
       },
       {
-        title: 'Shopify Plus Development',
-        description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
+        title: t('about.service.plus'),
+        description: t('about.service.plus.desc'),
         icon: 'tabler:template',
       },
       {
-        title: 'Shopify Speed Optimization',
-        description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
+        title: t('about.service.speed'),
+        description: t('about.service.speed.desc'),
         icon: 'tabler:template',
       },
     ]}
   />
 
-  <!-- Features3 Widget ************** -->
-
+  <!-- Features3 Widget - Second Row ************** -->
   <Features3
     columns={3}
     isAfterContent={true}
     items={[
       {
-        title: 'Shopify Migration',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
+        title: t('about.service.migration'),
+        description: t('about.service.migration.desc'),
         icon: 'tabler:template',
       },
       {
-        title: 'Shopify Theme Development',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
+        title: t('about.service.theme'),
+        description: t('about.service.theme.desc'),
         icon: 'tabler:template',
       },
       {
-        title: 'Shopify & AI Integrations',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
+        title: t('about.service.ai'),
+        description: t('about.service.ai.desc'),
         icon: 'tabler:template',
       },
       {
-        title: 'Shopify Dropshipping',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
+        title: t('about.service.dropship'),
+        description: t('about.service.dropship.desc'),
         icon: 'tabler:template',
       },
       {
-        title: 'Shopify & ChatGPT Integrations',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
+        title: t('about.service.chatgpt'),
+        description: t('about.service.chatgpt.desc'),
         icon: 'tabler:template',
       },
       {
-        title: 'Shopify Consulting',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
+        title: t('about.service.consulting'),
+        description: t('about.service.consulting.desc'),
         icon: 'tabler:template',
       },
     ]}
@@ -105,49 +96,41 @@ const metadata = {
     }}
   />
 
-
-  <!-- Steps2 Widget ****************** -->
-
-
-  <!-- Features2 Widget ************** -->
-
+  <!-- Features2 Widget - Locations ************** -->
   <Features2
-  title="Our locations"
-  tagline="Find us"
-  columns={2}
-  classes={{
-    container: 'max-w-4xl mx-auto',
-    panel: 'max-w-none',
-  }}
-  items={[
-    {
-      title: 'United States',
-      description: '30 N Gould St, STE R, -, Sheridan, Wyoming, 82801, United States',
-    },
-    {
-      title: 'Istanbul / TURKEY',
-      description: 'Zekeriyaköy Mah. Sarıyer, Istanbul',
-    },
-  ]}
-/>
+    title={t('about.locations.title')}
+    tagline={t('about.locations.tagline')}
+    columns={2}
+    classes={{
+      container: 'max-w-4xl mx-auto',
+      panel: 'max-w-none',
+    }}
+    items={[
+      {
+        title: t('about.location.us.title'),
+        description: t('about.location.us.address'),
+      },
+      {
+        title: t('about.location.turkey.title'),
+        description: t('about.location.turkey.address'),
+      },
+    ]}
+  />
 
-  <!-- Features2 Widget ************** -->
-
+  <!-- Features2 Widget - Support ************** -->
   <Features2
-    title="Technical Support"
-    tagline="Contact us"
+    title={t('about.support.title')}
+    tagline={t('about.support.tagline')}
     columns={2}
     items={[
       {
-        title: 'Chat with us',
-        description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
+        title: t('about.support.chat'),
+        description: t('about.support.chat.desc'),
         icon: 'tabler:messages',
       },
       {
-        title: 'Call us',
-        description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
+        title: t('about.support.call'),
+        description: t('about.support.call.desc'),
         icon: 'tabler:headset',
       },
     ]}

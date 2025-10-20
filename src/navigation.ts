@@ -89,7 +89,7 @@ export const footerData = {
         { text: 'About', href:getPermalink('/about') },
         { text: 'Blog', href:getPermalink('/blog') },
         { text: 'Collabrations', href: '#' },
-        { text: 'Contact', href: '#' },
+        { text: 'Contact', href:getPermalink('/contact') },
       ],
     },
   ],

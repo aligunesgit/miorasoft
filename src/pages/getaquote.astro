@@ -1,13 +1,15 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import BookingWidget from '~/components/widgets/bookacall.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const metadata = {
-  title: 'Get A Quote - MIORA',
-  description: 'Schedule a free consultation with our Shopify experts and transform your e-commerce vision into reality.',
+  title: t('quote.title') + ' - MIORA',
+  description: t('quote.booking.subtitle'),
 };
 ---
 
@@ -15,41 +17,39 @@ const metadata = {
   <!-- BOOKING WIDGET -->
   <BookingWidget
     id="book-call"
-    title="Schedule Your Discovery Call"
-    subtitle="Ready to transform your Shopify store? Book a free 30-minute consultation with our experts and discover how we can accelerate your growth."
+    title={t('quote.booking.title')}
+    subtitle={t('quote.booking.subtitle')}
   />
 
   <!-- Features2 Widget ************** -->
   <Features2
-    title="We are here to help!"
+    title={t('quote.help.title')}
     items={[
       {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
+        title: t('contact.support.general'),
+        description: t('contact.support.general.desc'),
       },
       {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
+        title: t('contact.support.sales'),
+        description: t('contact.support.sales.desc'),
       },
       {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
+        title: t('contact.support.tech'),
+        description: t('contact.support.tech.desc'),
       },
       {
-        title: 'GSM',
+        title: t('contact.phone'),
         description: '+90 (507) 373-06 63',
         icon: 'tabler:headset',
       },
       {
-        title: 'Email',
+        title: t('contact.email'),
         description: 'hello@miorasoft.com',
         icon: 'tabler:mail',
       },
       {
-        title: 'Location',
-        description: '30 N Gould St, STE R, -, Sheridan, Wyoming, 82801, United States',
+        title: t('contact.location'),
+        description: t('contact.location.address'),
         icon: 'tabler:map-pin',
       },
     ]}

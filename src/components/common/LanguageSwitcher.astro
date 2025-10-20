@@ -17,13 +17,23 @@ const pathTranslations = {
 };
 
 function getAlternateUrl(targetLang) {
+  console.log('🔍 DEBUG:', {
+    currentPath,
+    currentLang: lang,
+    targetLang,
+    condition1: lang === 'en' && targetLang === 'tr',
+    condition2: lang === 'tr' && targetLang === 'en'
+  });
+  
   if (lang === targetLang) return currentPath;
   
   if (lang === 'en' && targetLang === 'tr') {
     if (currentPath === '/') return '/tr';
     const pathWithoutSlash = currentPath.replace(/^\//, '');
     const translatedPath = pathTranslations[pathWithoutSlash] || pathWithoutSlash;
-    return '/tr/' + translatedPath;
+    const result = '/tr/' + translatedPath;
+    console.log('✅ EN→TR:', result);
+    return result;
   }
   
   if (lang === 'tr' && targetLang === 'en') {
@@ -36,9 +46,12 @@ function getAlternateUrl(targetLang) {
         break;
       }
     }
-    return '/' + englishPath;
+    const result = '/' + englishPath;
+    console.log('✅ TR→EN:', result);
+    return result;
   }
   
+  console.log('❌ NO MATCH, returning:', currentPath);
   return currentPath;
 }
 
