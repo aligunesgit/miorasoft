@@ -408,7 +408,7 @@ export const ui = {
     'home.testimonials.subtitle': 'MIORA ekibi ile çalışma deneyimleri hakkında müşterilerimizin söylediklerini keşfedin.',
     
     // Ana Sayfa - Rezervasyon
-    'home.booking.title': 'Keşif Görüşmenizi Planlayın',
+    'home.booking.title': 'Kahvenizi Alın, Projeninizi Konuşalım',
     'home.booking.subtitle': 'Shopify mağazanızı dönüştürmeye hazır mısınız?',
     
     // Ana Sayfa - SSS
