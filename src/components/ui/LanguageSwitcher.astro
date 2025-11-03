@@ -1,23 +1,43 @@
 ---
 import { languages } from '~/i18n/ui';
-import { translatePath } from '~/i18n/utils';
 
 const currentPath = Astro.url.pathname;
 const currentLang = currentPath.startsWith('/tr') ? 'tr' : 'en';
 
-// Mevcut sayfanın path'ini al (dil prefix'i olmadan)
-const pathWithoutLang = currentPath.startsWith('/tr') 
-  ? currentPath.replace(/^\/tr/, '') || '/'
-  : currentPath;
+// Manuel URL mapping - İngilizce -> Türkçe
+const urlMap: Record<string, string> = {
+  '/': '/tr',
+  '/getaquote': '/tr/teklif-al',
+  '/portfolio': '/tr/portfolyo',
+  '/blog': '/tr/blog',
+  '/about': '/tr/hakkimizda',
+  '/homes/shopifydevelopment': '/tr/homes/shopifydevelopment',
+  '/homes/speedoptimization': '/tr/homes/speedoptimization',
+  '/homes/shopifymigration': '/tr/homes/shopifymigration',
+  '/homes/shopifyconsulting': '/tr/homes/shopifyconsulting',
+  '/homes/chatgptintegration': '/tr/homes/chatgptintegration',
+  '/homes/aichatbotdevelopment': '/tr/homes/aichatbotdevelopment',
+};
 
-// Her dil için URL oluştur
+// Reverse mapping - Türkçe -> İngilizce
+const reverseUrlMap: Record<string, string> = Object.fromEntries(
+  Object.entries(urlMap).map(([en, tr]) => [tr, en])
+);
+
+// Mevcut sayfanın path'ini al
 function getUrlForLang(lang: string) {
   if (lang === 'en') {
     // Türkçe'den İngilizce'ye
-    return pathWithoutLang === '/' ? '/' : pathWithoutLang;
+    if (currentPath.startsWith('/tr')) {
+      return reverseUrlMap[currentPath] || currentPath.replace(/^\/tr/, '') || '/';
+    }
+    return currentPath;
   } else {
-    // İngilizce'den Türkçe'ye - translatePath fonksiyonunu kullan
-    return translatePath(pathWithoutLang, 'tr');
+    // İngilizce'den Türkçe'ye
+    if (currentPath.startsWith('/tr')) {
+      return currentPath;
+    }
+    return urlMap[currentPath] || `/tr${currentPath}`;
   }
 }
 ---
