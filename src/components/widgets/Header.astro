@@ -87,13 +87,12 @@ const updatedLinks = links.map(link => {
   return link;
 });
 
-// Update actions with i18n
-const updatedActions = actions.map(action => ({
+// Update actions with i18n - ALWAYS override href based on current language
+const updatedActions = actions.length > 0 ? actions.map(action => ({
   ...action,
   text: t('nav.getaquote'),
   href: lang === 'tr' ? '/tr/teklif-al' : '/getaquote'
-}));
----
+})) : [];
 
 <header
   class:list={[
