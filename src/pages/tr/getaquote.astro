@@ -1,0 +1,57 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import BookingWidget from '~/components/widgets/bookacall.astro';
+import { getLangFromUrl, useTranslations } from '~/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const metadata = {
+  title: t('quote.title') + ' - MIORA',
+  description: t('quote.booking.subtitle'),
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- BOOKING WIDGET -->
+  <BookingWidget
+    id="book-call"
+    title={t('quote.booking.title')}
+    subtitle={t('quote.booking.subtitle')}
+  />
+
+  <!-- Features2 Widget ************** -->
+  <Features2
+    title={t('quote.help.title')}
+    items={[
+      {
+        title: t('contact.support.general'),
+        description: t('contact.support.general.desc'),
+      },
+      {
+        title: t('contact.support.sales'),
+        description: t('contact.support.sales.desc'),
+      },
+      {
+        title: t('contact.support.tech'),
+        description: t('contact.support.tech.desc'),
+      },
+      {
+        title: t('contact.phone'),
+        description: '+90 (507) 373-06 63',
+        icon: 'tabler:headset',
+      },
+      {
+        title: t('contact.email'),
+        description: 'hello@miorasoft.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: t('contact.location'),
+        description: t('contact.location.address'),
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+</Layout>
