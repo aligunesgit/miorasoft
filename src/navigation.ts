@@ -57,7 +57,7 @@ export const headerData = {
     },
     
   ],
-  actions: [{ text: 'GET A QUOTE', href:getPermalink('/getaquote'), target: '_blank' }],
+  actions: [], // Boş - Header.astro'da dil bazlı oluşturulacak
 };
 
 export const footerData = {
