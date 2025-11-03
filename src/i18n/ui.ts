@@ -599,7 +599,7 @@ export const ui = {
 
 // Teklif Al - Yardım Bölümü
 'quote.help.title': 'Yardım için buradayız!',
-'quote.booking.title': 'Keşif Görüşmenizi Planlayın',
+'quote.booking.title': 'Kahvenizi Alın, Projenizi Konuşalım',
 'quote.booking.subtitle': 'Shopify mağazanızı dönüştürmeye hazır mısınız? Uzmanlarımızla ücretsiz 30 dakikalık danışmanlık rezervasyonu yapın ve büyümenizi nasıl hızlandırabileceğimizi keşfedin.',
 
   
