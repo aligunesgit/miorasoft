@@ -53,6 +53,71 @@ const t = useTranslations(lang);
 
 // Update links with i18n
 const updatedLinks = links.map(link => {
+  // Development dropdown
+  if (link.text === 'Development') {
+    return {
+      ...link,
+      text: lang === 'tr' ? 'Geliştirme' : 'Development',
+      links: link.links?.map(subLink => {
+        if (subLink.text === 'Shopify & Shopify Plus Development') {
+          return {
+            ...subLink,
+            text: lang === 'tr' ? 'Shopify & Shopify Plus Geliştirme' : 'Shopify & Shopify Plus Development',
+            href: lang === 'tr' ? '/tr/shopify-gelistirme' : '/homes/shopifydevelopment'
+          };
+        }
+        if (subLink.text === 'Shopify Speed Optimization') {
+          return {
+            ...subLink,
+            text: lang === 'tr' ? 'Shopify Sitenizi Hızlandıralım' : 'Shopify Speed Optimization',
+            href: lang === 'tr' ? '/tr/shopify-hiz-optimizasyonu' : '/homes/speedoptimization'
+          };
+        }
+        if (subLink.text === 'Shopify Migration') {
+          return {
+            ...subLink,
+            text: lang === 'tr' ? 'Sitenizi Shopify\'a Taşıyalım' : 'Shopify Migration',
+            href: lang === 'tr' ? '/tr/migration' : '/homes/shopifymigration'
+          };
+        }
+        if (subLink.text === 'Shopify Consulting') {
+          return {
+            ...subLink,
+            text: lang === 'tr' ? '360 Shopify Danışmanlığı' : 'Shopify Consulting',
+            href: lang === 'tr' ? '/tr/shopify-danismanlik' : '/homes/shopifyconsulting'
+          };
+        }
+        return subLink;
+      })
+    };
+  }
+
+  // AI Development dropdown
+  if (link.text === 'AI Development') {
+    return {
+      ...link,
+      text: lang === 'tr' ? 'Yapay Zeka Çözümlerimiz' : 'AI Development',
+      links: link.links?.map(subLink => {
+        if (subLink.text === 'ChatGPT integration') {
+          return {
+            ...subLink,
+            text: lang === 'tr' ? 'Chatgpt Entegrasyonu' : 'ChatGPT integration',
+            href: lang === 'tr' ? '/tr/chatgpt-entegrasyon' : '/homes/chatgptintegration'
+          };
+        }
+        if (subLink.text === 'AI chatbot development') {
+          return {
+            ...subLink,
+            text: lang === 'tr' ? 'Yapay Zeka Asistanı' : 'AI chatbot development',
+            href: lang === 'tr' ? '/tr/chatbot' : '/homes/aichatbotdevelopment'
+          };
+        }
+        return subLink;
+      })
+    };
+  }
+
+  // Portfolio
   if (link.text === 'Portfolio') {
     return {
       ...link,
@@ -60,6 +125,17 @@ const updatedLinks = links.map(link => {
       href: lang === 'tr' ? '/tr/portfolyo' : '/portfolio'
     };
   }
+
+  // Our Shopify Themes
+  if (link.text === 'Our Shopify Themes') {
+    return {
+      ...link,
+      text: lang === 'tr' ? 'Temalarımız' : 'Our Shopify Themes',
+      href: lang === 'tr' ? '/tr/shopify-temalarimiz' : '/themes/our-themes'
+    };
+  }
+
+  // Blog
   if (link.text === 'Blog') {
     return {
       ...link,
@@ -67,6 +143,8 @@ const updatedLinks = links.map(link => {
       href: lang === 'tr' ? '/tr/blog' : '/blog'
     };
   }
+
+  // About
   if (link.text === 'About') {
     return {
       ...link,
@@ -74,16 +152,15 @@ const updatedLinks = links.map(link => {
       href: lang === 'tr' ? '/tr/hakkimizda' : '/about'
     };
   }
-  // Dropdown'lar için
+
+  // Diğer dropdown'lar için genel işlem
   if (link.links) {
     return {
       ...link,
-      links: link.links.map(subLink => {
-        // Alt linkleri de güncelleyebilirsiniz
-        return subLink;
-      })
+      links: link.links.map(subLink => subLink)
     };
   }
+
   return link;
 });
 

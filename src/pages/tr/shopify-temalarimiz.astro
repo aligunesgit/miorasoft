@@ -1,0 +1,312 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+// ✅ Görseli import edin
+import maizaPresets from '~/assets/images/themes/maiza-presets.png';
+
+const metadata = {
+  title: 'MAIZA - Premium Shopify Theme for Jewelry Stores',
+  description: 'Breathtaking Shopify theme designed specifically for luxury jewelry brands. Features 3 stunning presets, advanced customization, and lifetime updates.',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Coming Soon Banner -->
+  <section class="bg-gradient-to-r from-blue-600 to-purple-600 py-4">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-center gap-3 text-white">
+        <svg class="w-6 h-6 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <p class="text-sm md:text-base font-medium">
+          <span class="font-bold">Coming Soon!</span> MAIZA is currently in the Shopify Theme Store submission process. 
+          <span class="hidden md:inline">Expected launch: Q1 2026</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <Hero
+    actions={[
+      { text: 'View Preview', href: '#presets', variant: 'primary' },
+      { text: 'Get Notified', href: '#notify', variant: 'secondary' },
+    ]}
+  >
+    <Fragment slot="title">
+      <span class="text-accent">MAIZA</span> Shopify Theme
+      <br />
+      <span class="text-5xl md:text-6xl">Elevate Your Jewelry Store</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="text-xl">
+        Breathtaking visual experience that redefines luxury online jewelry stores. 
+        <br />Designed for perfection by <span class="font-semibold">MIORA</span>. 
+        <br />Sleek, elegant & sophisticated. Make it shine. Make it yours.
+      </span>
+    </Fragment>
+  </Hero>
+
+  <!-- Key Features -->
+  <Features
+    id="features"
+    title="Designed for Luxury Jewelry Brands"
+    subtitle="One purchase. Infinite possibilities. Lifetime updates."
+    items={[
+      {
+        title: 'Stunning Product Display',
+        description:
+          'Showcase your jewelry with high-resolution image galleries, zoom functionality, and 360° product views. Perfect for diamonds, rings, necklaces, and precious pieces.',
+        icon: 'tabler:diamond',
+      },
+      {
+        title: 'Your Brand, Your Identity',
+        description:
+          'Customize colors, typography, layouts to match your luxury brand. Three unique presets included: Elegant, Modern, and Classic. Full control over your store aesthetics.',
+        icon: 'tabler:palette',
+      },
+      {
+        title: 'Lifetime Support & Updates',
+        description:
+          'Embrace a lifetime of innovation with free updates, new features, and dedicated support. Stay ahead with the latest e-commerce trends and Shopify updates.',
+        icon: 'tabler:refresh',
+      },
+    ]}
+  />
+
+  <!-- Price Section -->
+  <section class="bg-blue-50 dark:bg-slate-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <div class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-2xl shadow-xl">
+        <p class="text-sm uppercase tracking-wide mb-2">One-Time Payment</p>
+        <p class="text-5xl font-bold mb-2">$400 <span class="text-2xl font-normal">USD</span></p>
+        <p class="text-sm opacity-90">Lifetime Updates & Support Included</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Features -->
+  <Features3
+    title="WHAT'S INCLUDED"
+    subtitle="Comprehensive features designed specifically for jewelry e-commerce"
+    columns={2}
+    items={[
+      {
+        title: 'Cart and Checkout',
+        description: 'Cart notes • Gift wrapping • In-store pickups • Pre-order • Quick buy • Sign in with Shop • Slide-out cart • Sticky cart',
+        icon: 'tabler:shopping-cart',
+      },
+      {
+        title: 'Marketing & Conversion',
+        description: 'Trust badges • Stock counter • Recommended products • Quick view • Promo banners • Product badges • FAQ page • EU translations • Countdown timer • Back-in-stock alert • Age verifier',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Jewelry Merchandising',
+        description: 'Multiple product images • 360° product view • Image zoom • High-resolution galleries • Color swatches • Size chart • Metal & stone specifications • Before/after comparison • Lookbooks • Video integration',
+        icon: 'tabler:sparkles',
+      },
+      {
+        title: 'Product Discovery',
+        description: 'Advanced filtering (metal type, stone, price) • Mega menu • Enhanced search • Collection navigation • Infinite scroll • Sticky header • Breadcrumbs • Recently viewed • Wishlist',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Mobile Optimized',
+        description: 'Fully responsive • Touch-friendly • Fast loading • Mobile-first design • Optimized images • PWA ready',
+        icon: 'tabler:device-mobile',
+      },
+      {
+        title: 'SEO & Performance',
+        description: 'Schema markup • Fast page speed • Clean code • Image optimization • Meta tags • Rich snippets • Core Web Vitals optimized',
+        icon: 'tabler:rocket',
+      },
+    ]}
+  />
+
+  <!-- Presets Section -->
+  <Content
+    id="presets"
+    title="3 Ready-Made Designs"
+    subtitle="MAIZA comes with 3 stunning presets for your jewelry store"
+    isReversed
+    image={{
+      src: maizaPresets,
+      alt: 'MAIZA Theme - Elegant, Modern, and Classic Presets',
+    }}
+    items={[
+      {
+        title: '💎 Elegant Preset',
+        description: 'Classic sophistication with soft colors, serif typography, and timeless layouts. Perfect for traditional luxury jewelers and heritage brands.',
+        icon: 'tabler:diamond',
+      },
+      {
+        title: '✨ Modern Preset',
+        description: 'Bold, contemporary design with striking visuals, sans-serif fonts, and dynamic layouts. Ideal for fashion-forward jewelry brands.',
+        icon: 'tabler:sparkles',
+      },
+      {
+        title: '🏆 Classic Preset',
+        description: 'Refined and minimalist with clean lines, ample whitespace, and focus on products. Best for high-end boutique jewelry stores.',
+        icon: 'tabler:crown',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Choose Your Style
+      </h3>
+      Switch between presets instantly. Customize every detail to match your brand identity. Each preset is fully customizable while maintaining its unique character.
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Feature Highlights for Jewelry -->
+  <Features2
+    title="Built Specifically for Jewelry"
+    subtitle="Every feature crafted with jewelry retailers in mind"
+    items={[
+      {
+        title: 'Metal & Stone Filters',
+        description: 'Filter by gold, silver, platinum, diamonds, gemstones, and more. Help customers find exactly what they want.',
+        icon: 'tabler:diamonds',
+      },
+      {
+        title: 'Ring Size Guide',
+        description: 'Interactive size chart with international size conversion. Reduce returns and increase customer confidence.',
+        icon: 'tabler:ruler',
+      },
+      {
+        title: 'Engraving Options',
+        description: 'Custom text input for personalized jewelry. Perfect for gifts, wedding bands, and special occasions.',
+        icon: 'tabler:edit',
+      },
+      {
+        title: 'Gift Packaging',
+        description: 'Luxury gift wrapping options at checkout. Premium presentation for special purchases.',
+        icon: 'tabler:gift',
+      },
+      {
+        title: 'Appointment Booking',
+        description: 'Integrated booking system for in-store consultations. Perfect for custom design and high-value sales.',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: 'Certificate Upload',
+        description: 'Display authenticity certificates and appraisals. Build trust with diamond certifications and grading reports.',
+        icon: 'tabler:certificate',
+      },
+    ]}
+  />
+
+  <!-- Get Notified Section -->
+  <section id="notify" class="bg-blue-50 dark:bg-slate-900 py-16">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mb-4">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+          </svg>
+        </div>
+        
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+          Be the First to Know
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-6">
+          Get notified when MAIZA launches on Shopify Theme Store. 
+          <br />Plus, receive an exclusive early-bird discount!
+        </p>
+        
+        <form action="https://api.web3forms.com/submit" method="POST" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+          <input type="hidden" name="access_key" value="88b954a1-44fe-406b-88eb-e4111b978994" />
+          <input type="hidden" name="subject" value="New MAIZA Theme Waitlist Signup" />
+          <input type="hidden" name="from_name" value="MAIZA Theme Waitlist" />
+          
+          <input 
+            type="email" 
+            name="email"
+            placeholder="Enter your email" 
+            required
+            class="flex-1 px-4 py-3 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-slate-700 dark:text-white"
+          />
+          <button 
+            type="submit"
+            class="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl whitespace-nowrap"
+          >
+            Notify Me
+          </button>
+        </form>
+        
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-4">
+          🎁 Early subscribers get 20% off at launch
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <FAQs
+    title="Frequently Asked Questions"
+    items={[
+      {
+        title: 'Is MAIZA a one-time purchase?',
+        description: 'Yes! Pay once, use forever. Includes lifetime updates and support. No recurring fees.',
+      },
+      {
+        title: 'Can I use MAIZA on multiple stores?',
+        description: 'One license per store. If you have multiple jewelry stores, you\'ll need a license for each.',
+      },
+      {
+        title: 'Do I need coding knowledge?',
+        description: 'No coding required! MAIZA is fully customizable through Shopify\'s theme editor. Drag, drop, and configure.',
+      },
+      {
+        title: 'Is support included?',
+        description: 'Yes! Lifetime email support, comprehensive documentation, and video tutorials included.',
+      },
+      {
+        title: 'Will MAIZA work with my Shopify plan?',
+        description: 'MAIZA works with all Shopify plans: Basic, Shopify, Advanced, and Shopify Plus.',
+      },
+      {
+        title: 'When will MAIZA be available?',
+        description: 'MAIZA is currently being submitted to Shopify Theme Store. Expected launch: Q1 2026. Join our waitlist to be notified!',
+      },
+      {
+        title: 'How do I install MAIZA?',
+        description: 'After purchase from Shopify Theme Store, installation is one-click. Simply select MAIZA from your themes and publish.',
+      },
+    ]}
+  />
+
+  <!-- CTA -->
+  <CallToAction
+    title="Ready to Transform Your Jewelry Store?"
+    subtitle="Join the waitlist for MAIZA - Coming to Shopify Theme Store soon"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Join Waitlist',
+        href: '#notify',
+        icon: 'tabler:bell',
+      },
+      {
+        variant: 'secondary',
+        text: 'Contact Us',
+        href: '/getaquote',
+      },
+    ]}
+  />
+</Layout>

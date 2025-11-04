@@ -1,0 +1,442 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+
+import { headerData } from '~/navigation';
+import FAQs from '~/components/widgets/FAQs.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+
+const metadata = {
+  title: 'Shopify Consulting Services | Strategic E-commerce Growth Advisory',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      isSticky
+    />
+  </Fragment>
+
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero2
+    tagline="Shopify Consulting Services"
+    actions={[
+      { variant: 'primary', text: 'Book Strategy Session', href: 'javascript:void(0)', onclick: 'openCalendlyModal()' },
+      { text: 'Our Approach', href: '#features' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Shopify Consulting Services',
+    }}
+  >
+    <Fragment slot="title">
+      Strategic Shopify Consulting for <span class="text-accent dark:text-white">Sustainable Growth</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        <span class="font-semibold">360° service model combining strategy, marketing, and execution.</span></span
+      >
+      We connect you directly with industry-leading experts, providing impeccable professionalism throughout strategy, design, integration, and growth phases—strengthening your digital storefront and sustainably increasing sales performance.
+    </Fragment>
+  </Hero2>
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    title="Comprehensive 360° Consulting Model"
+    subtitle="We don't just advise—we partner with you across every discipline needed for e-commerce success, from strategic planning to tactical execution."
+    columns={2}
+    items={[
+      {
+        title: 'E-commerce Strategy Development',
+        description:
+          'Develop data-driven strategies aligned with your business goals. We analyze market positioning, competitive landscape, customer segments, and growth opportunities to create actionable roadmaps that drive measurable results and long-term success.',
+        icon: 'tabler:target',
+      },
+      {
+        title: 'Marketing & Growth Advisory',
+        description: 'Comprehensive marketing strategy combining SEO, paid advertising, email marketing, and conversion optimization. Through our strategic international partnerships with leading SEO agencies and certified Meta & Google Ads experts, we design integrated campaigns that attract qualified traffic, nurture leads, and maximize customer lifetime value across all channels.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Content Strategy & Execution',
+        description:
+          'Strategic content planning that drives organic growth and builds brand authority. From product descriptions and blog content to landing pages and email sequences, we create content that converts visitors into loyal customers.',
+        icon: 'tabler:writing',
+      },
+      {
+        title: 'Logistics & Fulfillment Strategy',
+        description: 'Optimize your supply chain with our strong international logistics partnerships. We help you establish reliable shipping solutions, multi-warehouse strategies, and fulfillment automation across global markets. From inventory management to last-mile delivery, we ensure your products reach customers efficiently while reducing costs and improving satisfaction.',
+        icon: 'tabler:truck-delivery',
+      },
+      {
+        title: 'Technical Architecture Planning',
+        description: 'Design scalable technical infrastructures that support growth. We plan app ecosystems, integration strategies, automation workflows, and performance optimization roadmaps ensuring your store can handle expansion without limitations.',
+        icon: 'tabler:building',
+      },
+      {
+        title: 'Analytics & Performance Optimization',
+        description: 'Implement robust analytics frameworks and continuous improvement processes. We track KPIs, identify bottlenecks, run A/B tests, and provide actionable insights that incrementally increase your conversion rates and revenue.',
+        icon: 'tabler:chart-dots',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    title="The 360° Service Advantage"
+    subtitle="Unlike traditional consultants who only advise, we combine strategic thinking with hands-on execution across all e-commerce disciplines."
+    isReversed
+    items={[
+      {
+        title: 'Integrated Approach:',
+        description:
+          'Our consulting model breaks down silos between marketing, content, design, and technology. We ensure every discipline works in harmony toward your business objectives. When SEO strategy aligns with content creation, UX design supports conversion goals, and technical infrastructure enables marketing automation—growth becomes exponential rather than incremental.',
+      },
+      {
+        title: 'Expert Network Access:',
+        description: 'Connect directly with industry-leading specialists without commission fees or middleman markups. Our network includes Shopify Partners, certified marketers, conversion rate optimization experts, content strategists, and growth hackers. You get white-glove service and expert execution at transparent rates.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Strategic Consulting',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Beyond Traditional Consulting: <br /><span class="text-2xl">Holistic growth partnership</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Strategy Phase:',
+        description: 'Comprehensive business audit analyzing current performance, market position, and growth potential. Competitive analysis identifying opportunities and differentiation strategies. Customer journey mapping revealing optimization opportunities. Technology stack evaluation ensuring scalability. Revenue modeling and growth projections setting realistic targets. Strategic roadmap creation prioritizing high-impact initiatives.',
+      },
+      {
+        title: 'What You Receive:',
+        description: 'Detailed strategic plan with quarterly milestones and KPIs. Competitive analysis report with actionable insights. Customer persona development and journey maps. Technology and app recommendations with implementation priorities. Marketing channel strategy with budget allocation. Content calendar and SEO roadmap. 90-day action plan with clear responsibilities and timelines.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80',
+      alt: 'Strategy Development',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Strategic Foundation: <br /><span class="text-2xl">Building your growth blueprint</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Design & Integration Phase:',
+        description: 'User experience optimization ensuring intuitive navigation and seamless shopping experiences. Visual design alignment reflecting brand identity and building trust. Conversion-focused page design maximizing add-to-cart and checkout completion rates. App and tool integration connecting your marketing, sales, and operations systems. Payment and shipping optimization reducing cart abandonment. Mobile experience enhancement as 70%+ traffic comes from mobile devices.',
+      },
+      {
+        title: 'Execution & Quality:',
+        description: 'Professional design implementation following Shopify best practices. Thorough quality assurance across devices and browsers. Performance optimization ensuring fast load times. Accessibility compliance for inclusive shopping experiences. Integration testing validating all systems work harmoniously. Staff training ensuring your team can manage daily operations. Documentation providing clear guidelines for ongoing management.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Design and Integration',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Design & Integration: <br /><span class="text-2xl">Transforming strategy into reality</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    items={[
+      {
+        title: 'Growth & Optimization Phase:',
+        description: 'Continuous performance monitoring tracking revenue, traffic, and conversion metrics. A/B testing programs systematically improving conversion rates. Marketing campaign optimization maximizing ROI across channels. Customer retention strategies increasing lifetime value. Seasonal planning capitalizing on peak shopping periods. Expansion strategies including new markets, products, or channels. Technology evolution keeping your stack current and competitive.',
+      },
+      {
+        title: 'Ongoing Partnership:',
+        description: 'Monthly performance reviews analyzing progress against goals. Strategic adjustment recommendations based on market changes and data insights. Priority support for strategic questions and decision-making. Quarterly planning sessions setting next-phase objectives. Access to our expert network for specialized needs. Industry insights keeping you ahead of e-commerce trends. Growth acceleration workshops and training for your team.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Growth Optimization',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Sustainable Growth: <br /><span class="text-2xl">Long-term success partnership</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    items={[
+      {
+        title: 'How is your consulting different from other Shopify agencies?',
+        description:
+          'We combine strategic consulting with hands-on execution across all e-commerce disciplines—marketing, content, design, and technology. Unlike agencies that only execute or consultants who only advise, we provide end-to-end partnership from strategy development through growth optimization. Our 360° model ensures all aspects of your business work in harmony.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Do you charge commission on expert referrals or services?',
+        description: 'Absolutely not. We connect you directly with specialists at their standard rates with complete transparency. Our consulting fees cover strategic guidance, project management, and coordination—never hidden markups or commissions. You get white-glove service and expert execution at fair, straightforward pricing.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'What size businesses do you work with?',
+        description:
+          'We work with businesses at every stage—from ambitious startups launching their first store to established brands generating seven-figure revenue seeking optimization. Our consulting approach scales to your needs, whether you need comprehensive strategy development or focused expertise in specific areas like conversion optimization or market expansion.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'How long does a typical consulting engagement last?',
+        description: 'Initial strategic engagements typically run 3-6 months, covering strategy, implementation, and initial optimization. Many clients continue with ongoing advisory relationships for sustained growth support. We offer flexible engagement models from project-based consulting to monthly retainer partnerships based on your needs and growth stage.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Can you help if we already have a Shopify store but need better results?',
+        description: 'Absolutely. Many clients come to us with existing stores needing performance improvement. We conduct comprehensive audits identifying optimization opportunities in conversion rates, marketing effectiveness, technical performance, and customer experience. Our optimization programs typically deliver 20-40% revenue increases within 90 days.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: 'Do you provide training for our internal team?',
+        description: 'Yes, knowledge transfer is integral to our approach. We provide thorough training ensuring your team can manage daily operations, understand analytics, and make data-driven decisions. Training includes video tutorials, documentation, and hands-on sessions. Our goal is empowering your team for long-term success, not creating dependency.',
+        icon: 'tabler:chevrons-right',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    id="contact"
+    title="Start Your Strategic Growth Journey"
+    subtitle="Book a complimentary strategy session to discuss your business goals, challenges, and growth opportunities. Let's create your roadmap to sustainable e-commerce success."
+    callToAction={{
+      text: 'Book Free Strategy Session',
+      href: 'javascript:void(0)',
+      onclick: 'openCalendlyModal()',
+    }}
+    items={[
+      {
+        title: 'Email us',
+        description: 'hello@miorasoft.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Book a call',
+        description: 'Schedule your complimentary consultation',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: 'Follow our work',
+        description: '@miora.agency',
+        icon: 'tabler:brand-instagram',
+      },
+    ]}
+  />
+
+  <!-- BlogLatestPost Widget **************** -->
+
+  <BlogLatestPosts
+    id="blog"
+    title="Strategic Insights & Growth Resources"
+    information={`Expert perspectives on e-commerce strategy, growth tactics, conversion optimization techniques, and industry trends to help you build a thriving Shopify business.`}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </BlogLatestPosts>
+
+  <!-- Calendly Modal -->
+  <div id="calendly-modal" class="calendly-modal" style="display: none;">
+    <div class="calendly-modal-overlay" onclick="closeCalendlyModal()"></div>
+    <div class="calendly-modal-content">
+      <button class="calendly-close-btn" onclick="closeCalendlyModal()">&times;</button>
+      <div id="calendly-embed"></div>
+    </div>
+  </div>
+
+  <!-- Calendly CSS -->
+  <style>
+    .calendly-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .calendly-modal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+    }
+
+    .calendly-modal-content {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      height: 90vh;
+      max-height: 700px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      z-index: 10000;
+    }
+
+    .calendly-close-btn {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      background: rgba(0, 0, 0, 0.1);
+      border: none;
+      border-radius: 50%;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      z-index: 10001;
+      transition: all 0.2s;
+      color: #333;
+    }
+
+    .calendly-close-btn:hover {
+      background: rgba(0, 0, 0, 0.2);
+      transform: rotate(90deg);
+    }
+
+    #calendly-embed {
+      width: 100%;
+      height: 100%;
+    }
+
+    #calendly-embed iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .calendly-modal-content {
+        width: 95%;
+        height: 95vh;
+      }
+    }
+  </style>
+
+  <!-- Calendly Widget Script -->
+  <script is:inline src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+  <!-- Calendly Modal Functions -->
+  <script is:inline>
+    function openCalendlyModal() {
+      const modal = document.getElementById('calendly-modal');
+      const embedDiv = document.getElementById('calendly-embed');
+      
+      const calendlyUrl = 'https://calendly.com/hello-miorasoft/30min';
+      
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      
+      // Calendly widget'ını embed et
+      Calendly.initInlineWidget({
+        url: calendlyUrl,
+        parentElement: embedDiv,
+        prefill: {
+          email: 'hello@miorasoft.com',
+          name: '',
+          customAnswers: {
+            a1: 'Shopify Consulting Services'
+          }
+        },
+        utm: {
+          utmSource: 'website',
+          utmMedium: 'popup',
+          utmCampaign: 'shopify-consulting'
+        }
+      });
+    }
+
+    function closeCalendlyModal() {
+      const modal = document.getElementById('calendly-modal');
+      const embedDiv = document.getElementById('calendly-embed');
+      
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      
+      // Modal kapatıldığında içeriği temizle
+      embedDiv.innerHTML = '';
+    }
+
+    // ESC tuşu ile kapatma
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeCalendlyModal();
+      }
+    });
+  </script>
+</Layout>
