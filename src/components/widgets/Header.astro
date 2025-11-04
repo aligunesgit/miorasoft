@@ -57,7 +57,7 @@ const updatedLinks = links.map(link => {
   if (link.text === 'Development') {
     return {
       ...link,
-      text: lang === 'tr' ? 'Geliştirme' : 'Development',
+      text: lang === 'tr' ? 'Shopify' : 'Development',
       links: link.links?.map(subLink => {
         if (subLink.text === 'Shopify & Shopify Plus Development') {
           return {
